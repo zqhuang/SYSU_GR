@@ -1,0 +1,171 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+\tpage{2}{Embedded Curves}
+
+
+\begin{frame}
+  \frametitle{曲线}
+  设$n$维欧氏空间有条曲线 $x(t) = (x^1(t), x^2(t), \ldots, x^n(t))$。
+
+  \skipline
+  \bitem
+\item{这里的 $t$ 是参量，一般默认取值范围是 $(-\infty, \infty)$。}
+\item{等式左边的 $x(t)$ 是一个随 $t$ 变化的 $n$ 维矢量。在幼儿园学习矢量时我们一般都会加粗写成 $\vecx(t)$，而现在我们不这么做了。}  
+  \item{等式右边的 $x^1(t), x^2(t), \ldots, x^n(t)$ 分别是 $x(t)$ 在各个维度上的直角坐标分量。它们{\bf 不是} $x$ 的幂次——毕竟 $x$ 是个 $n$ 维矢量，你不要随便把它取幂次！}
+
+    \eitem
+
+    如果你是第一次看到这些“奇怪”的符号，那么恭喜你，你就是本课程的毒害对象——完全没有接触过广义相对论的小白。    
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{还有二维直角坐标系的坐标变换}
+  \addfig{2}{coor2Dtrans.jpg}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{由这些可以推导出洛仑兹变换}
+  \begin{eqnarray}
+  t&=&\frac{t'-vx'/c^2}{\sqrt{1-v^2/c^2}}; \newl
+  x&=&\frac{x'-vt'}{\sqrt{1-v^2/c^2}}; \newl
+  y&=&y'; \newl
+  z&=&z'. \nonumber
+  \end{eqnarray}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{老写一堆$c$太麻烦了，用自然单位制吧}
+  我们完全可以用``米''做为时间单位： 1米时间就是光在真空中走过1米所需要的时间。
+  \begin{eqnarray}
+  t&=&\frac{t'-vx'}{\sqrt{1-v^2}}; \newl
+  x&=&\frac{x'-vt'}{\sqrt{1-v^2}}; \newl
+  y&=&y'; \newl
+  z&=&z'. \nonumber
+  \end{eqnarray}
+\end{frame}
+
+\begin{frame}
+  \frametitle{事件和世界线}
+  \bitem
+  \item{在某时某地发生的{\bf 事件}可以用四维坐标来表示。事件是一个物理存在，和描述它的坐标系无关。两个事件之间的``距离平方'' $$s^2= c^2\Delta t^2 - \Delta x^2 -\Delta y^2-\Delta z^2,$$同样不依赖于坐标系的选取。}
+  \item{在某时某地有一个可以抽象为质点的物理对象（例如，一个电子），是一个事件。如果这个物理对象持续地存在于时空中，那么可以表述为``它存在于某时某地''的所有事件在四维时空中留下了一条连续的“轨迹”，称为这个物理对象的“{\bf 世界线}”。世界线同样是一个物理存在，和描述它的坐标系无关。}
+    \eitem
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{解决狭义相对论问题的正确姿势}
+  \bitem
+\item{理解狭义相对论的惯性系，（惯性）观测者，以及当我们说“观测者看到xxx”是什么意思。把所有描述精确地翻译为四维概念。}
+\item{用洛仑兹变换和不变量进行计算。}
+  \eitem
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{我们说观测者看到动尺变短是什么意思？}
+  
+   \addfig{3}{dongchi.jpg}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{我们说观测者看到运动的时钟变慢是什么意思？}
+  
+  \addfig{3}{time_dilation.jpg}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{观测者看到……}
+  
+  
+  你能总结下狭义相对论里的“观测者看到……”具体是什么意思吗？
+  
+\end{frame}
+
+\thinka{一个速度为 $v=\frac{5}{13}$ 的航天旅行者和他的地球上的朋友在出发时对好了钟的时刻为 $t'=0$ (旅行者的时钟) 和 $t=0$ (地球上的钟)。地球上的朋友同时观察两个钟，直接观察 $t$，用望远镜观察 $t'$。当 看到 $t'$ 读数为 $1\mathrm{h}$ 时， 看到 $t$ 的读数为多少h？ }
+
+\begin{frame}
+  \frametitle{python的符号演算库sympy}
+  在本课程中，我们将借助python的符号演算库sympy来进行运算。
+
+  {\darkgreen import sympy as sym}
+
+  {\scriptsize (注：一般不提倡为了省事而 from sympy import * ，这样可能会产生大量的重名冲突问题；你当然也知道用 numpy 时，尽量要采用 import numpy as np 而不是 from numpy import *，都是同一个道理)}
+
+  \skiplines
+
+  sympy可以定义符号变量，例如定义一个变量 $x$
+
+ {\darkgreen x = sym.Symbol('x')}
+
+  \skipline
+
+  或者批量定义一些变量
+
+  {\darkgreen x, y, z = sym.symbols('x, y, z')}
+
+  \skipline
+  
+  可以化简
+
+  {\darkgreen print(sym.simplify(sym.sqrt(1+x)**2))}
+  
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{python的符号演算库sympy}
+  求极限
+  
+  {\darkgreen print(sym.limit((sym.log(1+x)-x)/x**2, x, 0))}
+
+  \skipline
+  
+  求偏导运算：
+
+ {\darkgreen print(sym.diff( y*(x**2+sym.sin(x)), x))}
+
+  {\scriptsize (注意，有些老版本python的print命令不用括号，而是用空格隔开)}
+
+  \skipline
+
+  积分运算
+
+  {\darkgreen  print(sym.integrate(sym.log(x),x))}
+
+  \skipline
+
+  级数展开
+  
+  {\darkgreen print(sym.series(sym.cos(x),x, 0, 12))}
+
+
+  \skipline
+  
+  我们的热身练习是用sympy进行洛仑兹变换，请参考
+
+  \url{http://zhiqihuang.top/gr/codes/lorentz_trans.py}
+\end{frame}
+
+\begin{frame}
+  \frametitle{孪生子佯谬}
+  \addfig{3}{twin_paradox.jpg}
+\end{frame}
+
+
+
+\ech
+\end{document}
