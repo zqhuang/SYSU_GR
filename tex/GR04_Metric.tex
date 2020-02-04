@@ -1,0 +1,44 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+\tpage{3}{Embedded Surface}
+
+
+\begin{frame}
+  \frametitle{正则曲面(regular surface)}
+  设$n$维欧氏空间有曲面 $\vecx(u, v) = \left(x_1(u, v), x_2(u, v), \ldots, x_n(u, v)\right)$。
+
+  \skipline
+  
+  本讲中我们将始终假设这些函数至少三次可导，并且矢量 $\frac{\partial\vecx}{\partial u}$ 和 $\frac{\partial\vecx}{\partial v}$ 始终线性无关（即两者均非零且方向不同）。这样的曲面称为正则曲面。
+
+  \skiplines
+
+  {\scriptsize 严格来讲，上面定义的是“正则曲面片”。一个正则曲面可以由多块正则曲面片光滑地拼接起来，但整体未必可用统一的满足正则曲面片要求的 $\vecx(u,v)$ 参数形式来表述。在大多数情形下，为了表述简便，我们忽略这些名词的细节差异。}
+\end{frame}
+
+\begin{frame}
+  \frametitle{曲面的第一种基本形式(First Fundamental Form)}
+  当从曲面上一个点 $\vecx(u,v)$ 移动到一个邻近的点 $\vecx(u+du, v+dv)$，则有微分表达式：
+  $$ d\vecx = \frac{\partial\vecx}{\partial u} du + \frac{\partial\vecx}{\partial v} dv. $$
+  由此得到曲面的第一种基本形式：
+  $$d\vecx^2 = \left(\frac{\partial\vecx}{\partial u}\right)^2 du^2 +2\left(\frac{\partial\vecx}{\partial u}\cdot\frac{\partial\vecx}{\partial v}\right)du dv+ \left(\frac{\partial\vecx}{\partial v}\right)^2 dv^2.$$
+  线性代数的常识告诉我们：这个表达式在变量替换 $u,v\rightarrow \tilde{u}, \tilde{v}$ 下是不变量。
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+  \frametitle{曲面的第二种基本形式(Second Fundamental Form)}
+  
+\end{frame}
+
+
+\ech
+\end{document}

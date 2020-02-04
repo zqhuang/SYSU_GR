@@ -8,163 +8,374 @@
 
 
 \begin{frame}
-  \frametitle{曲线}
-  设$n$维欧氏空间有条曲线 $x(t) = (x^1(t), x^2(t), \ldots, x^n(t))$。
+  \frametitle{欧式空间中的正则曲线}
+  设$n$维欧氏空间有条曲线 $\vecx(t) = \left(x_1(t), x_2(t), \ldots, x_n(t)\right)$。
 
   \skipline
-  \bitem
-\item{这里的 $t$ 是参量，一般默认取值范围是 $(-\infty, \infty)$。}
-\item{等式左边的 $x(t)$ 是一个随 $t$ 变化的 $n$ 维矢量。在幼儿园学习矢量时我们一般都会加粗写成 $\vecx(t)$，而现在我们不这么做了。}  
-  \item{等式右边的 $x^1(t), x^2(t), \ldots, x^n(t)$ 分别是 $x(t)$ 在各个维度上的直角坐标分量。它们{\bf 不是} $x$ 的幂次——毕竟 $x$ 是个 $n$ 维矢量，你不要随便把它取幂次！}
 
-    \eitem
+  它的切向量可以定义为 $\frac{d\vecx}{dt} = \left(\frac{dx_1}{dt}, \frac{dx_1}{dt}, \ldots, \frac{dx_n}{dt}\right)$，这也是一个向量函数。
 
-    如果你是第一次看到这些“奇怪”的符号，那么恭喜你，你就是本课程的毒害对象——完全没有接触过广义相对论的小白。    
+  \skipline
+  
+  本讲中我们将一直假设曲线的各个分量函数至少三次可导，且切向量处处非零： $\left\vert\frac{d\vecx}{dt}\right\vert\ne 0$。这样的曲线称之为“{\blue 正则曲线}”。
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{曲线的弧长参数和单位切向量$\vecT$}
+  如果参数从某个允许的确定值 $a$ (例如，如果允许的话，可取 $a=0$) 变化到 $t$， 对应的一段弧长为
+  $$ s = \int_a^t \left\vert\frac{d\vecx}{d\tau}\right\vert d\tau. $$
+  我们可以选取 $s$ 而不是 $t$ 作为参量来描述曲线。
+  
+  {\scriptsize 注1：正则性保证了 $t$ 到 $s$ 的映射是单调映射。}
+
+  \skipline
+
+  {\scriptsize 注2：一般我们假定曲线的参数形式默认给了曲线一个方向，即 $t$ 的正向给出了曲线的方向。选定方向的曲线的弧长参数 $s$ 几乎就是确定的了，至多相差一个常数。我们后面讨论的 Frenet 标架等，都依赖于曲线方向已经给定这个假定。否则曲线的弧长参数和 Frenet 标架会有个符号不确定性。}
+
+  \skipline
+  
+  选择了弧长参数之后，显然地， $\vecT \equiv \frac{d\vecx}{ds}$ 是{\blue 单位切向量}。  
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{还有二维直角坐标系的坐标变换}
-  \addfig{2}{coor2Dtrans.jpg}
+  \frametitle{曲率(curvature)}
+
+  曲线的一小段总是能用圆弧来近似。圆弧半径越大，曲线的一小段就看起来越直。反之，圆弧半径越小，曲线的一小段就看起来很弯曲。所以曲线在一点上的{\blue “曲率” $\kappa$ 就定义为这点附近的近似圆弧的半径的倒数}。
+  
+  \addfig{2}{curvature.jpg}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{曲线的曲率公式}
+
+  假设有曲线 $\vecx(s)$， $s$ 是弧长参数。在曲线上的给定点附近， 单位切向量 $\frac{d\vecx}{ds}$ 的变化的大小应该等于它的方向变化的大小（用近似圆弧来计算就是 $\frac{ds}{R}$）。
+  
+  $$ \left\vert d \frac{d\vecx}{ds}\right\vert = \frac{ds}{R} $$
+
+
+  \addfig{2}{curvature_explain.jpg}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{曲线的曲率公式}
+  由此得到曲率 $\frac{1}{R}$ 的值
+  {\blue
+  $$\kappa =  \left\vert\frac{d^2\vecx}{ds^2}\right\vert. $$}
+
+  这个公式如此简洁美妙，完全得益于我们选取了弧长作为曲线的参数。
+
+  \skipline
+  
+  如果我们把取绝对值的操作去掉，则得到的是一个“曲率向量”：
+  $$\frac{d^2\vecx}{ds^2}. $$
+  它的大小为曲率，方向从所讨论的点指向近似圆弧的圆心。  
+
+
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{由这些可以推导出洛仑兹变换}
+  \frametitle{密切平面, 主法向量，次法向量}
+  假设曲线上某点的曲率向量 $\frac{d^2\vecx}{ds^2}$ 非零 (显然它和该点单位切向量 $\vecT = \frac{d\vecx}{ds}$ 垂直)， 
+  我们称归一化的曲率向量，也就是：
+  $$ \vecN \equiv \frac{1}{\kappa} \frac{d^2\vecx}{ds^2}$$
+  为曲线在该点的{\blue 主法向量}(normal vector)。
+
+
+  单位切向量 $\vecT$ 和主法向量 $\vecN$ 一起确定了近似圆弧所在的“{\blue 密切平面}”； 和密切平面垂直的 $n-2$ 个单位法向量则称为{\blue 次法向量} (binormal vectors)。
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{三维空间曲线的Frenet标架}
+
+
+  从现在开始我们专门讨论嵌入在三维空间的曲线。这时单位切向量$\vecT$，主法向量$\vecN$，次法向量$\vecB$一起构成了一个局域的直角坐标架——它有个很炫酷的名字，叫“{\blue Frenet 标架}”。  
+
+  \addfig{2.7}{FrenetFrame.png}
+  
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{嵌在三维空间的曲线的Frenet标架总结}  
+  切向量(tangent vector)
+  $$\vecT(s) = \frac{d\vecx}{ds};$$
+  主法向量(normal vector)
+  $$\vecN(s) = \frac{1}{\kappa}\frac{d^2\vecx}{ds^2};\ \kappa \equiv \lvert\frac{d^2\vecx}{ds^2}\rvert;$$
+  次法向量(binormal vector)
+  $$\vecB(s) = \vecT(s)\times \vecN(s).$$
+
+  {\scriptsize 注：垂直于$\vecT(s)$, $\vecN(s)$, $\vecB(s)$ 的平面分别称为法平面，切平面，和密切平面。}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{嵌在三维空间的曲线的挠率(tortion)}
+  一般来说当沿着曲线运动时，密切平面会发生“摆动”，即次法向量 $\vecB$ 会发生变化。我们先来证明，$\frac{d\vecB}{ds}$ 一定和 $\vecN$ 同向。
+
+  把归一化条件 $\vecB^2 = 1$ 对 $s$ 求导，可得到 $\frac{d\vecB}{ds} \cdot \vecB = 0$，即 $\frac{d\vecB}{ds}$ 和 $\vecB$ 是垂直的。此外，
+  $$\frac{d\vecB}{ds} = \frac{d(\vecT\times \vecN)}{ds} = \frac{d\vecT}{ds}\times \vecN + \vecT \times \frac{d\vecN}{ds}$$
+  注意到 $\frac{d\vecT}{ds} = \kappa \vecN$，上式右边的第一项为零，即 $\frac{d\vecB}{ds}$ 和 $\vecT$ 也垂直。
+  
+  于是不妨设
+  $$\frac{d\vecB}{ds} = -\tau \vecN.$$
+  我们把 $\tau$ 称为{\blue 挠率}。注意和曲率不同，挠率是可正可负的。它的大小 $|\tau|= \lvert \frac{d\vecB}{ds}\rvert$ 刻画了密切平面的摆动快慢。
+\end{frame}
+
+\thinkf{如果一条曲线的挠率处处为零，这说明了曲线的什么几何特性？}
+
+
+\begin{frame}
+  \frametitle{嵌在三维空间的曲线的Frenet方程}
+  我们来研究Frenet标架的变化率。首先，根据定义已经知道了：
+  $$\frac{d\vecT}{ds} = \kappa \vecN$$
+  和
+  $$\frac{d\vecB}{ds} = -\tau \vecN.$$  
+  剩下的非常简单：
+  $$\frac{d\vecN}{ds} = \frac{d\vecB}{ds}\times \vecT + \vecB\times\frac{d\vecT}{ds} =-\tau\vecN\times\vecT +\kappa\vecB\times\vecN = \tau\vecB - \kappa \vecT.$$
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{把Frenet方程写成矩阵形式}
+  \be
+  \frac{d}{ds}
+  \begin{pmatrix}
+    \vecT \\
+    \vecN \\
+    \vecB
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 & \kappa & 0 \\
+    -\kappa & 0 & \tau \\
+    0 & -\tau & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    \vecT \\
+    \vecN \\
+    \vecB
+  \end{pmatrix}
+  \ee
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{思考题（本题给出了挠率的一种常见计算方法）}
+  设 $\vecx(s)$ 是三维空间的一条曲线，$s$是弧长参数。试证明：以三个矢量 $\frac{d\vecx}{ds}$, $\frac{d^2\vecx}{ds^2}$, $\frac{d^3\vecx}{ds^3}$ 为列矢量的行列式的值等于 $\tau \kappa^2$。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{如果曲线不是用弧长参数表示的怎么办}
+  一般参数表示的曲线 $\vecx(t)$ 的Frenet标架、曲率、挠率的计算都比较复杂。但都可以用
+  $$\frac{ds}{dt} = \lvert\frac{d\vecx}{dt}\rvert$$
+  进行转化。下面我们直接给出计算结果：
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{一般参数曲线$\vecx(t)$的Frenet计算公式}
   \begin{eqnarray}
-  t&=&\frac{t'-vx'/c^2}{\sqrt{1-v^2/c^2}}; \newl
-  x&=&\frac{x'-vt'}{\sqrt{1-v^2/c^2}}; \newl
-  y&=&y'; \newl
-  z&=&z'. \nonumber
+    \vecT(t) &=& \frac{\vecx'(t)}{\lvert\vecx'(t)\rvert} \newl
+    \vecN(t) &=& \frac{\lvert\vecx'(t)\rvert^2\vecx''(t)-\left(\vecx'(t)\cdot\vecx''(t)\right)\vecx'(t)}{\lvert\vecx'(t)\rvert\,\lvert\vecx'(t)\times\vecx''(t)\rvert } \newl    
+    \vecB(t) &=& \frac{\vecx'(t)\times \vecx''(t)}{\lvert\vecx'(t)\times\vecx''(t)\rvert} \newl
+    \kappa(t) &=& \frac{\lvert\vecx'(t)\times\vecx''(t)\rvert}{\lvert\vecx'(t)\rvert^3} \newl
+    \tau(t) &=& \frac{\vecx'(t)\cdot(\vecx''(t)\times\vecx'''(t))}{\lvert\vecx'(t)\times\vecx''(t)\rvert^2} \nonumber 
   \end{eqnarray}
+
+  请参考 \url{http://zhiqihuang.top/gr/codes/frenet.py}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{老写一堆$c$太麻烦了，用自然单位制吧}
-  我们完全可以用``米''做为时间单位： 1米时间就是光在真空中走过1米所需要的时间。
+  \frametitle{曲线的邻域展开}
+  由于 $\vecT$, $\vecN$, $\vecB$ 包含了曲线的一次导数，二次导数，三次导数的信息，我们可以在一点附近展开曲线到三阶近似：
+
+  \bea
+  \vecx(s+ds) & \approx & \vecx(s) \newl
+  && + \left(ds - \frac{\kappa^2}{6}ds^3\right)\vecT(s) \newl
+  &&  + \left(\frac{\kappa}{2}ds^2 + \frac{1}{6}\frac{d\kappa}{ds}ds^3\right)\vecN(s) \newl
+  && + \frac{\kappa\tau}{6}ds^3\vecB(s). 
+  \eea  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{例题：球面上的曲线}
+  设 $\vecx(s)$ 是三维空间的球面上的一条曲率和挠率均非零的曲线，$s$ 是弧长参数。证明：
+  $$\frac{1}{\kappa^2} +\left[\frac{1}{\tau}\frac{d}{ds}\left(\frac{1}{\kappa}\right)\right]^2$$
+  是常数。
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{解法1}
+  证明：不妨设球半径为单位长度，并取球心为原点。球面上的曲线满足方程：
+  \begin{equation}
+  \vecx^2 = 1.
+  \end{equation}
+  两边对 $s$ 求导得到
+  \begin{equation}
+  \vecx\cdot\vecT = 0.
+  \end{equation}
+  于是可以假设
+  \begin{equation}
+  \vecx = \alpha \vecN + \beta \vecB
+  \end{equation}
+  其中 $\alpha$, $\beta$ 是待定的（依赖于$s$的）参量，满足 $\alpha^2+\beta^2=1$。两边继续对 $s$ 求导并利用Frenet公式，
+  \begin{equation}
+    \vecT =-\alpha\kappa\vecT + \left(\frac{d\alpha}{ds}-\tau\beta\right)\vecN + \left(\frac{d\beta}{ds} + \alpha\tau\right)\vecB.
+  \end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{解法1}
+  于是有
   \begin{eqnarray}
-  t&=&\frac{t'-vx'}{\sqrt{1-v^2}}; \newl
-  x&=&\frac{x'-vt'}{\sqrt{1-v^2}}; \newl
-  y&=&y'; \newl
-  z&=&z'. \nonumber
+    \alpha &=& -\frac{1}{\kappa};  \\
+    \beta &=& -\frac{1}{\tau}\frac{d}{ds}\left(\frac{1}{\kappa}\right).
   \end{eqnarray}
-\end{frame}
-
-\begin{frame}
-  \frametitle{事件和世界线}
-  \bitem
-  \item{在某时某地发生的{\bf 事件}可以用四维坐标来表示。事件是一个物理存在，和描述它的坐标系无关。两个事件之间的``距离平方'' $$s^2= c^2\Delta t^2 - \Delta x^2 -\Delta y^2-\Delta z^2,$$同样不依赖于坐标系的选取。}
-  \item{在某时某地有一个可以抽象为质点的物理对象（例如，一个电子），是一个事件。如果这个物理对象持续地存在于时空中，那么可以表述为``它存在于某时某地''的所有事件在四维时空中留下了一条连续的“轨迹”，称为这个物理对象的“{\bf 世界线}”。世界线同样是一个物理存在，和描述它的坐标系无关。}
-    \eitem
-\end{frame}
-
-
-
-
-\begin{frame}
-  \frametitle{解决狭义相对论问题的正确姿势}
-  \bitem
-\item{理解狭义相对论的惯性系，（惯性）观测者，以及当我们说“观测者看到xxx”是什么意思。把所有描述精确地翻译为四维概念。}
-\item{用洛仑兹变换和不变量进行计算。}
-  \eitem
-
+  于是利用 $\alpha^2+\beta^2=1$ 即得证。
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{我们说观测者看到动尺变短是什么意思？}
-  
-   \addfig{3}{dongchi.jpg}
-  
+  \frametitle{解法2}
+  证明：不妨设球半径为单位长度，并取球心为原点。球面上的曲线满足方程：
+  \begin{equation}
+  \vecx^2 = 1.
+  \end{equation}
+  把 $\vecx(s+ds)^2 = 1$ 近似展开到 $ds^3$量级，有
+  \bea
+  1 &=& 1 + (2ds -\frac{\kappa}{3}ds^3)\vecx(s)\cdot\vecT(s) \newl
+  && +\left(\kappa ds^2 + \frac{1}{3}\frac{d\kappa}{ds}ds^3\right)\vecx(s) \cdot \vecN(s) \newl
+  && + \frac{\kappa\tau}{3}ds^3 \, \vecx(s)\cdot\vecB(s) \newl
+  && + ds^2.
+  \eea  
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{解法2}
+  由 $ds$一次项系数为零，得到
+  $$\vecx(s)\cdot\vecT(s)=0.$$  
+  由 $ds^2$系数为零，得到
+  $$\vecx(s)\cdot\vecN(s) = -\frac{1}{\kappa}.$$
+  再由 $ds^3$ 系数为零，得到
+  $$\vecx(s)\cdot\vecB(s) = \frac{1}{\kappa^2\tau}\frac{d\kappa}{ds} = -\frac{1}{\tau}\frac{d}{ds}\left(\frac{1}{\kappa}\right).$$
+  于是得证。
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{我们说观测者看到运动的时钟变慢是什么意思？}
-  
-  \addfig{3}{time_dilation.jpg}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{观测者看到……}
-  
-  
-  你能总结下狭义相对论里的“观测者看到……”具体是什么意思吗？
-  
-\end{frame}
-
-\thinka{一个速度为 $v=\frac{5}{13}$ 的航天旅行者和他的地球上的朋友在出发时对好了钟的时刻为 $t'=0$ (旅行者的时钟) 和 $t=0$ (地球上的钟)。地球上的朋友同时观察两个钟，直接观察 $t$，用望远镜观察 $t'$。当 看到 $t'$ 读数为 $1\mathrm{h}$ 时， 看到 $t$ 的读数为多少h？ }
-
-\begin{frame}
-  \frametitle{python的符号演算库sympy}
-  在本课程中，我们将借助python的符号演算库sympy来进行运算。
-
-  {\darkgreen import sympy as sym}
-
-  {\scriptsize (注：一般不提倡为了省事而 from sympy import * ，这样可能会产生大量的重名冲突问题；你当然也知道用 numpy 时，尽量要采用 import numpy as np 而不是 from numpy import *，都是同一个道理)}
-
-  \skiplines
-
-  sympy可以定义符号变量，例如定义一个变量 $x$
-
- {\darkgreen x = sym.Symbol('x')}
-
-  \skipline
-
-  或者批量定义一些变量
-
-  {\darkgreen x, y, z = sym.symbols('x, y, z')}
+  \frametitle{曲线论基本定理}
+  根据我们对曲率和挠率的几何图像理解，下列定理是显然的：
 
   \skipline
   
-  可以化简
+  {\blue 三维欧氏空间内两条以弧长 $s$ 为参数的正则曲线。如果它们的曲率处处不为零，且对同一个 $s$，两条曲线的曲率，挠率都分别相等。则两条曲线可以通过一个刚体运动重叠起来。}
 
-  {\darkgreen print(sym.simplify(sym.sqrt(1+x)**2))}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{例题}
+  证明曲线 $\vecx(t) = (\cosh t, \sinh t, t)$ 和曲线 $\vecy(u) = \left(\frac{e^{-u}}{\sqrt{2}}, \frac{e^u}{\sqrt{2}}, u+1\right)$ 在三维欧式空间内的一个刚体运动下是重合的。
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{解答}
+  证明: 直接计算得到 $\vecx(t)$ 弧长参数，曲率和挠率为：
+  $$ s_x(t) = \sqrt{2} \sinh t, \kappa_x(t) = \tau_x(t) = \frac{1}{2\cosh^2(t)} $$
+  $\vecy(u)$ 的弧长参数，曲率和挠率为
+  $$ s_y(u)  = \sqrt{2} \sinh u, \kappa_y(u) = \tau_y(u) = \frac{1}{2\cosh^2(u)}.$$
+  故同样的 $t$ 和 $u$ 对应相同的弧长参数，曲率，挠率。证毕。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{二维欧式空间中的曲线}
+  嵌入在二维欧式空间里的曲线可以看成嵌在三维欧式空间中的无挠（挠率为零的）曲线。平面曲线有一些独特的性质，我们来专门讨论一下。
+
+  设曲线 $\vecr(s) = (x(s), y(s))$ 以弧长 $s$ 为参数。则切向量为
+  $$ \vecT(s) = \left(x'(s), y'(s)\right),$$
+  逆时针方向旋转$\frac{\pi}{2}$，得到{\blue 相对法向量}为
+  $$\vecN_r(s) = \left(-y'(s), x'(s)\right).$$
+  注意三维情况定义 $\vecN(s)$ 时我们是按“往那边弯曲就指向哪边”的原则来定义的。所以 $\vecN_r$ 和 $\vecN$ 有可能相同，也可能差一个负号。
   
+\end{frame}
 
+
+
+\begin{frame}
+  \frametitle{相对曲率}
+  由相对法向量可以定义``{\blue 相对曲率}''：
+  $$ \kappa_r \equiv \vecN_r \cdot \frac{d^2\vecx}{ds^2} $$
+  显然它可能和三维情况定义的 $\kappa$ 相同，也可能差一个负号。
+
+  容易看出来，相对曲率可以写成行列式的形式
+  \be
+  \kappa_r = \left\vert
+  \begin{array}{ll}
+    x'(s) & y'(s) \\
+    x''(s) & y''(s)     
+  \end{array}
+  \right\vert
+  \ee
+  它可正可负，而之前定义的 $\kappa = |\kappa_r|$ 一定非负.
 \end{frame}
 
 \begin{frame}
-  \frametitle{python的符号演算库sympy}
-  求极限
-  
-  {\darkgreen print(sym.limit((sym.log(1+x)-x)/x**2, x, 0))}
-
-  \skipline
-  
-  求偏导运算：
-
- {\darkgreen print(sym.diff( y*(x**2+sym.sin(x)), x))}
-
-  {\scriptsize (注意，有些老版本python的print命令不用括号，而是用空格隔开)}
-
-  \skipline
-
-  积分运算
-
-  {\darkgreen  print(sym.integrate(sym.log(x),x))}
-
-  \skipline
-
-  级数展开
-  
-  {\darkgreen print(sym.series(sym.cos(x),x, 0, 12))}
-
-
-  \skipline
-  
-  我们的热身练习是用sympy进行洛仑兹变换，请参考
-
-  \url{http://zhiqihuang.top/gr/codes/lorentz_trans.py}
+  \frametitle{相对曲率}
+  对一般的参数形式表示的平面曲线 $\left(x(t), y(t)\right)$，相对曲率可以写成
+  \be
+  \kappa_r = \frac{1}{\left[x'(t)^2+ y'(t)^2\right]^{3/2}}\left\vert
+  \begin{array}{ll}
+    x'(t) & y'(t) \\
+    x''(t) & y''(t)     
+  \end{array}
+  \right\vert
+  \ee
 \end{frame}
+
 
 \begin{frame}
-  \frametitle{孪生子佯谬}
-  \addfig{3}{twin_paradox.jpg}
-\end{frame}
+  \frametitle{平面曲线的 Frenet 方程}
+  平面曲线的 Frenet 方程也变得非常简单：
 
+  \be
+  \frac{d}{ds}
+  \begin{pmatrix}
+    \vecT \\
+    \vecN_r
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 & \kappa_r \\
+    -\kappa_r & 0 
+  \end{pmatrix}
+  \begin{pmatrix}
+    \vecT \\
+    \vecN_r
+  \end{pmatrix}
+  \ee
+\end{frame}
 
 
 \ech
