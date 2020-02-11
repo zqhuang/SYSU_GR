@@ -1,0 +1,115 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+\tpage{6}{Riemann Tensor}
+
+
+
+\begin{frame}
+  \frametitle{黎曼张量(Riemann Tensor)}
+  上一讲我们利用升级的秘密武器的最后一击，干净利索地证明了高斯定理。把这个过程稍加推广，就可以得到：
+ {\small
+   \bea
+   && \beta_{il}\beta_{jk} - \beta_{ik}\beta_{jl} \newl
+  &=& \left(\vecn\cdot\vecx_{,i,l}\right)\left(\vecn\cdot\vecx_{,j,k}\right) - \left(\vecn\cdot\vecx_{,i,k}\right)\left(\vecn\cdot\vecx_{,j,l}\right) \newl
+  &=& \vecx_{,i,l}\cdot\vecx_{,j,k} - \left(\vecx_{,m}\cdot\vecx_{,i,l}\right)\left(\vecx^{,m}\cdot\vecx_{,j,k}\right) - \vecx_{,i,k}\cdot\vecx_{,j,l} + \left(\vecx_{,m}\cdot\vecx_{,i,k}\right)\left(\vecx^{,m}\cdot\vecx_{,j,l}\right)  \newl
+  &=& \vecx_{,i,l}\cdot\vecx_{,j,k}  - \Gamma_{mil}\Gamma^m_{\ jk} - \vecx_{,i,k}\cdot\vecx_{,j,l}  + \Gamma_{mik}\Gamma^m_{\ jl}  \newl
+  &=& \left(\vecx_{,i}\cdot\vecx_{,j, k}\right)_{,l}-  \left(\vecx_{,i}\cdot\vecx_{,j,l}\right)_{,k}   + \Gamma_{mik}\Gamma^m_{\ jl}   - \Gamma_{mil}\Gamma^m_{\ jk} \newl
+  &=& \left(\Gamma_{ijk}\right)_{,l} -  \left(\Gamma_{ijl}\right)_{,k} + \Gamma_{mik}\Gamma^m_{\ jl} - \Gamma_{mil}\Gamma^m_{\ jk} \newl    
+ \eea }
+ 我们把这个结果称为黎曼张量 (Riemann Tensor)
+ \tbox{$$R_{ijkl} \equiv \left(\Gamma_{ijk}\right)_{,l} -  \left(\Gamma_{ijl}\right)_{,k} + \Gamma_{mik}\Gamma^m_{\ jl} - \Gamma_{mil}\Gamma^m_{\ jk}$$}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{黎曼张量的对称性}
+  由 $R_{ijkl}  = \beta_{il}\beta_{jk} - \beta_{ik}\beta_{jl}$ 容易得到：
+  \tbox{$$ R_{ijkl} = R_{klij} = - R_{jikl} = - R_{ijlk}.$$
+    $$ R_{ijkl} +  R_{iklj} +  R_{iljk} = 0.$$}  
+  由此可以判断 $i=j$ 或者 $k=l$ 时黎曼张量为零。对二维曲面而言，独立的非零的黎曼张量只有 $R_{1221}=\det(\beta)$。我们似乎并没有得到新的等式。但是，我们今后会把度规、联络、黎曼张量推广到高维的空间，上述对称性仍然成立。
+\end{frame}
+
+
+\thinkf{请思考，在 $n$ 维空间，黎曼张量共有多少个独立的分量？}
+
+\begin{frame}
+  \frametitle{已经多次提到了“张量”的概念，是时候给出一个更加严谨的定义了}  
+  当建立坐标系之后，可以把物理量投影到不同的基上，这些投影值叫做物理量的分量。{\blue 物理量的分量的值依赖于人为选取的坐标系}，可以用带一系列带指标的符号来表示。
+
+  \skipline
+
+  \tbox{我们定义一个量 $T$ 为张量，如果它在任意坐标系 $(u^1, u^2,\ldots)$ 和 $(\tilde{u}^1, \tilde{u}^2,\ldots)$ 里的分量总是满足下列转换关系：
+  $$ \tilde{T}_{i_1i_2\ldots}^{\ \  j_1j_2\ldots}= \frac{\partial u^{k_1}}{\partial \tilde{u}^{i_1}} \frac{\partial u^{k_2}}{\partial \tilde{u}^{i_2}}\ldots \frac{\partial \tilde{u}^{j_1}}{\partial u^{l_1}} \frac{\partial \tilde{u}^{j_2}}{\partial u^{l_2}} \ldots T_{k_1k_2\ldots}^{\ \ l_1l_2\ldots}.$$}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{零阶、一阶和二阶的张量}
+  我们比较熟悉的有带零个指标的“标量”（零阶张量）和带一个指标的“矢量”（1阶张量），像度规 $g_{ij}$ 这样的带两个指标的就叫二阶张量。
+
+  我们来说明度规 $g_{ij}$ 为什么是张量。由于要求
+  $$ ds^2 =  g_{ij}du^idu^j$$ 是不变量，当我们做一个坐标系的变换 $(u^1,u^2,\ldots)\rightarrow (\tilde{u}^1, \tilde{u}^2, \ldots)$
+  时，在新坐标系里的度规 $\tilde{g}_{ij}$ 必须满足：
+  $$ \tilde{g}_{ij}d\tilde{u}^id\tilde{u}^j =  g_{ij}du^idu^j.$$
+  这是我们熟悉的线性代数的基的变换，很容易看出：
+  $$ \tilde{g}_{ij} = \frac{\partial u^k}{\partial \tilde{u}^i} \frac{\partial u^l}{\partial \tilde{u}^j} g_{kl}.$$
+  即度规满足张量的定义。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{联络不是张量，黎曼张量是张量}
+  请自行用定义证明联络 $\Gamma_{ijk}$ 不是张量，黎曼张量 $R_{ijkl}$ 是张量。
+
+  \addfig{1.2}{caigou.jpg}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{张量的指标升降}
+
+  对张量我们可以沿用之前定义的指标升降规则。
+
+  \addfig{1}{eg.jpg}
+
+  把黎曼张量 $R_{ijkl}$ 第一个指标升上来 $R^i_{\ jkl} \equiv g^{im}R_{mjkl}$.
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{从已有张量构造新张量的第1种办法：张量积}
+  把一个 $m$ 阶张量和一个 $n$ 阶张量 的分量两两相乘，就可以得到 $m+n$ 阶张量。
+
+  \addfig{1}{eg.jpg}
+
+  矢量 $A^i$ 和度规 $g_{jk}$ 的张量积 是三阶张量 $A^ig_{jk}$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{从已有张量构造新张量的第2种办法：收缩}
+  把一个 $m$ 阶张量的一组上下指标取成相同，按爱因斯坦求和规则求和之后，可以得到一个 $m-2$ 阶张量。
+
+  \addfig{1}{eg.jpg}
+
+  对黎曼张量 $R^i_{jkl}$ 的第一个指标 $i$ 和最后一个指标 $l$ 进行收缩，得到{\blue 里奇(Ricci)张量: $R_{jk} \equiv R^i_{\ jki}$}；把里奇张量的两个指标收缩，得到{\blue 里奇标量(Ricci scalar)  $ R = R^j_{\ j}.$}
+\end{frame}
+
+\thinkc{三维欧氏空间里的曲面的里奇标量 $R$ 和高斯曲率 $K$ 的关系是什么?}
+
+\begin{frame}
+  \frametitle{从已有张量构造新张量的第3种办法：求协变导数}
+  一般来说，对大于零阶的张量求坐标偏导，会使张量变成非张量。在张量分析中，有新的一种导数叫做协变导数。对任意阶张量求协变导数后会得到高一阶的张量。我们会在下一讲中讲解协变导数的几何意义和计算规则。
+
+  \addfig{1}{neg.jpg}
+
+\end{frame}
+
+
+\ech
+\end{document}

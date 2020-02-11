@@ -1,0 +1,228 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+\tpage{5}{Connection}
+
+
+
+\begin{frame}
+  回忆一下上一讲的结果: 设三维欧氏空间里的曲面 $\vecx(u^1,u^2)$ 有第一基本形式
+  $$ds^2 = g_{ij}du^idu^j,$$
+  和第二基本形式
+  $$\vecn\cdot d^2\vecx = \beta_{ij}du^i du^j,$$  
+  这里的 $\vecn$ 是法向量， $g_{ij} = \vecx_{,i}\cdot\vecx_{,j}$, $\beta_{ij} = \vecn \cdot \vecx_{,i,j} = -\vecn_{,i} \cdot \vecx_{,j} = -\vecx_{,i} \cdot \vecn_{,j}$。
+
+  
+  本讲的任务是用第一基本形式（度规 $g_{ij}$）计算高斯曲率 $K = \frac{\det(\beta)}{\det(g)}$。
+
+  \skiplines
+  
+  在此之前，我们又要引入一些新的符号：请准备好呼吸机……
+\end{frame}
+
+\begin{frame}
+  \frametitle{度规和指标的升降}
+ 第一基本形式里的度规矩阵
+  \be
+  \begin{pmatrix}
+    g_{11} & g_{12} \\
+    g_{21} & g_{22} 
+  \end{pmatrix}
+  \ee
+  由高维欧式空间的距离平方导出，所以一定是正定矩阵。但是在更一般的讨论中，我们将放宽这一假设，只要求它是满秩矩阵。
+
+  不管怎么说，度规矩阵的逆矩阵存在，我们把它写成
+  \be
+  \begin{pmatrix}
+    g^{11} & g^{12} \\
+    g^{21} & g^{22} 
+  \end{pmatrix}
+  \equiv   \begin{pmatrix}
+    g_{11} & g_{12} \\
+    g_{21} & g_{22} 
+  \end{pmatrix}^{-1}
+  \ee
+  度规矩阵和它的逆的乘积当然是单位矩阵，这一事实用爱因斯坦的求和约定写出来就是
+  \be
+  g_{ij}g^{jk} = \delta_i^{\ k} \equiv \left\{
+  \begin{matrix}
+    1, & \text{if } i = k \\
+    0, & \text{else}
+  \end{matrix}
+  \right.
+  \ee
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{指标的升降}
+  我们搞那么多事情，一会儿把指标写上面(例如 $du^i$)，一会儿把指标写下面（例如 $g_{ij}$），是因为上下指标含义不同，且可以互相变换。
+
+  \skipline
+  
+ 具体来说，我们将遵循这样的原则对带指标的量进行“指标升降”。
+  \bitem
+\item{如果要把一个上指标 $\alpha$ 降为下指标，我们把上指标里的 $\alpha$ 换成任何一个新的没有用到过的指标，例如 $\beta$，然后乘以 $g_{\beta\alpha}$。}
+\item{如果要把一个下指标 $\alpha$ 升为上指标，我们把下指标里的 $\alpha$ 换成任何一个新的没有用到过的指标，例如 $\beta$，然后乘以 $g^{\beta\alpha}$。}
+  \eitem
+  当然，上面规则中的$\beta$ 这个指标是什么不重要，因为按爱因斯坦求和规则我们会对 $\beta$ 进行遍历求和。  
+\end{frame}
+
+
+\begin{frame}
+  例如，我们可以把 $du^i$ 里的上指标 $i$ 降下去，具体就是：
+  $$ du_i \equiv g_{ij} du^j.$$
+  粗略地看，这无非就是个定义而已。
+
+  \skipline
+
+  问题是，这样的定义是自洽的吗？如果我们把 $du_i$ 里的下指标再升上去，还会是和原来一样的 $du^i$ 吗？
+\end{frame}
+
+
+
+\begin{frame}
+  答案是肯定的：
+
+  $$ g^{ij}du_j = g^{ij} g_{jk} du^k = \delta^i_{\ k}du^k = du^i.$$
+
+  很容易把这个简短的证明推广到任意多个指标的任意升降。
+\end{frame}
+
+
+\thinkf{$g^{ij}$ 比较特殊，它是通过 $g_{ij}$矩阵的逆矩阵定义的。请检验,
+  \bitem
+\item{如果把 $g_{ij}$ 的指标按照上述升降指标的规则升上去，会得到（按逆矩阵定义的） $g^{ij}$ 吗？ }
+\item{仅上升一个指标的度规 $g_i^{\ j}$ 或者 $g^i_{\ j}$ 是什么？}  
+  \eitem}
+
+
+\begin{frame}
+  \frametitle{指标升降操和偏导操作不可交换}
+
+  对坐标的偏导会产生额外的指标。要格外小心的是，指标的升降操作和偏导产生新指标的操作一般是不可交换的。例如： 我们可以把 $g_{ij}$ 的指标 $i$ 升上去得到 $g^i_{\ j}$，然后求偏导得到 $g^i_{\ j, k}$。如果我们先求偏导，得到 $g_{ij, k}$ ，然后把指标 $i$ 升上去，会得到一个数值上不一样的结果。
+
+  \skiplines
+
+  在我们之后学习了张量和协变导数之后，这个问题会得到解决（协变导数和指标升降的操作可以交换）。目前我们对带着偏导的量的指标还是要十分小心，不要随便进行指标升降。
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{小心地应用指标升降的例子}
+  \addfig{0.8}{eg.jpg}
+  
+  虽然 $\vecx_{,i}$ 带着偏导指标，我们还是可以强行定义 $\vecx^{,i}=g^{ij}\vecx_{,j}$。由于 $\vecx^{,i}$ 并没有其他什么定义方式，这种操作还不至于导致混乱。
+
+  \skiplines
+  
+  容易严格按照定义验证
+  \be
+  \vecx_{,i}\cdot \vecx^{,j} = g_i^{\ j}=\left\{
+  \begin{array}{ll}    1, & \text{ if } i=j \\
+    0, & \text{ else}
+  \end{array}
+  \right.
+  \ee
+  
+  $$\vecx^{,i}\vecx^{,j} = g^{ij}$$
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  好了，摘下呼吸机。我们要开始操作了。
+\end{frame}
+
+
+\begin{frame}  
+
+  \frametitle{秘密武器}
+  我们先来介绍一个秘密武器：{\blue  三维欧氏空间任意矢量 $\vecv$ 可以分解成
+  $$ \vecv = \left(\vecx_{,i}\cdot\vecv\right)\vecx^{,i}  + (\vecn\cdot\vecv)\vecn.$$}
+  这个等式是这样证明的，在两边点乘 $\vecx_{,j}$ 或 $\vecn$ 都得到相同的结果（这里需要用到 $\vecx_{,i}\cdot\vecx^{,j} = g_i^{\ j}$）。由于 $\vecx_{,1}$, $\vecx_{,2}$, $\vecn$ 是完备的，故得证。
+
+  \addfig{1}{caozuo.jpg}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{联络(connection)}
+  我们定义一个非常有用的辅助记号： {\blue 联络
+    $$\Gamma_{kij} \equiv \vecx_{,k}\cdot\vecx_{,i,j}.$$}
+  显然这样定义的联络具有 $\Gamma_{kij} = \Gamma_{kji}$ 的对称性。
+
+  \skiplines
+  
+    我们还经常需要把联络 $\Gamma_{kij}$ 的第一个指标升上去，变成
+  {\blue
+  $$\Gamma^k_{\ ij} \equiv g^{kl}\Gamma_{lij} = \vecx^{,k}\cdot\vecx_{,i,j}$$}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{联络可以用度规导出}
+  度规的偏导数可以用联络写出来：
+  $$g_{ij,k} = \left(\vecx_{,i}\cdot\vecx_{,j}\right)_{,k} = \vecx_{,i,k}\cdot\vecx_{,j} + \vecx_{,i}\cdot\vecx_{,j, k}  = \Gamma_{jik}+\Gamma_{ijk}.$$
+  同理
+  $$ g_{ki,j} = \Gamma_{ijk}+\Gamma_{kij}$$
+  $$ g_{kj,i} = \Gamma_{jik}+\Gamma_{kij}$$
+  把后两式相加并减去第一式，即可得到：
+  \tbox{$$\Gamma_{kij} = \frac{1}{2}\left(g_{ki,j}+g_{kj,i}-g_{ij,k}\right).$$}
+  也就是说，联络可以由第一基本形式得到。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{升级武器}
+  我们再把秘密武器进行一下升级：任意两个三维欧式空间的矢量 $\vecy$, $\vecz$。可以把它们各自按秘密武器展开后，再求两者的内积
+  \bea
+  \vecy\cdot\vecz &=& \left[\left(\vecx_{,i}\cdot\vecy\right)\vecx^{,i}+(\vecn\cdot\vecy)\vecn\right]\cdot\left[\left(\vecx_{,j}\cdot\vecz\right)\vecx^{,j}+(\vecn\cdot\vecz)\vecn\right] \newl
+  &=& \left(\vecx_{,i}\cdot\vecy\right)\left(\vecx_{,j}\cdot\vecz\right)\vecx^{,i}\cdot\vecx^{,j}  + (\vecn\cdot\vecy)(\vecn\cdot\vecz) \newl
+  &=& \left(\vecx_{,i}\cdot\vecy\right)\left(\vecx_{,j}\cdot\vecz\right)g^{ij} + (\vecn\cdot\vecy)(\vecn\cdot\vecz) \newl
+  &=& \left(\vecx_{,i}\cdot\vecy\right)\left(\vecx^{,i}\cdot\vecz\right) + (\vecn\cdot\vecy)(\vecn\cdot\vecz)    
+  \eea
+  我们得到了一个计算 $(\vecn\cdot y)(\vecn\cdot z)$ 的有效方法：
+  {\blue
+     $$ (\vecn\cdot\vecy)(\vecn\cdot\vecz)   =  \vecy\cdot\vecz - \left(\vecx_{,i}\cdot\vecy\right)\left(\vecx^{,i}\cdot\vecz\right).$$
+  }
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{计算高斯曲率 $K=\frac{\det(\beta)}{\det(g)}$}
+  利用升级的秘密武器，立刻有
+ {\small
+  \bea
+  && \det(\beta) \newl
+  &=& \beta_{11}\beta_{22} - (\beta_{12})^2 \newl
+  &=& \left(\vecn\cdot\vecx_{,1,1}\right)\left(\vecn\cdot\vecx_{,2,2}\right) - \left(\vecn\cdot\vecx_{,1,2}\right)^2 \newl
+  &=& \vecx_{,1,1}\cdot\vecx_{,2,2} - \left(\vecx_{,i}\cdot\vecx_{,1,1}\right)\left(\vecx^{,i}\cdot\vecx_{,2,2}\right) - \left(\vecx_{,1,2}\right)^2 +  \left(\vecx_{,i}\cdot\vecx_{,1,2}\right)\left(\vecx^{,i}\cdot\vecx_{,1,2}\right) \newl
+  &=& \vecx_{,1,1}\cdot\vecx_{,2,2}  - \Gamma_{i11}\Gamma^i_{\ 22} -  \left(\vecx_{,1,2}\right)^2 + \Gamma_{i12}\Gamma^i_{\ 12} \newl 
+  &=& (\vecx_{,1,1}\cdot\vecx_{,2})_{,2}-  \left(\vecx_{,1,2}\cdot\vecx_{,2}\right)_{,1} + \Gamma_{i12}\Gamma^i_{\ 12} - \Gamma_{i11}\Gamma^i_{\ 22} \newl
+  &=& \left(\Gamma_{211}\right)_{,2} -  \left(\Gamma_{212}\right)_{,1} + \Gamma_{i12}\Gamma^i_{\ 12} - \Gamma_{i11}\Gamma^i_{\ 22} \newl    
+ \eea
+ }
+ 联络可以用度规和度规的偏导数写出来，所以任务完成。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{sympy又来了}
+  从度规到联络和从联络到高斯曲率的计算都比较繁琐。我们可以写一个 sympy 脚本代劳，请参考：
+
+  \url{http://zhiqihuang.top/gr/codes/connection.py}
+\end{frame}
+
+
+\ech
+\end{document}
