@@ -1,0 +1,320 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+\tpage{7}{Covariant Derivative}
+
+
+\begin{frame}
+  在这一讲里我们继续考虑三维欧氏空间里的曲面 $\vecx(u^1, u^2)$ ——虽然很多讨论并不需要在如此特殊的假设下进行，但
+
+  \skiplines
+
+  \tbox{这门课的目的是尽可能地让憨憨们理解广义相对论。}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{曲面上的标量场}
+  \addfig{2}{Efield.jpg}
+  
+  我们想象三维欧氏空间中有静电势 $\varphi(\vecx)$。在曲面上的爬虫也能够测量曲面上的静电势 $\varphi(u^1, u^2)$。
+
+\end{frame}
+
+\begin{frame}
+\frametitle{标量场的坐标偏导是协变矢量}
+
+电势的偏导数 $\varphi_{,i}$ 在坐标变换 $(u^1,u^2)\rightarrow (\tilde{u}^1, \tilde{u}^2)$ 下满足张量的变换规则：
+$$ \widetilde{\varphi_{,i}} = \frac{\partial u^j}{\partial \tilde{u}^i} \varphi_{,j}.$$
+这说明标量场的坐标偏导数是矢量。它的指标在下面，我们称之为{\blue 协变矢量(covariant vector)}。指标在上面的矢量叫{\blue 逆变矢量(contravariant vector)}。
+
+\bmini{0.33}
+\lfig{1.2}{qiubite.jpg}
+\emini
+\bmini{0.63}
+注意：{\blue 矢量是客观的物理存在，协变形式和逆变形式只是它们在给定坐标系里的不同形式的投影。}
+
+{\scriptsize 啥，你问为什么要用“协变矢量”这样有误导性的名词？“矢量的协变形式”是7个字，“协变矢量”是4个字，我懒得跟你说下去了……}
+\emini
+\end{frame}
+
+
+\begin{frame}
+
+  
+  \frametitle{我们来讨论矢量的协变形式和逆变形式到底是怎么投影的——}
+
+  \addfig{1}{biehuang.jpg}
+  
+  别慌，我没打算给你讲切丛，余切丛，微分形式、抽象指标、旋量表示……
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{简单粗暴一句话可以解释}
+  \tbox{逆变分解，协变投影。}
+
+  \skipline
+  
+  好的我知道你木有看懂这句话，我们得上图——
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{当 $u^1, u^2$ 是弧长元变量}
+  \bmini{0.42}
+  \lfig{1.8}{covcontra.jpg}
+
+  \skipline
+  
+  {\small 我们在学习曲线论时，发现使用弧长变量可以大大简化几何图像。在曲面论里也是如此：  }
+  \emini
+  \hspace{0.1in}
+  \bmini{0.5}
+  {\small 假设 $(u^1, u^2)$ 在 $O$ 点是弧长变量（即 $O$ 点的 $g_{11}= g_{22}= 1$），图中标出了变化坐标 $u^1, u^2$ 产生的两个单位切矢的方向。}
+
+  红色的箭头是在 $O$ 点的一个矢量 $\vec{A}$ （物理客观存在）。
+  
+  \skipline
+  
+{\blue  逆变形式 $(A^1, A^2)$ 是 $\vec{A}$ 按两个单位切矢分解的系数——或者说，它们是按平行四边形法则投影的。}
+
+  \skipline
+
+ {\blue 协变形式 $(A_1, A_2)$ 是 $\vec{A}$ 在两个单位切矢上的投影——对，就是简单粗暴的作垂线投影！}
+  
+  
+  \emini
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{一般情况要做下长度单位的修正}
+  \addfig{2}{covcontra2.jpg}
+\end{frame}
+
+\begin{frame}
+  \frametitle{代数表达式}
+  当你明白了协变和逆变矢量都是依赖于坐标系的特定投影方式之后，前面唠叨的那堆就不那么重要了，具体计算时可以使用三维欧氏空间的图像来辅助：
+
+  \tbox{  $$ \vec{A} = A^i\vecx_{,i} = A_i\vecx^{,i}$$
+    $$ A_i = \vec{A} \cdot \vecx_{,i} ,   A^i = \vec{A}\cdot\vecx^{,i}$$}
+
+  这些公式可以用我们之前用过的秘密武器轻松证明。证明时注意 $\vec{A}$ 被限定在曲面上，没有法向分量。
+
+  \bmini{0.3}
+  \addfig{1}{zhongdian2.jpg}
+  \emini
+  \bmini{0.65}
+        {\blue 我们说曲面上的客观物理对象（张量）都是指限制在曲面内的物理量（例如矢量必须沿曲面的切向）。}
+        \emini
+\end{frame}
+
+
+
+\begin{frame}
+  
+\addfig{0.8}{eg.jpg}
+  
+因为 $\varphi_{,i}$ 是静电势在曲面上的梯度（客观物理对象）在第 $i$ 个坐标方向上的投影——重点是，它是投影——所以 $\varphi_{,i}$ 是协变矢量。
+
+
+\skiplines
+
+{\scriptsize 说因为  $\varphi_{,i}$ 指标在下面所以它是协变矢量的憨憨——你说的都对，但我觉得你应该考虑一下退课……}
+
+\end{frame}
+
+
+\begin{frame}
+  
+\addfig{0.8}{ega.jpg}
+  
+曲面上位移矢量 $d\vecx$ 按照两个自然切向量的分解式为
+$$d\vecx = \vecx_{,i}du^i$$
+重点是， 它是分解系数。所以 $du^i$ 是逆变矢量。
+
+\skiplines
+
+{\scriptsize 说因为  $du^i$ 指标在上面所以它是逆变矢量的憨憨——你说的都对，而且我刚刚想起来你好像来不及退课了……}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{矢量场的微分}
+  搞清楚协变和逆变的几何图像之后，我们来研究更复杂的对象： 曲面上的矢量场 $\vec{A}$ 的微分。这里符号 $\vec{A}$ 是指物理客观存在。
+
+  比如，对很近的两点 $P$ 和 $Q$，我们希望计算物理量
+  $$ d\vec{A} = \vec{A}(P) - \vec{A}(Q) $$
+  注意它既不能用
+  $$ A_i(P) - A_i(Q).$$
+  也不能用
+  $$ A^i(P) - A^i(Q).$$  
+  来描述！
+
+  因为对随意取的曲面坐标系， $P$ 处的投影规则和 $Q$ 处的投影规则可能不一样，这样求差就相当于把投影规则的差别也囊括进来了。  
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{矢量场的微分（续）}
+  为了能用数字描述物理量，我们还是要取一个投影规则。但绝不是两个！
+
+  \skipline
+
+  如果都用在 $Q$ 处的投影规则，
+  
+ {\blue $d\vec{A}$ 的协变形式 = $\vec{A}(P)$ 在 $Q$ 的协变投影 - $\vec{A}(Q)$ 的协变形式}
+ 
+ 如果你都用 $P$ 点的投影规则，
+ 
+ {\blue $d\vec{A}$ 的协变形式 = $\vec{A}(P)$ 的协变形式 - $\vec{A}(Q)$ 在 $P$ 的协变投影} 
+
+ 这两种定义只有一个二阶小量的差别，并不会产生什么问题。重点是你要坚持只用一个投影规则，不要把投影规则的差异（一阶小量）错误地加到 $d\vec{A}$ 里来。
+  
+  \skipline
+  
+  当然对 $d\vec{A}$ 的逆变形式，类似的讨论也都成立。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{矢量场的微分（续）}
+   借助三维欧氏空间的辅助，我们可以算出 $d\vec{A}$ 的协变形式为
+  \bea
+  (dA)_i &=& (d \vec{A}) \cdot \vecx_{,i} \newl
+  &=& d(\vec{A}\cdot\vecx_{,i}) - \vec{A}\cdot d\vecx_{,i} \newl
+  &=& d(A_i) - \left(A_k\vecx^{,k}\right)\cdot\left(\vecx_{,i,j}du^j\right) \newl
+  &=& d(A_i) - \Gamma^k_{\ ij} A_k du^j     
+  \eea
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{矢量场的协变微商}
+  有了微分 $d\vec{A}$ 的正确表述形式，就可以得到矢量场的正确的求导姿势——称作{\blue 协变微商(covariant derivative)}。
+  {\blue $$ A_{i;j} = A_{i,j} - \Gamma^k_{\ ij} A_k .$$
+  为了区别用逗号(comma)表示的普通偏导数，我们用分号(semicolon)来表示协变微商。}
+  
+  \addfig{1}{zhongdian2.jpg}
+  
+  “协变”是指求完导之后多了个下指标，和被求导的张量是用什么形式表述的没有关系；“微商”和朋友圈没关系。
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{协变微商满足普通微商的所有性质}
+
+  从前面的讨论看出来，{\blue 协变微商才是“正确的微商”，它满足微商的所有性质，并且张量的协变微商还是张量}。普通微商的物理意义比较复杂，好在它们的数学形式比较简单，我们可以撇开其物理意义，直接用数学知识进行操作。要注意的是，张量的普通微商一般不是张量（不涉及投影的标量除外）。
+
+  \addfig{1}{hairgone.jpg}
+  
+  这是一个你同时精通数学和物理\sout{才能保住}也保不住头发的绝佳例子
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{逆变矢量的微商}
+  逆变矢量的微商直接怼起来稍有些繁琐，但可以用下面的办法巧妙地赖出来：
+
+  对逆变 $A^i$ 以及任意协变 $B_i$，两者可以做张量积再收缩得到一个标量 $A^iB_i$。因为标量不需要投影，所以普通微商和协变微商是一样的。即有
+  $$(A^iB_i)_{;j} = (A^iB_i)_{,j} = A^i_{\ ,j}B_i + A^i B_{i,j}.$$
+  另一方面
+  \be
+  (A^iB_i)_{;j}=  A^i_{\ ;j}B_i + A^i B_{i;j} = A^i_{\ ;j}B_i + A^iB_{i,j} - A^i \Gamma^k_{\ ij}B_k
+  \ee
+  比较两个结果，即有
+  \be
+  A^i_{\ ;j}B_i = A^i_{\ ,j}B_i +  A^i \Gamma^k_{\ ij}B_k
+  \ee
+\end{frame}
+
+\begin{frame}
+  \frametitle{逆变矢量的微商(续）}
+    由于求和指标可以随便替换，上述结果中最后一项把 $i, k$ 互换，得到
+  \be
+  A^i_{\ ;j}B_i = A^i_{\ ,j}B_i +  A^k \Gamma^i_{\ kj}B_i
+  \ee
+  上式要对任意 $B_i$ 成立，所以{\blue
+  \be
+  A^i_{\ ;j} = A^i_{\ ,j} +  \Gamma^i_{\ kj}A^k 
+  \ee
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{高阶张量的协变微商}
+  一般来说，大多数高阶张量都不能写成矢量的张量积。但是它们都能拆成一堆“矢量的张量积”之和。例如对一般的二阶张量 $T_{ij}$，我们不能指望存在 $A_i, B_j$ 使得 $T_{ij}  =A_iB_j$，但是我们可以假设
+  $$ T_{ij} = A_iB_j + C_i D_j + \ldots$$
+  这个结论无非是在说“给了足够多自由度方程总有解”，理解起来并不困难。
+
+  \skipline
+  
+  每一项 $A_iB_j$ 形式的二阶张量的协变微商可以用矢量的协变微商法则推导出来。最后叠加的效果是 
+
+ {\blue $$ T_{ij;k} = T_{ij, k} - \Gamma^l_{ik} T_{lj} - \Gamma^l_{jk} T_{il}.$$}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{高阶张量的协变微商（续）}
+  对一般的带一堆指标的张量形式，协变微商的计算规则如下：
+  {\blue
+  \bea
+  \left(T^{i_1i_2\ldots}_{\ \ j_1j_2\ldots}\right)_{;k} &=& \left(T^{i_1i_2\ldots}_{\ \ j_1j_2\ldots}\right)_{,k} \newl
+  && + \Gamma^{i_1}_{\ lk} T^{li_2\ldots}_{\ \ j_1j_2\ldots} + \Gamma^{i_2}_{\ lk} T^{i_1l\ldots}_{\ \ j_1j_2\ldots} + \ldots \newl
+  && - \Gamma^l_{j_1k}T^{i_1i_2\ldots}_{\ \ lj_2\ldots} - \Gamma^l_{j_2k}T^{i_1i_2\ldots}_{\ \ j_1l\ldots}-\ldots
+  \eea
+  }
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{度规只会跟你聊规则}
+
+  度规是一个很特殊的二阶张量，它描述了协变和逆变的投影规则。
+
+  \addfig{1.5}{tangmetric.jpg}
+
+  除此之外，它啥也不干。
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{度规的协变微商是零}
+  
+  一般来说，度规 $g_{ij}$ 在各处并不相同。但这完全是由于各处投影规则的变化产生的。由于协变微商里已经剔除了投影规则变化的影响，所以我们推测——度规的协变微商应该处处是零。
+
+  \addfig{0.8}{caozuo.jpg}
+  
+  证明如下: 因为 $g^i_{\ j}$ 是单位矩阵，普通微商消失，所以
+  $$ g^i_{\ j;k} = \Gamma^i_{lk}g^l_{\ j} - \Gamma^l_{jk}g^i_{\ l} = \Gamma^i_{\ jk} - \Gamma^i_{\ jk} = 0. $$
+  又协变微商有保张量性，所以 $g^i_{\ j;k}$ 是张量，可以把指标 $i$ 降下来 或者把 指标 $j$ 升上去。所以无论度规以何种形式写出来，它的协变微商总是零。
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{对度规的协变微商是零的理解}
+  物理上讲，度规描述的是度量规则。
+  \bitem
+\item{对嵌入高维欧氏空间的曲面，度量规则其实各处都一样（都是同一个欧氏空间度量规则），所以度规的协变微商是零。}
+\item{如果你想追随高斯的脑洞，在曲面论中彻底摒弃高维空间，你就必须得承认生活在曲面上的爬虫有一把依靠物理学获得的，不依赖于曲面性质的绝对度量尺子（例如普朗克长度）来定义各处的度量规则。在此前提下，当然各处的度量规则在物理上还是一样的。}
+  \eitem
+
+  {\scriptsize 对纯粹的数学家而言，实验可检验性毫不重要。建立内蕴几何需要物理学这件事对数学家而言显然非常荒谬。当你问：爬虫到底该选取什么尺子来进行长度测量？数学家会觉得你该吃药了……}
+\end{frame}
+
+
+
+
+\ech
+\end{document}
