@@ -1,0 +1,205 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{10}{From Riemann Tensor to Einstein Tensor}
+
+
+  \begin{frame}
+    \frametitle{该在哪里投影？}
+    设 $P$, $Q$ 是很接近的两点，矢量 $\vec{A}$ 的协变微分给出的是 $\vec{A}(Q)$ 和 $\vec{A}(P)$ 按照 $P$ 处或者 $Q$ 处的投影规则的投影的差。
+
+
+    \skiplines
+    
+    具体到底是按 $P$ 处还是 $Q$ 处的投影规则？我们曾评价说这不重要，因为差异是二阶小量。但是，在某些场景下，一阶小量完美抵消，二阶小量也会变得重要——
+
+    \addfig{1}{catsaway.jpg}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{二阶协变微商}
+    在物理学中，除了热学中的相变等特殊情况之外，我们总是假定足够的光滑性，也就是高阶的普通微商可以任意交换微商次序。协变微商是否也是如此？
+
+    \skiplines
+
+    先说答案：No！ {\blue 高阶协变微商一般不能随意交换微商次序。}
+
+    \skiplines
+    
+    问题还是出在投影的不一致性上。在考虑一阶微商时，我们通过取同一个投影规则解决了投影差异带来的（非物理）贡献。但是，这样有个二阶小量的不确定性——而二次微商考察的正是二阶小量。
+
+  \end{frame}
+
+  \begin{frame}
+
+    \frametitle{想不清就硬怼……}
+    由于标量场的第一次微商不涉及投影，标量场的二次微商其实可以交换次序。如果想不大清楚的话，可以来硬怼一下： 设 $S$ 为标量场
+
+    $$ S_{;\mu;\nu} = S_{;\mu,\nu}-\Gamma^\alpha_{\ \mu\nu}S_{;\alpha}  = S_{,\mu,\nu} - \Gamma^\alpha_{\ \mu\nu}S_{,\alpha} $$
+    
+
+    推导竟出乎意料地简单——不过要记得感谢广义相对论用了对称的 Cristoffel 联络——或者说，感谢我们的时空那么单纯简洁。
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{这次运气就没那么好了}
+    我们来计算一个矢量场 $A_\mu$ 的二阶微商：
+    \bea
+    && A_{\mu;\alpha;\beta} - A_{\mu;\beta;\alpha} \newl
+    &=& A_{\mu;\alpha,\beta}-\Gamma^\rho_{\ \alpha\beta}A_{\mu;\rho} -\Gamma^\rho_{\ \mu\beta}A_{\rho;\alpha}- [\alpha\leftrightarrow\beta] \newl
+    &=& A_{\mu;\alpha,\beta} -\Gamma^\rho_{\ \mu\beta}A_{\rho;\alpha}- [\alpha\leftrightarrow\beta] \newl    
+    &=& \left(A_{\mu,\alpha}-\Gamma^\rho_{\ \mu\alpha}A_\rho\right)_{,\beta} -\Gamma^\rho_{\ \mu\beta}\left(A_{\rho,\alpha}-\Gamma^\lambda_{\ \rho\alpha}A_\lambda\right) - [\alpha\leftrightarrow\beta]\newl
+    &=& -\Gamma^\rho_{\ \mu\alpha,\beta}A_\rho + \Gamma^\rho_{\ \mu\beta}\Gamma^\lambda_{\ \rho\alpha}A_\lambda- [\alpha\leftrightarrow\beta]\newl
+    &=&\left(-\Gamma^\lambda_{\ \mu\alpha,\beta} + \Gamma^\rho_{\ \mu\beta}\Gamma^\lambda_{\ \rho\alpha}-[\alpha \leftrightarrow\beta]\right) A_\lambda\newl
+    &\equiv & - R^\lambda_{\ \mu\alpha\beta}A_\lambda
+    \eea
+   最后一步只是定义。由于$A$是任意的，这里 $R^\lambda_{\ \mu\alpha\beta}$ 显然是张量。
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{黎曼张量(Riemann Tensor)和一些不愉快的符号差异}
+    \tbox{$$R^\lambda_{\ \mu\alpha\beta} = \Gamma^\lambda_{\ \mu\alpha,\beta} + \Gamma^\rho_{\ \mu\alpha}\Gamma^\lambda_{\ \rho\beta} -[\alpha \leftrightarrow\beta]$$}
+    这是一个让人不愉快的定义，因为如果你手头有很多相关的书，你会发现有些书是按上式定义的，而有些书则相差一个负号。
+
+    \skipline
+    
+    这种不愉快还会延续到对里奇张量(Ricci Tensor)的定义，我们的定义是收缩第一个和最后一个指标：
+    \tbox{$$ R_{\mu\nu} = R^\rho_{\ \mu\nu\rho}$$}
+    而有些书上的定义也相差一个负号(收缩的是第一和第三个指标)。
+
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{物理学家找麻烦的决心}
+    如果上述两次不愉快都发生了，那么两次相差的负号就互相抵消，最后本课程的核心方程——爱因斯坦的引力方程的符号就一致了。
+
+    但如果你觉得所有人都会遵循让爱因斯坦方程一致的游戏规则，那你就太低估物理学家找麻烦的能力了——爱因斯坦方程同样有两种版本，一种是本课程采用的
+    \tbox{$$R^{\mu\nu}-\frac{1}{2}R\,g^{\mu\nu}=8\pi GT^{\mu\nu}$$}
+    另一种右边相差个负号。
+
+    \skiplines
+
+    在爱因斯坦方程里，左边的 $R=R^\alpha_{\ \alpha}$ 是里奇标量(Ricci scalar)，右边的 $G = 6.674 \times 10^{-11}\mathrm{N\,m^2/kg^2} $ 是牛顿万有引力常数， $T^{\mu\nu}$ 是物质的能量动量张量.
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{黎曼张量的协变形式}
+    在讨论二维曲面时，我们曾介绍了协变形式的黎曼张量：
+    \tbox{$$R_{\lambda\mu\alpha\beta} = \Gamma_{\lambda\mu\alpha,\beta}  + \Gamma_{\rho\lambda\alpha}\Gamma^\rho_{\ \mu\beta} - [\alpha\leftrightarrow \beta]$$}
+    下面证明它和前面的定义是一致的：
+    \bea
+    R_{\lambda\mu\alpha\beta} &=&g_{\lambda\nu}R^\nu_{\ \mu\alpha\beta} \newl
+    &=&  g_{\lambda\nu}\Gamma^\nu_{\ \mu\alpha,\beta} + g_{\lambda\nu} \Gamma^\rho_{\ \mu\alpha}\Gamma^\nu_{\ \rho\beta} -[\alpha \leftrightarrow\beta] \newl
+    &=& \Gamma_{\lambda\mu\alpha,\beta} - g_{\lambda\nu,\beta}\Gamma^\nu_{\ \mu\alpha}+ g_{\lambda\nu} \Gamma^\rho_{\ \mu\alpha}\Gamma^\nu_{\ \rho\beta} -[\alpha \leftrightarrow\beta] \newl
+    &=& \Gamma_{\lambda\mu\alpha,\beta} - \left(\Gamma_{\lambda\nu\beta}+\Gamma_{\nu\lambda\beta}\right)\Gamma^\nu_{\ \mu\alpha}+  \Gamma^\rho_{\ \mu\alpha}\Gamma_{\lambda\rho\beta} -[\alpha \leftrightarrow\beta] \newl
+    &=& \Gamma_{\lambda\mu\alpha,\beta} - \Gamma_{\nu\lambda\beta}\Gamma^\nu_{\ \mu\alpha} -[\alpha \leftrightarrow\beta] \newl
+    &=& \Gamma_{\lambda\mu\alpha,\beta} + \Gamma_{\nu\lambda\alpha}\Gamma^\nu_{\ \mu\beta} -[\alpha \leftrightarrow\beta]     
+    \eea
+  \end{frame}
+
+  \begin{frame}
+    下面我们讨论一个特殊的坐标系：
+
+    \addfig{1}{taolunyiyi.jpg}
+    
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{让一点的联络消失的魔术}
+    如果在一个坐标系 $x^\mu$ 下某点 P 的联络为 $\Gamma^\lambda_{\ \mu\nu}(P)$，
+    对在 P 的附近的任意一点 Q，令
+    $$ \tilde{x}^\lambda(Q) = x^\lambda(Q) + \frac{1}{2}\Gamma^\lambda_{\ \mu\nu}(P) [x^\mu(Q)-x^\mu(P)][x^\nu(Q)-x^\nu(P)].$$
+    该映射在 P 点满足 $\frac{\partial \tilde{x}^\mu}{\partial x^\nu} = \delta^\mu_{\ \nu}.$ 求 Jacobbi 矩阵的逆，还能得到 $\frac{\partial x^\mu}{\partial \tilde{x}^\nu} = \delta^\mu_{\ \nu}.$ 另外，
+    $$\frac{\partial^2 \tilde{x}^\lambda}{\partial x^\mu\partial x^\nu} = \Gamma^\lambda_{\ \mu\nu}(P) .$$
+    在P点的联络满足变换式
+    $$ \Gamma^\lambda_{\ \mu\nu}(P) = \frac{\partial^2 \tilde{x}^\beta}{\partial x^\mu\partial x^\nu}\frac{\partial x^\lambda}{\partial\tilde{x}^\beta} + \widetilde{\Gamma}^\rho_{\ \alpha\beta}(P)\frac{\partial x^\lambda}{\partial\tilde{x}^\rho}\frac{\partial\tilde{x}^\alpha}{\partial x^\mu}\frac{\partial\tilde{x}^\beta}{\partial x^\nu} = \Gamma^\lambda_{\ \mu\nu}(P) + \widetilde{\Gamma}^\lambda_{\ \mu\nu}(P).$$
+    也就是在新的 $\tilde{x}^\mu$ 坐标系里，P 点的联络消失了！
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{在魔术坐标系里的黎曼张量}
+    在魔术坐标系里，由于所有的联络在 P 点消失，P 点的黎曼张量满足：
+    \bea
+    && 2R_{\lambda\mu\alpha\beta}\newl
+    &=& 2\Gamma_{\lambda\mu\alpha,\beta} -  2\Gamma_{\lambda\mu\beta,\alpha}\newl
+    &=& g_{\lambda\mu,\alpha,\beta} + g_{\lambda\alpha,\mu,\beta}-g_{\mu\alpha,\lambda,\beta}-g_{\lambda\mu,\beta,\alpha}-g_{\lambda\beta,\mu,\alpha}+g_{\mu\beta,\lambda,\alpha} \newl
+    &=&  g_{\lambda\alpha,\mu,\beta}-g_{\mu\alpha,\lambda,\beta}-g_{\lambda\beta,\mu,\alpha}+g_{\mu\beta,\lambda,\alpha}     
+    \eea
+    于是容易验证:
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{黎曼张量的对称性}
+    \tbox{$$R_{\lambda\mu\alpha\beta}=R_{\alpha\beta\lambda\mu};$$
+      $$R_{\lambda\mu\alpha\beta}=-R_{\lambda\mu\beta\alpha};$$
+      $$R_{\lambda\mu\alpha\beta}=-R_{\mu\lambda\beta\alpha};$$
+      $$R_{\lambda\mu\alpha\beta}+R_{\lambda\alpha\beta\mu}+R_{\lambda\beta\mu\alpha}=0.$$
+    }        
+    由于张量方程在坐标变换下不变，所以这些对称性在任何坐标系成立。
+  \end{frame}
+
+  \begin{frame}
+    在魔术坐标系里到底发生了什么呢？我们仍然以嵌入三维欧氏空间的曲面为例，用 $\vecx$ 来标记三维欧氏空间的矢量。联络
+    $$\Gamma_{\lambda\mu\nu} = \vecx_{,\lambda}\cdot\vecx_{,\mu,\nu}$$
+    全部消失的意思就是所有 $\vecx_{,\mu,\nu}$ 都和曲面上的所有切向量正交。
+
+    
+    也就是说，P 点所有 $\vecx_{,\mu,\nu}$ 或者是零， 或者沿曲面的法向量 $\vecn$ 的方向。{\blue 如果曲面上在 P 点的爬虫采用了这个坐标系，它无法发现空间是弯曲的（切向量的变化都在爬虫看不到的维度里）。}
+
+    \addfig{1}{jiangwei2.jpg}
+    
+    这为我们后面讨论的等效原理埋下了伏笔。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{在魔术坐标系更容易看出来对称性}
+    在魔术坐标系里 P 点的黎曼张量
+    $$ R_{\lambda\mu\alpha\beta}= \Gamma_{\lambda\mu\alpha,\beta} -  \Gamma_{\lambda\mu\beta,\alpha} = \vecx_{,\lambda,\beta}\cdot\vecx_{,\mu,\alpha} - \vecx_{,\lambda,\alpha}\cdot\vecx_{,\mu,\beta}.$$
+    注意所有 $\vecx_{,\rho,\sigma}$ 都可以替换成 $ \vecn\cdot \vecx_{,\rho,\sigma}$，上式把曲面的第二基本形式和黎曼张量联系了起来。从这个表达式也更容易看出黎曼张量的各种对称性。
+  \end{frame}
+
+  \begin{frame}
+    在魔术坐标系里的P点
+    $$2R_{\lambda\mu\alpha\beta;\gamma}  =g_{\lambda\alpha,\mu,\beta}  -g_{\mu\alpha,\lambda,\beta}-g_{\lambda\beta,\mu,\alpha}+g_{\mu\beta,\lambda,\alpha} $$      
+    P点联络消失，可以尽情地用普通微商替代协变微商
+    $$ 2R_{\lambda\mu\alpha\beta;\gamma} = g_{\lambda\alpha,\mu,\beta,\gamma}  -g_{\mu\alpha,\lambda,\beta,\gamma}-g_{\lambda\beta,\mu,\alpha,\gamma}+g_{\mu\beta,\lambda,\alpha,\gamma}$$
+    $$ 2R_{\lambda\mu\beta\gamma;\alpha} = g_{\lambda\beta,\mu,\gamma,\alpha}  -g_{\mu\beta,\lambda,\gamma,\alpha}-g_{\lambda\gamma,\mu,\beta,\alpha}+g_{\mu\gamma,\lambda,\beta,\alpha}$$    
+    $$ 2R_{\lambda\mu\gamma\alpha;\beta} = g_{\lambda\gamma,\mu,\alpha,\beta}  -g_{\mu\gamma,\lambda,\alpha,\beta}-g_{\lambda\alpha,\mu,\gamma,\beta}+g_{\mu\alpha,\lambda,\gamma,\beta}$$    
+    把这三个式子加起来，就得到
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{Bianchi恒等式}
+    \tbox{$$ R_{\lambda\mu\alpha\beta;\gamma} + R_{\lambda\mu\beta\gamma;\alpha} + R_{\lambda\mu\gamma\alpha;\beta} = 0. $$}
+    由于这是个张量方程，所以在一般坐标系也成立。
+    
+    把 $\lambda$ 和 $\beta$ 缩并，以及 $\mu$ 和 $\alpha$ 缩并，得到：
+    $$ R_{;\gamma} - 2R^\alpha_{\ \gamma;\alpha} = 0.$$
+    由于度规的协变微商为零，上式可以写成：
+    $$ \left(R^\alpha_{\ \gamma}-\frac{1}{2}g^\alpha_{\ \gamma}R\right)_{;\alpha} = 0.$$    
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{爱因斯坦张量}
+    或者写成更广为人知的形式
+    {\blue $$ G^{\mu\nu}_{\ \ ;\mu} = 0.$$}    
+    这里的“爱因斯坦张量”定义为
+    {\blue $$ G^{\mu\nu} \equiv R^{\mu\nu}-\frac{1}{2}g^{\mu\nu}R$$}
+    是一个对称张量。
+
+    由于物质能量动量张量守恒 $T^{\mu\nu}_{\ \ ;\mu}=0$，爱因斯坦大胆假设 $G^{\mu\nu}$ 和 $T^{\mu\nu}$ 成正比，得到了著名的爱因斯坦方程。我们下一讲对它进行详细介绍。
+  \end{frame}
+  
+\ech
+\end{document}
+
+
+
+

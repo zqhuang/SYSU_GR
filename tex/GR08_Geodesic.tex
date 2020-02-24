@@ -15,8 +15,98 @@
   
 \end{frame}
 
-\thinkf{一个尽可能走直线的憨憨，一开始处于球面的北纬 $60^\circ$，初始速度往东。TA之后是会保持往东在北纬 $60^\circ$ 的经线上兜圈，还是会走球面的短程线，也就是大圆？}
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{2}{geodesic.jpg}
+
+  如图，假设有一根弹性杆两端固定在碗沿的相对两点上。杆很容易弯曲但很难拉长，怎么尽可能省力地压弹性杆使它贴住碗面？
+
+\end{frame}
+
+
+\begin{frame}
   
+  当碗很深时，结果很不确定（很可能往边上压反而更容易）。但是当碗很浅时，你应该会毫不犹豫地往碗底压杆。
+
+  \addfig{2}{cutgeodesic.jpg}
+
+  抽象地说，如果在曲面上有足够相近的两点 $P,Q$ (距离 $\ll $ 附近的最小曲率半径), 则 $P, Q$ 间的{\blue 短程线的曲率向量和曲面的法向量重合}。也就是说：可以通过$P$, $Q$ 两点作曲面的法平面，法平面在曲面上切出来的曲线即是短程线。
+
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{测地线(geodesic)}
+  把一段段这样的短程线光滑地拼接起来，就可以得到{\blue 测地线(geodesic)}，它的曲率向量处处和曲面的法向量重合。{\scriptsize(请不要跟我杠直线这个特殊情况，让聊天轻松些……)}
+  
+  当然，由一段段局域的短程线拼成的测地线未必是全局的短程线。{\scriptsize（但反过来是成立的：全局的短程线必须是测地线。）}
+
+  \addfig{1}{sphere_geodesic.jpg}
+
+  例如在球面上，连接$A$, $B$两点的红色短弧，和从后面绕过来的灰色长弧都是测地线，显然红色那条才是短程线。
+\end{frame}
+
+
+\begin{frame}
+
+  前面的讨论可能和街边大爷聊天差不多。
+
+  \addfig{2}{dayechat.jpg}
+
+  下面转入稍正经一点论述——
+\end{frame}
+
+
+
+\begin{frame}
+  设曲面坐标为 $(u^1, u^2)$，测地线的弧长参数为 $s$。测地线的单位切矢量 $\vecT$ 的逆变形式为 $\frac{du^i}{ds}$ (请思考为什么)。
+
+  
+  当考察点沿着测地线移动时，由于测地线的密切平面一直保持和曲面垂直，测地线的单位切矢量从三维空间看一直沿着曲面的法向上下摆动。于是生活在曲面上的爬虫完全看不出测地线的单位切矢量 $\vecT$ 在变化。写成数学形式就是 $d\vecT = 0.$ 又根据逆变矢量的协变微分公式：
+
+  $$0 = (d\vecT)^i = d \left(\frac{du^i}{ds}\right) + \Gamma^i_{\ jk}\frac{du^j}{ds} du^k = 0. $$
+  两边同除以 $ds$，即得到{\blue 测地线方程:
+
+  $$\frac{d^2u^i}{ds^2} + \Gamma^i_{\ jk}\frac{du^j}{ds}\frac{du^k}{ds} = 0.$$}
+   
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{自由粒子运动方程即测地线}
+  以后我们讨论四维时空 $(x^0, x^1, x^2, x^3)$ 时，{\blue 测地线方程
+  $$\frac{d^2x^\mu}{ds^2} + \Gamma^\mu_{\ \nu\lambda}\frac{du^\nu}{ds}\frac{dx^\lambda}{ds} = 0.$$
+    描述的是静止量非零的自由粒子的世界线。
+
+
+    像光子这样没有静止质量的粒子的世界线不存在弧长参数，要用 $ds^2=0$，也就是 $g_{\mu\nu}dx^\mu dx^\nu=0$ 来描述}。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{最后我们来证明测地线的长度取到稳定值，即变分为零}
+  设曲线弧长参数为 $s$，则曲线的长度积分为
+  $$ \int ds = \int g_{ij}\frac{du^i}{ds}\frac{du^j}{ds}  ds = \int L ds.$$
+  这里的拉氏量
+  $$L = g_{ij}\frac{du^i}{ds}\frac{du^j}{ds} .$$
+  对 $u^k$ 运用 欧拉-拉格朗日方程
+  $$\frac{d}{ds}\left(2g_{jk}\frac{du^j}{ds}\right) = g_{ij, k}\frac{du^i}{ds}\frac{du^j}{ds}.$$
+  展开左边的微分，并两边乘以 $\frac{1}{2}g^{ik}$，稍加整理即可得到测地线方程（需用到联络的计算公式）。
+\end{frame}
+
+
+\begin{frame}
+
+  这是我们学过的变分法吗？
+  
+  \addfig{1}{blackq.jpg}
+  
+  我不大清楚上面这段证明最早源自何处，总之它让我困惑了很多年……
+\end{frame}
 
 
 \ech
