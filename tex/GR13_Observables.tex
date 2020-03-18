@@ -1,0 +1,118 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{13}{Observables}
+
+
+  \begin{frame}
+    \frametitle{等效原理：局域观测者（几乎）无法确定自己是不是在惯性系里}
+    我们之前提到，在时空任何一个物理点都可以建立一个坐标系使得该点的联络全部消失。那么，实际上我们总可以在局域取一个近似到一阶的 Minkowski坐标系，也就是说在考察的物理点 $g_{\mu\nu} = \eta_{\mu\nu}$，且所有 $g_{\mu\nu}$ 的一阶偏导数消失。
+
+
+    \skiplines
+    
+    根据爱因斯坦方程，度规的二阶导数的量级是 $G\rho$ （即万有引力常数和附近典型的能量密度的乘积）的量级。那么在尺度为 $L$ 的范围里，度规对 Minkowski 度规的偏离不超过
+$\sim G\rho L^2$ 的量级。对普通的密度在水的密度附近，$L$ 在米的量级的情况下，这个偏离度大致为 $10^{-24}$!  
+  \end{frame}
+  
+
+  \begin{frame}
+    \frametitle{脑筋急转弯}
+    有一天你玩密室逃脱游戏
+    
+    \addfig{2}{mishitaotuo.jpg}
+    
+    看到另一张纸条后，你立刻退出了游戏。请问那张纸条上写着什么？
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{局域的Minkowski标架}
+    假设在四维坐标 $x^\mu$ 附近，一个观测者具有四维速度 $u^\mu = \frac{dx^\mu}{ds}$。我们希望找一个局域的 Minkowski 标架，使得时间轴和 $u^\mu$ 重合（时间轴即是观测者的世界线）。
+
+    \skipline
+
+    记局域 Minkowski 标架的四个基矢（客观物理对象）在原坐标系的逆变形式为 $e_{O}^\mu , e_{I}^\mu, e_{II}^\mu, e_{III}^\mu$。我们用 $O, I, II, III$ 来标记局域 Minkowski标架的四个基矢，并用大写指标变量$J,K,L\ldots$ 来代表局域标架的指标，以免和原坐标系里张量指标混淆。
+
+    显然，
+    $$e_O^\mu = u^\mu$$
+    且正交条件给出
+    $$ g_{\mu\nu} e_J^\mu e_K^\nu = \eta_{JK}$$
+    这里的 $\eta$ 是 Minkowski 度规。
+  \end{frame}
+
+  
+  \begin{frame}
+    \frametitle{正交条件}
+    为了书写方便，我们还可以定义符号 
+    $$ e^J \equiv \eta^{JK}e_K$$
+    这样容易验证
+    {\blue $$ e^J_\mu e^\mu_K = \delta^J_K$$}
+  \end{frame}
+  
+
+  \begin{frame}
+    \frametitle{完备条件}
+    任何矢量 $A^\mu$ 可以在局域Minkowski标架分解为
+    $$ A^\mu = (A^\nu e_\nu^J)e_J^\mu $$
+    这说明
+    {\blue $$ e_J^\mu e^J_\nu = \delta^\mu_\nu$$}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{下面我们来完成上一讲留下的作业}
+    理想流体的能量动量张量
+    $$T^{\mu\nu} = (\rho+p)u^\mu u^\nu - p g^{\mu\nu}$$
+    我们来把 $T^{\mu\nu}$ 投影到以 $u^\mu$ 运动的观测者的局域 Minkowski 标架:
+
+    \bea
+    T^{JK} &=& T^{\mu\nu} e^J_\mu e^K_\nu \newl
+    &=& \left[(\rho+p)u^\mu u^\nu - p g^{\mu\nu}\right] e^J_\mu e^K_\nu \newl
+    &=& \left[(\rho+p)e_O^\mu e_O^\nu - p g^{\mu\nu}\right] e^J_\mu e^K_\nu \newl    
+    &=& (\rho+p)\delta^J_0\delta^K_0 - p\eta^{JK}
+    \eea
+    显然上面的结果给出 $\diag(\rho, p, p, p)$
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{有件很重要的事情忘了说}
+    \bcenter
+        {\blue 局域的 Minkowski 标架 $\ne$ 局域惯性系}
+
+        \skipline
+        
+        要想清楚这件事可就有点费脑子了。
+
+    \skipline
+
+    但是不怕，……
+    
+    \lfig{1}{naozi.jpg}
+    \ecenter
+
+    
+  \end{frame}
+  
+
+
+  \begin{frame}
+    \frametitle{如果你脑子没有丝毫凌乱}
+
+    恭喜，你的GR已经入门，剩下的只是些技巧的磨练了。
+
+    \addfig{1.5}{lingluan.jpg}
+    
+  \end{frame}
+  
+  
+\ech
+\end{document}
+
+
+
+
+  

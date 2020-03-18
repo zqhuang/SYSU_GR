@@ -1,0 +1,247 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{11}{Action Principle and Einstein Equations}
+
+  \begin{frame}
+    \frametitle{来来来做个测试}
+
+    当我说Action，你脑海中浮现出来的是？
+
+    \skiplines
+
+    \lfig{4}{actions.jpg}
+
+  \end{frame}
+
+
+  \secpage{四维时空中的测试粒子}{$$ S = -\int (m + U)ds $$}
+
+  
+  \begin{frame}
+    \frametitle{测试粒子(test particle)的作用量(Action)}
+    假设四维时空中有个静止质量为 $m$，势能函数为 $U(x)$ (这里的 $x$ 是四维时空坐标)的测试粒子（即假设它对时空和势能函数的反作用可以忽略），其作用量为
+    \tbox{$$ S = -\int (m + U)ds $$}
+    这里 $s$ 为四维弧长变量(即粒子的固有时)。积分沿着粒子的世界线进行。
+
+  \end{frame}
+
+  \begin{frame}
+    我们有很充分的理由相信上述作用量是正确的，因为这样：
+    \bitem
+  \item{$U\equiv 0$ 的情况：自由粒子的世界线是四维时空的测地线。}
+  \item{在Minkowski空间，以低速 $\upsilon$ 运动，且 $|U|\ll m$ 的情形，
+    \bea
+    S &=& -\int (m+U) \frac{ds}{dt}dt \newl
+    &=& -\int (m+U)\sqrt{1-\upsilon^2} dt \newl
+    &\approx & \int (m+U)\left(\frac{1}{2}\upsilon^2-1\right) dt \newl
+    &\approx & \int \left(\frac{1}{2}m\upsilon^2 - U - m\right) dt     
+    \eea
+    计算中我们忽略了高阶小量 ($O(\upsilon^4)$ 和 $O(U\upsilon^2)$的项）。
+  }
+    \eitem
+  \end{frame}
+
+
+  \begin{frame}
+    在 $U$ 不恒为常数的情况下，粒子的运动方程可以通过作用量原理推导出来。
+
+    令  $t=x^0$，把Action写成
+    $$ S = -\int(m+U)\sqrt{g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}} dt.$$
+    然后对 $x^\mu$ 写出欧拉-拉格朗日方程
+    $$\frac{d}{dt}\left[(m+U)\frac{g_{\mu\nu}\frac{dx^\nu}{dt}}{\sqrt{g_{\mu\nu}\frac{dx^\mu}{dt}\frac{dx^\nu}{dt}}}\right] = U_{,\mu}\sqrt{g_{\alpha\beta} \frac{dx^\alpha}{dt}\frac{dx^\beta}{dt}}+\frac{(m+U)g_{\alpha\beta,\mu} \frac{dx^\alpha}{dt}\frac{dx^\beta}{dt}}{2\sqrt{g_{\alpha\beta} \frac{dx^\alpha}{dt}\frac{dx^\beta}{dt}}} $$
+    把上式中 $\sqrt{g_{\alpha\beta} \frac{dx^\alpha}{dt}\frac{dx^\beta}{dt}}$ 替换为 $\frac{ds}{dt}$，即可得到：
+    {\blue $$\frac{d}{ds}\left[(m+U)g_{\mu\nu}\frac{dx^\nu}{ds}\right] = U_{,\mu} + \frac{1}{2}(m+U)g_{\alpha\beta,\mu}\frac{dx^\alpha}{ds}\frac{dx^\beta}{ds}. $$    }
+
+  \end{frame}
+
+
+  \begin{frame}
+    把左边展开，并两边除以 $(m+U)$,得到
+    $$ g_{\mu\nu}\frac{d^2x^\nu}{ds^2}+\frac{1}{m+U}\frac{dU}{ds}g_{\mu\nu}\frac{dx^\nu}{ds} + g_{\mu\nu,\rho}\frac{dx^\rho}{ds}\frac{dx^\nu}{ds} = \frac{U_{,\mu}}{m+U} + \frac{1}{2}g_{\alpha\beta,\mu}\frac{dx^\alpha}{ds}\frac{dx^\beta}{ds}$$
+    注意左边最后一项的求和指标可以换成 $\alpha,\beta$，即
+    $$ g_{\mu\nu,\rho}\frac{dx^\rho}{ds}\frac{dx^\nu}{ds} = \frac{1}{2}\left(g_{\mu\alpha,\beta}+g_{\mu\beta,\alpha}\right)\frac{dx^\alpha}{ds}\frac{dx^\beta}{ds}.$$
+    代入上式，并利用 $\Gamma_{\mu\alpha\beta} =  \frac{1}{2}\left(g_{\mu\alpha,\beta}+g_{\mu\beta,\alpha}-g_{\alpha\beta,\mu}\right)$，整理得到
+    $$ g_{\mu\nu}\frac{d^2x^\nu}{ds^2}+\frac{1}{m+U}\frac{dU}{ds}g_{\mu\nu}\frac{dx^\nu}{ds} + \Gamma_{\mu\alpha\beta}\frac{dx^\alpha}{ds}\frac{dx^\beta}{ds} = \frac{U_{,\mu}}{m+U} $$
+    
+    两边同乘以 $g^{\lambda\mu}$，得到任意弯曲时空的“牛顿第二定律”：{\blue
+    $$ \frac{d^2x^\lambda}{ds^2}+\frac{1}{m+U}\frac{dU}{ds}\frac{dx^\lambda}{ds} + \Gamma^\lambda_{\ \alpha\beta}\frac{dx^\alpha}{ds}\frac{dx^\beta}{ds} = \frac{U^{,\lambda}}{m+U} $$}
+  \end{frame}
+  
+
+  \begin{frame}
+    利用 $\frac{dU}{ds} = U_{,\alpha}\frac{dx^\alpha}{ds}$，上面的结果也可以写成：{\blue
+      $$ \frac{d^2x^\lambda}{ds^2}+\frac{dx^\alpha}{ds}\left(\frac{U_{,\alpha}}{m+U}\frac{dx^\lambda}{ds} + \Gamma^\lambda_{\ \alpha\beta}\frac{dx^\beta}{ds}\right) = \frac{U^{,\lambda}}{m+U} $$}
+    在非相对论极限，静态势能，以及 $|U|\ll m$的假设下，保留到最低阶近似，
+    $$\frac{d^2x^i}{dt^2} = \frac{U^{,i}}{m}$$
+    注意 $U^{,i}=-U_{,i}$ 等价于粒子受力，所以上式即是牛顿第二定律。
+     
+    \skipline
+    
+    {\scriptsize 上述推导中令 $U=0$，就得到测地线方程正确推导过程。在测地线那一讲给出的“伪证明”其实并不成立：现在你可以把那个（错误的）方法应用到有势能的情况，得到明显错误结果（非相对论极限和牛顿第二定律不符）。从而证明不是我们的理解力有问题，而是确实证明方法错了。}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{思考题}
+    在幼儿园学习牛顿力学里面的“势能”的时候，我们说粒子的静止质量是有绝对大小的，而势能的零点可以随便选取。
+
+    \addfig{0.5}{think2.jpg}
+    
+    现在我们看到，$m+U$ 的绝对大小会影响粒子的运动方程。试讨论这个结果蕴涵的物理意义。
+  \end{frame}
+
+
+  \secpage{四维体积元}{$$\sqrt{-g}d^4x$$ }
+
+  \begin{frame}
+    \frametitle{四维体积元}
+    在讨论曲面的时候，设 $g$ 为度规矩阵，我们证明了 $\sqrt{\det g} du^1du^2$ 是曲面上的面积元(参考第3讲第5页)。面积元是个客观物理对象，所以在坐标变换下是不变的。
+
+    \skiplines
+
+    这个结论可以推广到任意维空间。特别地，在四维时空，$\sqrt{\det g} dx^0dx^1dx^2dx^3$ 是四维时空坐标变换下的不变量。
+
+    \skipline
+    
+    但是，因为一般来说 $\det g <0$ (毕竟我们生活的时空很接近 Minkowski 时空)，我们又不希望计算时总是带着个虚数单位 $i$，所以我们把 {\blue $\sqrt{-\det g} dx^0dx^1dx^2dx^3$ （它当然也是坐标变换下的不变量）叫做四维时空的体积元}。
+
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{四维体积元}    
+    今后我们会把四维时空对体积元的积分写成
+    $$\int \ldots \sqrt{-g}d^4x.$$
+    这里 $g$ 是 $\det g$ 的 简写，$d^4x$ 是 $dx^0dx^1dx^2dx^3$ 的简写。我还很偷懒地只用一个积分符号 $\int$ 而不是 $\iiiint$ 来表示四维时空的积分。
+
+    \addfig{1.5}{lan.jpg}
+
+  \end{frame}    
+
+
+  \begin{frame}
+    \frametitle{四维散度的物理表述形式}
+    \addfig{0.5}{think5.jpg}
+    
+    设 $V^\mu$ 是任意矢量场，试说明下面的公式的物理意义：
+
+    $$V^\mu_{\ \ \ ;\mu} = \frac{\left(\sqrt{-g}V^\mu\right)_{,\mu}}{\sqrt{-g}} $$
+  \end{frame}    
+  
+  \secpage{爱因斯坦方程}{$$G_{\mu\nu} = 8\pi G T_{\mu\nu}$$}
+  
+  \begin{frame}
+    \frametitle{爱因斯坦方程}
+    我们准备跳过老爱发现他的方程的精彩历史（毕竟随便翻开一本GR的书都能找到），直接采用最简单粗暴的作用量原理和变分法来给出爱因斯坦方程
+    \tbox{$$ G_{\mu\nu} = 8\pi G T_{\mu\nu}$$}
+    这样做的好处是
+    \bitem
+  \item[1]{可以学到一些构建超出广义相对论的引力理论的技巧。}
+  \item[2]{理解 $T_{\mu\nu}$ 的最严谨定义，遇到新问题时能自己推导 $T_{\mu\nu}$ 。}
+  \item[3]{坚决不把幼儿园学的理论力学还给老师}
+    \eitem
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{Einstein-Hilbert Action}
+    广义相对论假设时空连同时空内的物质的作用量为：
+    $$ S = \int \left(\mathcal{L}_m -\frac{R}{16\pi G}\right) \sqrt{-g} d^4x $$
+    这里的$G$ 是引力常数，$R$ 是 Ricci 标量，标量$\mathcal{L}_m$ 是物质的四维作用量密度，也就是单位四维体积内的作用量。
+
+    {\scriptsize 如果你对 Ricci 张量采用相反的符号约定，请把 $R$ 前面的负号改为加号。}
+
+    \skipline
+
+    要格外注意的是，除了 $R$ 和 $g$ 明显地依赖于度规矩阵之外，一般 $\mathcal{L}_m$ 也依赖于度规矩阵。因为物质的作用量一般要涉及物质场的四维梯度或者粒子的四维速度，要把这些矢量收缩为标量，势必要用到度规。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{$\sqrt{-g}$的变分}
+    对任何满秩的实对称矩阵 $A$，利用行列式是所有本征值的乘积，显然有
+    $$\ln (\det A) = \mathrm{Tr}\left(\ln A\right).$$
+    这里 $Tr$ 是取迹的意思。于是两边取变分
+    $$ \frac{\delta \det A}{\det A} = \mathrm{Tr}\left(A^{-1}\delta A\right).$$
+    让 $A$ 为逆变度规矩阵 $g^{\mu\nu}$ ，即有
+    $$ -\frac{\delta \det g}{\det g} = g_{\mu\nu}\delta g^{\mu\nu}.$$
+    仍然把 $\det g$ 简写为 $g$，
+   {\blue $$ \delta \sqrt{-g} = -\frac{\sqrt{-g}}{2} g_{\mu\nu}\delta g^{\mu\nu}.$$}
+  \end{frame}
+  
+
+  \begin{frame}
+    \frametitle{ $\mathcal{L}_m$ 的变分}
+    我们采用类 $+---$ 的度规习惯，这样物质的能量动量张量 $T_{\mu\nu}$ 定义为
+    \tbox{$$T_{\mu\nu}\equiv 2 \frac{\delta \mathcal{L}_m}{\delta g^{\mu\nu}}-g_{\mu\nu}\mathcal{L}_m.$$}
+    这样写的好处是可以一眼看出它是个张量。
+
+    {\scriptsize 如果你采用 $-+++$ 的度规习惯，那么上面 $T_{\mu\nu}$ 的定义式要多个负号。}
+
+    \skiplines
+    
+    容易利用 $\sqrt{-g}$ 的变分以及上式验证，
+    {\blue $$\delta \left(\sqrt{-g}\mathcal{L}_m \right) = \frac{\sqrt{-g}}{2}T_{\mu\nu}\delta g^{\mu\nu}.$$}
+    上式当然也能用来做定义，但这样 $T_{\mu\nu}$ 的张量性就不那么明显了。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{$R$ 的变分}
+    $$\delta R = R_{\mu\nu}\delta g^{\mu\nu} + g^{\mu\nu}\delta R_{\mu\nu}$$
+    右边第二项的计算量能要了大多数手滑党的老命（包括老爱当年都凉了……还得靠数学巨佬 Hilbert 出场）。
+
+
+    \skiplines
+    
+    但其实有个取巧的办法——
+
+    \addfig{1}{Hilbert.jpg}
+  \end{frame}
+  
+
+  \begin{frame}
+    利用
+    $$R_{\mu\nu} = R^\lambda_{\ \ \mu\nu\lambda} = \Gamma^\lambda_{\ \ \mu\nu,\lambda}+ \Gamma^\lambda_{\ \ \rho\lambda}\Gamma^\rho_{\ \ \mu\nu}-\Gamma^\lambda_{\ \ \mu\lambda,\nu}- \Gamma^\lambda_{\ \ \rho\nu}\Gamma^\rho_{\ \ \mu\lambda}$$
+    有
+    {\scriptsize
+      $$\delta R_{\mu\nu} = \delta \Gamma^\lambda_{\ \ \mu\nu,\lambda}+ \delta\Gamma^\lambda_{\ \ \rho\lambda}\Gamma^\rho_{\ \ \mu\nu}+\Gamma^\lambda_{\ \ \rho\lambda}\delta \Gamma^\rho_{\ \ \mu\nu}-\delta \Gamma^\lambda_{\ \ \mu\lambda,\nu}- \delta\Gamma^\lambda_{\ \ \rho\nu}\Gamma^\rho_{\ \ \mu\lambda}-\Gamma^\lambda_{\ \ \rho\nu}\delta\Gamma^\rho_{\ \ \mu\lambda}$$}
+    容易直接验证，上式可以写成：
+    {\blue $$\delta R_{\mu\nu} = \left(\delta \Gamma^\lambda_{\ \ \mu\nu}\right)_{;\lambda} -\left(\delta \Gamma^\lambda_{\ \ \mu\lambda}\right)_{;\nu}$$}
+    {\scriptsize     注意到虽然联络不是张量，但联络的变分（即同一坐标系的两种度规对应的 Cristoffel 联络之差）是张量，所以可以求协变导数。}
+
+    再利用度规的协变导数为零，有
+    $$g^{\mu\nu}\delta R_{\mu\nu} = \left(g^{\mu\nu}\delta \Gamma^\lambda_{\ \ \mu\nu}\right)_{;\lambda} -\left(g^{\mu\nu}\delta \Gamma^\lambda_{\ \ \mu\lambda}\right)_{;\nu}$$
+    根据Stokes定理，四维散度的体积分可以写成边界项，没有变分贡献。所以，第二项直接扔掉就完了！
+  \end{frame}
+  
+
+  \begin{frame}
+    \frametitle{爱因斯坦方程}
+    于是最后总作用量的变分就可以写成：
+    \bea
+    && \delta S \newl
+    &=& \int d^4x \left[ \delta \left(\sqrt{-g}\mathcal{L}_m\right) - \frac{1}{16\pi G}\delta \left(\sqrt{-g}R\right)\right] \newl
+    &=& \int d^4 x \left[\frac{\sqrt{-g}}{2}T_{\mu\nu}\delta g^{\mu\nu}  - \frac{1}{16\pi G} \left(\sqrt{-g}\delta R + R\delta\sqrt{-g}\right)\right] \newl
+      &=& \int d^4 x \left[\frac{\sqrt{-g}}{2}T_{\mu\nu}  - \frac{1}{16\pi G} \left(\sqrt{-g}R_{\mu\nu} - R\frac{\sqrt{-g}}{2} g_{\mu\nu}\right)\right] \delta g^{\mu\nu} \newl
+        &=& \int d^4x \frac{\sqrt{-g}}{16\pi G}\left(8\pi GT_{\mu\nu} - G_{\mu\nu}\right)\delta g^{\mu\nu}
+    \eea
+    由 $\delta S=0$ 即得到爱因斯坦方程 $ G_{\mu\nu} = 8\pi GT_{\mu\nu} $。
+  \end{frame}
+
+
+  \begin{frame}
+    \addfig{2.5}{Hilbert2.jpg}
+  \end{frame}
+  
+\ech
+\end{document}
+
+
+
+
+  

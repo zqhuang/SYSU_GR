@@ -1,19 +1,17 @@
 #sample code: calculation of connection, Riemann tensor and Gaussian curvature (if dim=2)
+#----------by Zhiqi Huang--for the course ''General Relativity''-------------
+
 import sympy as sym
 sym.init_printing()
 
 dim = 2
 
-#coordinates theta and phi
 u = sym.symarray('u',dim)
 
-#r = sym.symbols('r')
-#gdown = sym.diag( 1, -u[0]**sym.Rational(2,3) )
-#gdown = sym.diag( r**2, r**2*sym.sin(u[0])**2 )
-gdown = sym.diag( 1, sym.sin(u[0])**2 )
-#gdown = sym.diag(1, sym.cosh(2*u[0]))
-#gdown = sym.diag(1, sym.exp(u[0]))
-#gdown = sym.diag(1/u[0]**2, 1/u[0]**2)
+r = sym.symbols('r')
+gdown = sym.diag( r**2, r**2*sym.sin(u[0])**2 )
+#gdown = sym.diag( 1, sym.sin(u[0])**2 )
+#gdown = sym.diag(1, sym.exp(2*u[0]))
 #gdown = sym.diag(1/(1+u[0]**2+u[1]**2),1/(1+u[0]**2+u[1]**2))
 #gdown = sym.diag(1/(1+u[0]**2+u[1]**2)**2,1/(1+u[0]**2+u[1]**2)**2)
 #gdown = sym.Matrix([[1/(u[0]**2+u[1]**2+1), 1/(u[0]**2+u[1]**2+1)/2],[1/(u[0]**2+u[1]**2+1)/2, 1/(u[0]**2+u[1]**2+1)]])
@@ -98,7 +96,7 @@ if(dim==2):
     K= Gaussian_curvature()
     print(K)
     print("--------Gaussian Curvature at (0, 0)----")    
-    print(K.subs(u[0],0).subs(u[1],0).evalf())
+    print(K.subs(u[0],0).subs(u[1],0))
 
 
             

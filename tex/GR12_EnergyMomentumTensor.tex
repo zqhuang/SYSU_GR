@@ -1,0 +1,187 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{12}{Energy Momentum Tensor}
+
+
+  \begin{frame}
+    \frametitle{{\blue 物质} 的 {\blue 能量} {\blue 动量} {\blue 张量}}
+
+    \addfig{1}{blackq.jpg}
+    
+    这四个词我都知道是什么意思，但合在一起……
+  \end{frame}
+
+  \secpage{关于符号的一点点疑惑}{学广义相对论最难搞清楚的不是指标，而是正负号}
+
+  \begin{frame}
+    上一讲我们给出了能量动量张量的定义：
+    \tbox{$$T_{\mu\nu} = 2\frac{\delta \mathcal{L}_m}{\delta g^{\mu\nu}} -g_{\mu\nu}\mathcal{L}_m$$}
+    或者等价地
+    \tbox{$$T_{\mu\nu} = \frac{2}{\sqrt{-g}}\frac{\delta \left(\sqrt{-g}\mathcal{L}_m\right)}{\delta g^{\mu\nu}} $$}    
+  \end{frame}
+
+
+  \begin{frame}
+    我们也可以以逆变的形式定义：
+    \tbox{$$T^{\mu\nu} = -2\frac{\delta \mathcal{L}_m}{\delta g_{\mu\nu}} -g^{\mu\nu}\mathcal{L}_m$$}
+    或者等价地
+    \tbox{$$T^{\mu\nu} = -\frac{2}{\sqrt{-g}}\frac{\delta \left(\sqrt{-g}\mathcal{L}_m\right)}{\delta g_{\mu\nu}} $$}        
+    这里的各种负号让你困惑了吗？
+  \end{frame}
+    
+  \begin{frame}
+    我们先来看一个恒等式：
+    $$ g^{\mu\rho}g_{\rho\lambda} = g^{\mu}_{\ \lambda}$$
+    两边取变分，右边是个常数，变分为零，所以
+    $$ \delta g^{\mu\rho}g_{\rho\lambda}+g^{\mu\rho}\delta g_{\rho\lambda} = 0 $$
+    两边同乘以 $g^{\nu\lambda}$，并把第二项移到方程右边，得到
+    \tbox{$$ \delta g^{\mu\nu} = - g^{\mu\rho}g^{\nu\lambda}\delta g_{\rho\lambda}$$}
+    类似地可以得到
+    \tbox{$$ \delta g_{\mu\nu} = - g_{\mu\rho}g_{\nu\lambda}\delta g^{\rho\lambda}$$}    
+  \end{frame}
+
+
+  \begin{frame}
+    也就是说：
+    
+    {\blue $\delta g_{\mu\nu}$ 和 $\delta g^{\mu\nu}$ 之间可以进行指标升降，但要多个负号。}
+
+    于是有
+
+    \bea
+    \delta \mathcal{L}_m &=& f_{\mu\nu}\delta g^{\mu\nu} \newl
+    &=& f^{\alpha\beta}g_{\alpha\mu}g_{\beta\nu}\delta g^{\mu\nu} \newl
+    &=& -f^{\alpha\beta}\delta g_{\alpha\beta}
+    \eea
+    这里的 $f_{\mu\nu} = \frac{1}{2}\left(T_{\mu\nu}+g_{\mu\nu}\mathcal{L}_m\right)$。
+
+    然后就有
+    \bea
+    T^{\alpha\beta} &=& 2 f^{\alpha\beta}  - g^{\alpha\beta}\mathcal{L}_m \newl
+    &=& -2\frac{\delta\mathcal{L}_m}{\delta g_{\alpha\beta}} - g^{\alpha\beta}\mathcal{L}_m 
+    \eea
+    
+  \end{frame}
+
+  
+  \begin{frame}
+    \bcenter
+    \lfig{1}{chulecai.jpg}
+    
+    这种数学推导除了让本喵更迷惑之外毫无用处……
+    \ecenter
+  \end{frame}
+
+
+  \secpage{一个奇怪的标量}{长这么丑竟然也是……}
+
+  \begin{frame}
+    我们把四维坐标 $x^\mu$ 分离为 $t=x^0$ 和 $\vecx=(x^1,x^2,x^3)$ （注意这里的 $\vecx$ 只具有数学意义，不代表客观物理矢量），试说明
+    设某静止质量为 $m$ 的粒子的世界线方程为 $\vecx = \vecy(t)$，四维动量为 $p^\mu=m\frac{dx^\mu}{ds}$ ($ds=\sqrt{g_{\mu\nu}dx^\mu dx^\nu}$是弧长参数)。试说明    
+    $$\frac{\delta^{(3)}(\vecx-\vecy)}{p^0\sqrt{-g}}$$
+    是标量，这里的 $\delta^{(3)}(\vecx-\vecy)$ 是（数学意义上的）三维Dirac函数。
+
+    \addfig{1.5}{choubiaoliang.jpg}
+  \end{frame}
+  
+  \secpage{一个粒子的$T_{\mu\nu}$}{$$ T^{\mu\nu} =  p^\mu p^\nu \frac{\delta^{(3)}\left(\vecx - \vecy\right)}{p^0\sqrt{-g}}$$}
+  
+  \begin{frame}
+    \frametitle{粒子的 $T^{\mu\nu}$}    
+    一个质量为 $m$ 的自由粒子，我们不妨称之为Bob，它有作用量
+    $$ S_m = -m \int ds $$
+    积分沿粒子的世界线进行，$s$ 为弧长参数。
+
+    \skipline
+
+    假设 Bob 的世界线用时间坐标 $t=x^0$ 描述为 $y^\mu(t)$，其四维动量为 $p^\mu = m\frac{dx^\mu}{dt}$，
+    $$ S_m = -m \int \sqrt{g_{\mu\nu}\left(y(t)\right) \frac{dy^\mu}{dt}\frac{dy^\nu}{dt}}dt$$
+    把粒子的四维动量记作 $p^\mu$，上式可以写成
+    $$ S_m = - m\int \sqrt{g_{\mu\nu}\left(y(t)\right) p^\mu p^\nu}\frac{dt}{p^0}$$
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{粒子的 $T^{\mu\nu}$（续）}    
+    利用三维 $\delta$ 函数，Bob的作用量可以写成：
+    $$ S_m = - m\int \sqrt{g_{\mu\nu}\left(x\right)p^\mu p^\nu} \frac{\delta^{(3)}\left(\vecx - \vecy\right)}{p^0}d^3\vecx dt$$
+    把这个式子河蟹一下：
+    $$ S_m = - m\int \sqrt{g_{\mu\nu}\left(x\right)p^\mu p^\nu} \frac{\delta^{(3)}\left(\vecx - \vecy\right)}{p^0\sqrt{-g}} \sqrt{-g} d^4x$$
+    于是 $\mathcal{L}_m = -  m\sqrt{g_{\mu\nu}\left(x\right)p^\mu p^\nu} \frac{\delta^{(3)}\left(\vecx - \vecy\right)}{p^0\sqrt{-g}}$.
+    
+    {\scriptsize 要说明一下，这里四维坐标系是给定的，作用量里采用的广义坐标是对应于每一个 $t$ 的 $y^\mu(t)$，以及对应于每一个四维点 $x$ 的 $g_{\mu\nu}(x)$。我们曾经固定$g_{\mu\nu}$，变动 $y^\mu(t)$，推导了粒子的运动方程；现在我们固定 $y^\mu(t)$，变动 $g_{\mu\nu}$，来推导爱因斯坦方程里的 $T^{\mu\nu}$（如果你要推导完整的爱因斯坦方程，当然需要把依赖于 $g_{\mu\nu}$ 的时空作用量加进来一起做变分）。}    
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{粒子的 $T^{\mu\nu}$（续）}
+    最后，
+
+    \bea
+    T^{\mu\nu} &=& -\frac{2}{\sqrt{-g}}\frac{\delta\left(\sqrt{-g}\mathcal{L}_m\right)}{\delta g_{\mu\nu}} \newl
+    &=& m\frac{p^\mu p^\nu}{ \sqrt{g_{\mu\nu}\left(x\right)p^\mu p^\nu}} \frac{\delta^{(3)}\left(\vecx - \vecy\right)}{p^0\sqrt{-g}}
+    \eea
+    由于已经对 $g_{\mu\nu}$ 取完了变分，我们可以取 $g_{\mu\nu}$ 为“该取的值”了，也就是有 $g_{\mu\nu}p^\mu p^\nu = p^\mu p_\mu = m^2$ ，{\blue 最后我们得到单粒子的能量动量张量：
+   $$ T^{\mu\nu} =  p^\mu p^\nu \frac{\delta^{(3)}\left(\vecx - \vecy\right)}{p^0\sqrt{-g}}$$}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{粒子的 $T^{\mu\nu}$（续）}
+    如果某四维点 $x$ 附近，有一堆粒子作{\blue 统计上各向同性的随机运动}，则
+    $$T^{0i} \propto \sum p^i = 0$$
+    且
+    $$T^{ij} \propto \sum p^i p^j \propto \delta^{ij}$$
+    即能量动量张量是对角矩阵，且 $T^{11}=T^{22}=T^{33}$。
+
+
+    \skipline
+    
+    和平直时空的非相对论理想气体比较，我们可以把 $T^{00}$ 叫做能量密度，把 $T^{11}=T^{22}=T^{33}$ 叫做压强。
+
+  \end{frame}
+  
+
+  \secpage{理想流体的 $T^{\mu\nu}$}{$$T^{\mu\nu} = (p+\rho)u^\mu u^\nu - p g^{\mu\nu}$$}
+
+  \begin{frame}
+    \frametitle{理想流体的 $T^{\mu\nu}$}
+    “理想流体”的每一个四维时空点 $x$ 都有一个“宏观速度” $u^\mu(x)$，和流体宏观速度共动的观测者看到附近的流体是各向同性的。流体的实质当然是一堆有微观随机运动的粒子，所以流体的共动参照系里流体的能量动量张量为：
+    \be
+    \left.\tilde{T}^{\mu\nu}\right\vert_{\rm comoving} = \begin{pmatrix}
+      \rho & 0 & 0 & 0 \\
+      0 & p & 0 & 0 \\
+      0 & 0 & p & 0 \\
+      0 & 0 & 0 & p      
+    \end{pmatrix}
+    \ee
+    这里的 $\rho$ 是能量密度，$p$ 是压强（均指共动参考系里观测到的）。
+  \end{frame}
+
+  
+  
+  \begin{frame}
+    \frametitle{理想流体的 $T^{\mu\nu}$}    
+    转换到原先的参照系，我们先给结论： 理想流体的能量动量张量是
+     \tbox{$$T^{\mu\nu} =  (\rho+p)u^\mu u^\nu - p g^{\mu\nu}$$}
+    {\scriptsize 如果你采用 $-+++$ 度规符号习惯，上面的右边第二项的减号要变成加号。}
+
+    \skiplines
+
+     如何证明这个 $T^{\mu\nu}$ 在共动参考系里具有 $\diag(\rho, p, p, p)$ 的形式呢？下一讲我们将详细讨论观测量的问题。
+  \end{frame}
+
+
+  
+  
+  
+\ech
+\end{document}
+
+
+
+
+  

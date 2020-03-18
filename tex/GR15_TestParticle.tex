@@ -1,0 +1,238 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{15}{Test Particle in Schwarzschild Metric}
+
+  \begin{frame}
+    这一讲我们讨论 \sout{地球为什么绕着太阳转} Schwarzschild 度规下的测试粒子的运动。
+
+    \addfig{2}{solar.jpg}
+    
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{守恒动量}
+    \addfig{0.5}{think0.jpg}
+
+    设度规的协变形式不依赖于某个坐标分量 $x^\alpha$，即 $g_{\mu\nu,\alpha}=0$ 处处成立，证明沿测地线运动的自由粒子的四维动量的协变分量 $p_\alpha$ 守恒。
+
+  \end{frame}
+
+
+  \secpage{史瓦西度规里的测试粒子的基本方程}{$$\theta=\frac{\pi}{2}$$
+    $$p_t=E$$
+    $$p_\phi = L$$
+    $$p^\mu p_\mu = m^2$$
+  }
+
+  \begin{frame}
+    考虑在史瓦西度规
+    $$ ds^2 = \left(1-\frac{2GM}{r}\right)dt^2 - \left(1-\frac{2GM}{r}\right)^{-1} dr^2 - r^2\left(d\theta^2 + \sin^2\theta d\phi^2\right)$$
+    中运动的测试粒子。记其四维动量为 $p^\mu$。
+  \end{frame}
+    
+  \begin{frame}
+    取粒子运动所在的三维平面为
+   {\blue \begin{equation}
+      \theta  = \frac{\pi}{2} \label{eq:theta}
+    \end{equation}}
+    度规
+    $$ \diag{\left(1-\frac{2GM}{r}, -\left(1-\frac{2GM}{r}\right)^{-1},-r^2, -r^2\sin^2\theta\right)}$$
+    和 $t, \phi$ 无关，所以四维动量的协变分量 $p_t$, $p_\phi$ 均守恒，它们在牛顿力学里都有个响亮的名号： $p_t$ 是能量（这里比牛顿力学多包含了静止质量）， $p_\phi$ 是角动量。我们记
+    {\blue
+    \begin{equation}
+      p_t = E \label{eq:t}
+    \end{equation}
+
+    \begin{equation}
+      p_\phi = L \label{eq:phi}
+    \end{equation}
+    }
+    最后，按照静止质量的定义
+{\blue    \begin{equation}
+      p^\mu p_\mu=m^2 \label{eq:m2}
+    \end{equation}}
+  \end{frame}
+  
+
+  \begin{frame}
+    前面的四个方程已经可以完备地描述粒子的运动。
+
+    \addfig{2}{yali.jpg}
+    
+    就是那么简单，甚至不用算联络！
+  \end{frame}
+
+    \secpage{静质量非零粒子的运动}{$$\frac{d^2u}{d\phi^2} + u =q^2+3u^2 $$}
+  
+  \begin{frame}
+    对静止质量 $m>0$ 的粒子，我们研究的基本对象是变量
+    $$ u \equiv \frac{GM}{r}$$
+    随着方位角 $\phi$ 的变化。
+   
+    {\scriptsize 这个神奇的变量 $u$ 是从牛顿引力理论里学来的，别问，再问就拿苹果砸你……}
+    
+    \skipline
+    
+    Eq.~\eqref{eq:t} 可以写成
+    \begin{equation}
+      \left(1- 2u\right)\frac{dt}{ds} =  \varepsilon \label{eq:ts}
+    \end{equation}
+    这里的 $\varepsilon \equiv \frac{E}{m}$ 是单位质量对应的能量。在自然单位制下，它是无量纲量。
+  \end{frame}
+
+  \begin{frame}
+    Eq.~\eqref{eq:phi} 可以写成
+    \begin{equation}
+      r^2\frac{d\phi}{ds} = \ell \label{eq:phis}
+    \end{equation}
+    这里的  $\ell \equiv \frac{L}{m}$ 是单位质量对应的角动量，它具有长度量纲。由于 $GM$ 也是长度量纲，我们自然可以引入一个无量纲量：
+    \begin{equation}
+      q \equiv \frac{GM}{\ell}
+    \end{equation}
+    对太阳系的行星而言，这个量都远小于 $1$。对于近圆轨道，$q^2$是太阳的 $GM$（约1.5公里）和行星公转轨道半径之比。
+  \end{frame}
+
+  \begin{frame}
+    利用 Eq.~\eqref{eq:ts}和 Eq.~\eqref{eq:phis}，Eq.~\eqref{eq:m2} 可以写成
+    \begin{equation}
+      (1-2u) \left(\frac{\varepsilon}{1-2u}\right)^2 - \frac{1}{1-2u}\left(\frac{dr}{ds}\right)^2 - \frac{\ell^2}{r^2} = 1
+    \end{equation}
+    再次利用 Eq.~\eqref{eq:phis}，把上式中的 $\frac{dr}{ds}$ 替换为 $\frac{dr}{d\phi}$
+    \begin{equation}
+     \varepsilon^2- \left(\frac{dr}{d\phi}\frac{\ell}{r^2}\right)^2 - (1-2u)\left(1+\frac{\ell^2}{r^2} \right) = 0
+    \end{equation}
+    上式两边乘以  $q^2$，得到
+    \begin{equation}
+      \varepsilon^2q^2 - \left(\frac{du}{d\phi}\right)^2 - (1-2u)\left(q^2 + u^2\right) = 0
+    \end{equation}
+    两边对 $\phi$ 求导，得到
+    {\blue
+    \begin{equation}
+      \frac{d^2u}{d\phi^2} + u =q^2+3u^2
+    \end{equation}
+    }
+  \end{frame}
+  
+  \begin{frame}
+    最后这个方程是推广了的Binet公式：
+   \tbox{$$\frac{d^2u}{d\phi^2} + u =q^2+3u^2 $$}
+    在牛顿近似下 $|u| \ll 1$，所以我们暂且忽略掉方程右边的 $3u^2$，得到
+    \begin{equation}
+      u(\phi) \approx u_0(\phi) = q^2 (1+e\cos\phi) \label{eq:sol}
+    \end{equation}
+    这里 $e$ 是任意常数。扎实的幼儿园基础告诉我们，Eq.~\eqref{eq:sol} 里的 $u_0(\phi)$ 其实就是牛顿行星理论里的圆锥曲线。
+
+    {\scriptsize 因为 $\phi$ 的零点可以随便选取，所以我们忽略了 Eq.~\eqref{eq:sol} 里的 $\phi$ 可能带有的常数相位。}
+  \end{frame}
+
+  
+  \begin{frame}
+    \frametitle{近圆轨道的修正}
+    我们来考虑水星进动的问题。这对应离心率 $e$ 很小的情况。
+
+    我们来考虑形如
+    $$ u = Aq^2\left[1+e\cos\left(\frac{\phi}{B}\right)\right]$$
+    的解，这里的 $A,B$ 均很接近于$1$。代入相对论 Binet 公式，并忽略最高阶的 $q^4e^2$ 小项
+    $$ Ae \left(1 -\frac{1}{B^2}-6Aq^2\right)\cos\left(\frac{\phi}{B}\right) = 1 + 3A^2q^2-A$$
+    保留最低阶修正
+    $$ A \approx 1+3q^2, B\approx 1+3q^2$$
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{水星进动(Mercury Perihelion Shift)}
+    于是广义相对论预言的轨道，相对于牛顿理论有两种修正：轨道半长轴被缩短 $1+3q^2$ 倍，$u(\phi)$ 的周期被增大 $1+3q^2$ 倍。
+
+    \skiplines
+
+    对太阳系而言，由于半长轴的缩短和太阳质量是简并的，除非我们有不借助于行星运动的方法测量太阳质量，否则就无法验证这个效应。
+
+    \skiplines
+    
+    $u(\phi)$ 周期偏离 $2\pi$，即每运行一周多出 $6\pi q^2$，可以通过观测行星近日点方位的变化得到。
+
+    我们来看一下水星：太阳的 $GM$ 大约是$1.5$公里，水星的轨道半径约为$5.6$千万公里，于是 $6\pi q^2\approx 5.0\times 10^{-7}$。水星的公转周期是$0.24$年。每百年由广义相对论修正引起的进动为：$5\times 10^{-7}\times\frac{100}{0.24}=2.1\times 10^{-4}$——这正是广义相对论提出之前天文学家们苦苦思索不得的 “多余的 $43$ 角秒”。
+  \end{frame}
+
+
+  \secpage{零质量粒子的运动}{$$\frac{d^2u}{d\phi^2} + u = 3u^2 $$}
+
+  \begin{frame}
+    对零质量粒子，$p^\mu p_\mu = 0$ 可以写成
+    \begin{equation}
+     \left(p^r\right)^2 = E^2 - \frac{(1-2u)u^2L^2}{G^2M^2} \label{eq:ds2}
+    \end{equation}
+
+    \begin{equation}
+      \left(\frac{du}{d\phi}\right)^2 = \frac{G^2M^2\left(p^r\right)^2}{L^2} = q^2 - (1-2u)u^2
+    \end{equation}
+    我们这里定义类和静止质量非零时类似的一个量
+    $$q \equiv \frac{GME}{L} $$
+    然后两边对 $\phi$ 求导，得到
+    {\blue $$\frac{d^2u}{d\phi^2} + u = 3u^2 $$}
+  \end{frame}
+
+  \begin{frame}
+    所以零质量粒子的相对论版 Binet 公式为：
+    \tbox{$$\frac{d^2u}{d\phi^2} + u = 3u^2 $$}
+    我们仍然只考虑 $u$ 很小的情况。
+
+    \skipline
+     
+    先忽略方程右边的 $3u^2$ 得到的解为
+    $$ u \approx q \cos \phi $$
+    这里的 $|q|\ll 1$.
+    
+    {\scriptsize 因为 $\phi$ 的零点可以随便选取，所以我们忽略了$\phi$ 可能带有的常数相位。}
+
+    \skipline
+    
+    这显然是一条直线的方程（忽略时空弯曲的解），且
+    $$q \equiv \frac{GM}{d}$$
+    这里$d$ 是太阳到光线的垂直距离。
+  \end{frame}  
+
+
+  \begin{frame}
+    把零级解代入到修正项 $3u^2$ 里，得到一级近似解
+    \be
+    u \approx q\cos\phi + \frac{3q^2}{2} - \frac{q^2}{2}\cos(2\phi)
+    \ee
+    我们感兴趣的是 $u=0$ 对应的两个 $\phi$ 的解。设这两个解为 $\pm\frac{\pi+\epsilon}{2}$ （显然光线的偏折角即为 $\epsilon$）。保留到 $\epsilon$ 的一级小量，有
+    $$ -q\frac{\epsilon}{2} + 2q^2 = 0$$
+    即偏折角为 $\epsilon = 4q$。
+  \end{frame}
+
+  \begin{frame}
+    牛顿力学其实对光线如何偏折没有确定性的结论。因为按牛顿引力公式，光子受力为零，加速度 $a=F/m$ 则是一个不确定量。
+
+    \skipline
+    
+    如果我们换一种观点，把光子看成质量很小但不是零，且以光速运动的（这在牛顿力学范畴内是允许的），轨迹几乎为直线的测试粒子。牛顿力学的 Binet 公式给出的解为
+
+    \begin{equation}
+      u = q^2(1+e\cos\phi) \label{eq:bsol}
+    \end{equation}
+    这里的 $e\gg 1$。按照前面对非零质量粒子的讨论，这里的 $q = \frac{GM}{d}$，$d$ 是太阳到粒子轨迹的垂直距离（对以光速运动的粒子而言，单位质量的角动量为 $\ell = d$)。Eq.~\eqref{eq:bsol} 中令 $\phi = 0$，应该得到 $u=\frac{GM}{d}=q$，即得到 $q = q^2(1+e)$ ，故$e =  \frac{1}{q}-1\approx\frac{1}{q}$.
+
+      \skipline
+    
+    Eq.~\eqref{eq:bsol} 中令 $u=0$，给出偏折角 $\approx \frac{2}{e}\approx 2q$。是广义相对论预言的一半。
+  \end{frame}  
+  
+  \begin{frame}
+    
+    对水星进动和光线经过太阳时的弯曲的观测验证，奠定了\sout{老爱} 广义相对论的不可动摇的江湖地位。
+
+    \addfig{1}{einsteinIPhone.jpg}
+  \end{frame}  
+\ech
+\end{document}
+
+
+
+
+  

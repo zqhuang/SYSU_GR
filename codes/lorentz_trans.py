@@ -1,9 +1,11 @@
 ## sample script of Lorentz Transformation
 ## use natural units
+#----------by Zhiqi Huang--for the course ''General Relativity''-------------
+
 import sympy as sym
 
 def lorentz_transform_x(coor, v):
-    """suppose in observer 1's frame, observer 2 is moving along x axis with velocity v21, and the origin of two frames coincide; this subroutine transform the coordinates of any event from frame 1 to frame 2.
+    """suppose in observer 1's frame, observer 2 is moving along x axis with velocity v21, and the origins of two frames coincide; this subroutine transform the coordinates of any event from frame 1 to frame 2.
     If you want to transform back from frame 2 to frame 1, just replace v with -v"""
     gam = 1/sym.sqrt(1-v**2)
     return  [gam*(coor[0]-v*coor[1]), gam*(coor[1]-v*coor[0]), coor[2], coor[3]]

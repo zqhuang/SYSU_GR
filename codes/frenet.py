@@ -1,4 +1,6 @@
 ## sample script for frenet calculus
+#----------by Zhiqi Huang--for the course ''General Relativity''-------------
+
 import sympy as sym
 
 t = sym.symbols('t') #curve parameter
@@ -13,7 +15,7 @@ t = sym.symbols('t') #curve parameter
 ####################testing a specific model #####################
 #This works perfectly fine for simple models #####################
 #For more complicated models you may want to switch off check_s###
-check_s = False #calculate everything by converting t to s (lenght parameter)
+check_s = False #calculate everything by converting t to s (length parameter)
 lam = sym.Symbol('lambda', positive=True)
 r = [ sym.cos(t), sym.sin(t), t ]
 ###################################################################

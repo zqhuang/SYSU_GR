@@ -1,4 +1,6 @@
-#sample code: calculation of connection, Riemann tensor and Gaussian curvature (if dim=2)
+#sample script: calculate covariant derivatives
+#----------by Zhiqi Huang--for the course ''General Relativity''-------------
+
 import sympy as sym
 sym.init_printing()
 
@@ -10,8 +12,8 @@ u = sym.symarray('u',dim)
 #r = sym.symbols('r')
 #gdown = sym.diag( r**2, r**2*sym.sin(u[0])**2 )
 
-#gdown = sym.diag( 1, sym.sin(u[0])**2 )
-gdown = sym.diag(1, sym.exp(2*u[0]))
+gdown = sym.diag( 1, sym.sin(u[0])**2 )
+#gdown = sym.diag(1, sym.exp(2*u[0]))
 #gdown = sym.diag(1/(1+u[0]**2+u[1]**2),1/(1+u[0]**2+u[1]**2))
 #gdown = sym.diag(1/(1+u[0]**2+u[1]**2)**2,1/(1+u[0]**2+u[1]**2)**2)
 #gdown = sym.Matrix([[1/(u[0]**2+u[1]**2+1), 1/(u[0]**2+u[1]**2+1)/2],[1/(u[0]**2+u[1]**2+1)/2, 1/(u[0]**2+u[1]**2+1)]])
@@ -27,7 +29,7 @@ def connection_down(i, j, k):
 gam_down = sym.MutableDenseNDimArray(range(dim**3), shape=(dim, dim, dim))
 gam_up = sym.MutableDenseNDimArray(range(dim**3), shape=(dim, dim, dim))
 
-#computer connection \Gamma_{ijk}
+#compute connection \Gamma_{ijk}
 for i in range(dim):
     for j in range(dim):
         for k in range(j+1):
@@ -42,7 +44,7 @@ def connection_up(i, j, k):
         gam += gam_down[l,j, k] * gup[l, i]
     return sym.simplify(gam)
 
-#computer connection \Gamma^i_{ jk}
+#compute connection \Gamma^i_{ jk}
 for i in range(dim):
     for j in range(dim):
         for k in range(j+1):
@@ -105,7 +107,7 @@ def tensor_du_derivative(v, i, j, k):
 
 print("--------------vec down-------------------")
 #covariant vector
-vec = sym.Array( [ u[0]**2, u[1]**2 ])  
+vec = sym.Array( [ sym.sin(u[0]), sym.sin(u[1]) ])  
 for i in range(dim):
     print(vec[i])
 print('-----vector derivatives------')
@@ -117,7 +119,7 @@ for i in range(dim):
             print(i, j, vd)
             div += vd * gup[i, j]
 print("divergence = "+str(div))
-print("divergence at (0, 0):"+str(div.subs(u[0],0).subs(u[1],0).evalf()))
+#print("divergence at (0, 0):"+str(div.subs(u[0],0).subs(u[1],0).evalf()))
 
 print("--------------vec up-------------------")
 #contravariant vector
