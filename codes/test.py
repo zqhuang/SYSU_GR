@@ -1,2 +1,5 @@
 import sympy as sym
-print(sym.simplify((2//3)**2))
+x, y = sym.symbols('x, y')
+f = x**2
+y = f+x
+print(sym.diff(y, x))

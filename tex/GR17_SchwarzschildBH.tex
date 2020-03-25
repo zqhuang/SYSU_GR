@@ -1,0 +1,197 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{17}{Schwarzschild Black Hole}
+
+
+  \secpage{史瓦西黑洞的视界}{$$r=2GM$$}
+  \begin{frame}
+    对史瓦西度规，
+    $$\schw $$
+    在 $r<2GM$ 的区域内，其实 $r$ 坐标才是“时间”。如果 $r$ 减小代表时间增加，则称之为黑洞。如果 $r$  增大代表时间增加，则称之为白洞。
+
+    \skipline
+
+    （如果不谈量子效应）在黑洞 $r<2GM$ 区域里 $r$ 只能单调减少，任何物质无法从 $r<2GM$ 的区域跑出来。在白洞 $r<2GM$ 区域里 $r$ 只能单调增加，任何物质都无法进入 $r<2GM$ 的区域。
+
+    \skipline
+
+    因此，我们把史瓦西黑洞或者白洞的 {\blue $r=2GM$ }这个面称为\sout{结界}{\blue 视界}。  
+  \end{frame}
+
+
+  \begin{frame}
+    一般恒星坍缩都是物质掉往中心的情况，所以是形成黑洞。目前天文观测上还没有任何迹象表明我们的可观测宇宙内存在白洞。
+
+    \addfig{2}{bhwh.jpg}
+
+    一种脑洞大开的想法是：如果白洞存在，它可能和黑洞在时空奇点相连，是旅行到“其他宇宙”的通道。
+  \end{frame}
+
+
+  \secpage{黑洞旅行}{有去无回……}
+  
+  \begin{frame}
+    在之前讨论史瓦西度规里的粒子运动都是在 $r\gg GM$ 情况下讨论的。
+
+    \addfig{1}{travel.jpg}
+
+    为了研究 $r\sim GM$ 时的情况，我得去史瓦西黑洞旅行一趟。    
+    
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{行李清单}
+    \bmini{0.5}
+    \bitem
+  \item[]{
+    
+    \tfig{0.8}{clock.jpg}
+  }
+  \item[]{    
+    \tfig{0.8}{laserpointer.jpg}
+  }
+  \item[]{    
+    \tfig{1}{RiemannTensorMachine.jpg}
+  }
+    \eitem
+    \emini
+    \bmini{0.45}
+    \bitem
+  \item{钟：计时。    \vspace{0.6in}
+  }
+  \item{激光笔：向空间站传输信息。\vspace{0.6in}}
+  \item{黎曼曲率测量仪：测量时空曲率，确定自己位置。}
+    \eitem
+    \emini
+  \end{frame}
+
+  \begin{frame}
+    假设在$r=r_0$ ($r_0\gg GM$) 的地方有相对史瓦西坐标保持静止($r,\theta,\phi$不变）的空间站。这就是我的出发点了。
+
+      \addfig{1}{chufa.jpg}
+
+    对径向下落者，不能使用Binet方程，要重新进行推导:
+  \end{frame}
+
+
+  \secpage{钟的计时}{下落时间有限且有解析解}
+  
+  \begin{frame}
+
+    假设我从空间站开始由静止下落，则初始时刻，由归一化条件得到我的四维速度协变分量：
+    $$ u_t = \sqrt{1-\frac{2GM}{r_0}} $$
+    由于 $u_t$ 守恒，在任意时刻有：
+    $$ \frac{dt}{ds} = \frac{\sqrt{1-\frac{2GM}{r_0}}}{1-\frac{2GM}{r}}$$
+    然后利用 $ds^2$ 的表达式，有
+    $$ \left(1-\frac{2GM}{r}\right)\left(\frac{dt}{ds}\right)^2 - \left(1-\frac{2GM}{r}\right)^{-1}\left(\frac{dr}{ds}\right)^2 = 1$$
+    由此联立解出
+    $$\frac{dr}{ds} = -\sqrt{\frac{2GM}{r}-\frac{2GM}{r_0}}$$
+  \end{frame}
+
+
+  \begin{frame}
+    $$\frac{dr}{ds} = -\sqrt{\frac{2GM}{r}-\frac{2GM}{r_0}}$$
+    这方程和牛顿力学自由下落是一样的！ 我们熟知牛顿力学里对应问题的解为滚轮线。于是照搬得到：
+
+    \bea
+    r &=& \frac{r_0}{2}(1-\cos\theta) \newl
+    s &=& \sqrt{\frac{r_0^3}{8GM}}\left(\theta-\sin\theta\right)
+    \eea
+    这里的 $\theta\in[\pi, 2\pi]$。初始时刻对应滚轮线顶点 $\theta = \pi$，掉到奇点的时刻对应 $\theta=2\pi$。
+
+  \end{frame}
+  
+
+  \begin{frame}
+    可见，在掉到奇点前我的钟走过的时间是有限的：
+    $$ s(2\pi)-s(\pi)  = \frac{\pi}{2}\sqrt{\frac{r_0^3}{2GM}}$$
+  \end{frame}
+
+
+  \secpage{激光笔通信}{多普勒红移+引力红移}
+  
+  \begin{frame}
+    在掉进视界之后我当然就无法用激光笔和空间站联络了。在此之前，我的激光笔发出的光子，在我的局域 Minkowski 标架下观察的频率为固定的 $\nu_0$（因为我在自由下落；对非自由下落运动者而言这件事其实还蛮伤脑筋的）。
+    即把光子的四维动量投影到我的局域标架时间轴（即我的四维速度 $u_\mu$）上，满足
+    $$p_t \frac{\sqrt{1-\frac{2GM}{r_0}}}{1-\frac{2GM}{r}} + p_r \sqrt{\frac{2GM}{r}-\frac{2GM}{r_0}}  = h\nu_0$$
+    又光子本身走零测地线，所以
+    $$ (p_t)^2\left(1-\frac{2GM}{r}\right)^{-1} - (p_r)^2\left(1-\frac{2GM}{r}\right) = 0 $$
+    联立上面两式可以解出 
+  \end{frame}
+  
+  \begin{frame}
+    $$p_t = h\nu_0\left(\sqrt{1-\frac{2GM}{r_0}} - \sqrt{\frac{2GM}{r}-\frac{2GM}{r_0}}\right)$$
+    由于光子的 $p_t$ 守恒，空间站那里接收到的光子能量为（即把光子四维动量投影到空间站的四维速度上）：
+    $$ h\nu' = p_t \frac{1}{\sqrt{1-\frac{2GM}{r_0}}} = h\nu_0\left(1 - \sqrt{\frac{\frac{2GM}{r}-\frac{2GM}{r_0}}{1-\frac{2GM}{r_0}} }\right) $$
+    即当 $r$ 无限接近视界 $2GM$ 时，我发出的光子全都被无限红移了。这些光子到达空间站需要经过的时间也越来越长，趋于无穷。
+
+  \end{frame}
+
+  \thinkc{如果一个相对于史瓦西坐标系静止的人在 $r<r_0$ 处给空间站发射光子，引力红移效应是更强还是更弱？}
+
+  \secpage{我眼中的天空}{逐渐消失的圆盘}
+
+  \begin{frame}
+    旅行中的我突然想用激光笔向尽可能多的方向发出信号（毕竟马上快失联了，总想留下点什么）
+
+    只要光不沿径向走，我们就可以用之前推导的光子版Binet方程：
+    $$\frac{d^2u}{d\phi^2}+u = 3u^2$$
+    这里的 $u=\frac{GM}{r}$。
+
+    设初始条件为 $u=u_0<\frac{1}{2}$，我需要计算初始 $\frac{du}{d\phi}$ 可能的取值范围(这里不妨假设我选择了 $\phi$ 单调增加的方向发射光子)，使得发出的光能跑到无穷远处（即 $u\rightarrow 0$)。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{奇怪弹簧}
+    \bmini{0.45}
+    假设我有个质量为$1$，弹簧势能函数为 $V(u) = \frac{1}{2}u^2-u^3$ 的奇怪振子，$u$ 是振子的位移（弹簧的伸长量）。
+
+    那么振子的运动方程为：
+    $$ \ddot u = -\frac{dV}{du} = -u + 3u^2 $$    
+    \emini
+    \bmini{0.5}
+    \ \lfig{2.2}{Vofu.png}
+    \emini
+    
+
+    于是问题转化为，已知初始位移 $u_0$ 的情况下，初始速度$\dot u$ 为多少才能使振子回到 $u=0$ 的位置？显然答案是：
+
+    \bitem
+  \item{当 $u_0<\frac{1}{3}$，要求初始 $\dot u < \sqrt{2\left[V\left(\frac{1}{3}\right)-V\left(u_0\right)\right]}$}
+  \item{当 $u_0\ge \frac{1}{3}$，要求初始 $\dot u < - \sqrt{2\left[V\left(\frac{1}{3}\right)-V\left(u_0\right)\right]}$}
+    \eitem
+  \end{frame}
+
+  \begin{frame}
+    对应回黑洞的问题，
+    \bitem
+  \item{当$u_0<\frac{1}{3}$ 即 $r>3GM$ 时，要求初始 $\frac{du}{d\phi} < \sqrt{\frac{1}{27}-u_0^2(1-2u_0)}$}
+  \item{当 $\frac{1}{3}<u_0\le \frac{1}{2}$即 $2GM<r\le 3GM$时，要求初始 $\frac{du}{d\phi}<-\sqrt{\frac{1}{27}-u_0^2(1-2u_0)}$}
+  \item{当 $r<=2GM$ 时，对应让 $u$ 减小（$r$ 增加）的解是白洞，和黑洞的假设不符，故要舍去这种可能性。}
+    \eitem
+  \end{frame}
+
+  \begin{frame}
+    继续把初始的 $\frac{du}{d\phi}$ 转化为我看到的出射角（这需要把光子的四维速度往我的局域标架上投影）这件事情没有多大的乐趣。没乐趣的事情就留给你做了……（？？？）
+
+    \skipline
+    
+    可以看到的是，随着我靠近视界面，光线的出射方向范围越来越窄。那么，对于进来的光线也是如此。我能看到的天空逐渐缩小，最后在我到达黑洞视界处时完全消失（这一点你光看 $du/d\phi$ 并不能看出来，需要做投影计算）。然后，我进入了黑洞视界……
+
+    \addfig{1.5}{fengxiaoxiao.jpg}
+  \end{frame}
+
+
+  \ech
+\end{document}
+
+
+
+
+  

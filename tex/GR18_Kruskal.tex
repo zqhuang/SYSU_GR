@@ -1,0 +1,136 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{18}{Kruskal Coordinate and White Hole}
+
+  \begin{frame}
+    胎教小练习：证明对 $x\ge -1$ 存在唯一的 $W\ge 0$ 满足 $(W-1)e^W = x$。
+
+    \addfig{2.8}{Wofx.png}
+    
+    \url{http://zhiqihuang.top/gr/codes/solvew.py}
+    
+  \end{frame}
+
+
+  \begin{frame}
+    
+    Schwarzschild时空可以用很多等价形式表述出来：
+    
+    \bitem
+    \item{turtoise 坐标}
+    \item{advanced Eddington-Finkelstein坐标}
+
+    \item{retarded Eddington-Finkelstein坐标}
+
+    \item{Painlev\'{e}坐标}
+      
+    \item{Kruskal-Szekeres坐标，简称Kruskal坐标（Szekeres：？？？）}
+    \item{Kerr-Schild 坐标}
+    \item{\ldots}
+      \eitem
+
+  \end{frame}
+  
+
+  \begin{frame}
+    \frametitle{我们选择Kruskal——因为\sout{拼写简单}好用}
+
+    Kruskal 坐标由 $\tau,\mu,\theta,\phi$ 描述，度规是
+    {\blue \small $$ ds^2 = \frac{4e^{-\mathrm{W}\left(\frac{\mu^2-\tau^2}{4G^2M^2}\right)}}{\mathrm{W}\left(\frac{\mu^2-\tau^2}{4G^2M^2}\right)} \left(d\tau^2-d\mu^2\right) - \left[2GM\, \mathrm{W}\left(\frac{\mu^2-\tau^2}{4G^2M^2}\right)\right]^2\left(d\theta^2 + \sin^2\theta d\phi^2\right)$$}
+    这里的$\mathrm{W}$ 是我们前面讨论过的 $(x-1)e^x$ 的反函数；另外，我们约定，{\blue 时间的因果方向取为 $+\tau$ 的方向。}
+
+    为了使 $\mathrm{W}$ 的宗量不小于 $-1$，我们限定坐标范围
+    $$ \tau^2-\mu^2 \le 4G^2M^2$$
+
+    这在 $\mu$-$\tau$ 平面上给出的范围夹在两条双曲线之内。
+    
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{从Kruskal坐标到Schwarzschild坐标}
+    Kruskal坐标没有度规奇异性，因此可以放心拿来做解析或者数值计算。
+    
+    因为 Schwarzschild 坐标对远距离 ($r\gg GM$) 观测者而言非常适用，所以我们希望最后能把 Kruskal 坐标转化为 Schwarzschild 坐标。
+
+    两个坐标的 $\theta,\phi$ 均相同，而 {\blue
+    \be
+    r=2GM\, \mathrm{W}\left(\frac{\mu^2-\tau^2}{4G^2M^2}\right)
+    \ee}
+    特别地，当 $\tau=\pm \mu$, 有 $r=2GM$。牛顿极限 $r\gg 2GM$ 则等价于 $\mu^2-\tau^2 \gg 4G^2M^2$
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{从Kruskal坐标到Schwarzschild坐标(续)}
+    有了 $r$ 之后，时间坐标 $t$ 要分类讨论：
+
+    {\blue
+    如果 $r\ge 2GM$，则
+    $$\tanh \frac{t}{4GM} =  \frac{\tau}{\mu}$$
+    如果 $r\le 2GM$，则
+    $$\tanh \frac{t}{4GM} =  \frac{\mu}{\tau}$$    
+    }
+    
+    利用W函数的定义，有{\blue
+    \be
+    \left(\frac{r}{2GM}-1\right)e^{\frac{r}{2GM}} = \frac{\mu^2-\tau^2}{4G^2M^2}
+    \ee
+    }
+    利用该式和上面 $t$ 的表达式，我们也可以从 $(r, t)$ 映射到 $(\mu, \tau)$ （但会有一些符号不确定性）。
+    
+  \end{frame}  
+
+  \begin{frame}
+    \addfig{3.4}{Kruskal.jpg}
+  \end{frame}
+
+  \thinkf{如果白洞和Kruskal坐标图里的“另一个宇宙”确实存在，我们能和“另一个宇宙”进行通话吗？}
+
+  \begin{frame}
+    \frametitle{Kruskal坐标系里的光子的径向运动}
+    光子走的是零测地线，所以径向运动方程非常简单：
+    $$d\mu = \pm d\tau $$
+    且这里的 $\pm$ 符号在运动过程中保持不变。
+
+    \skiplines
+
+    也就是说，在 $\tau$-$\mu$ 平面上光子的径向运动世界线都是 $45^\circ$ 直线。
+  \end{frame}
+    
+
+  \begin{frame}
+    \frametitle{Kruskal坐标系里非零质量粒子的径向运动}    
+    对质量非零粒子，直接给出我推导的结果:
+    \bea
+    \mu\frac{d\tau}{ds}&=&\tau\frac{d\mu}{ds} + \varepsilon GM \mathrm{W}e^{\mathrm{W}}  \newl
+    \frac{d\tau}{ds}&=& \sqrt{\left(\frac{d\mu}{ds}\right)^2 + \frac{\mathrm{W}e^{\mathrm{W}}}{4}}         
+    \eea
+    这里的 $\varepsilon$ 是单位质量测试粒子的守恒能量。$\mathrm{W}$ 是 $\mathrm{W}\left(\frac{\mu^2-\tau^2}{4G^2M^2}\right)$ 的简写。
+
+    \skipline
+    
+    {\scriptsize 为了说服你我的推导是靠谱的，我特地写了一段代码来数值计算沿径向自由下落粒子的 $r(s)$ 函数，并和上一讲我们获得的解析解做比较。
+
+      \url{http://zhiqihuang.top/gr/codes/KruskalFreeFall.py}
+    }
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{忘了带秋裤……}
+
+    \addfig{1}{qiuku.jpg}
+    
+    上一讲中我的黑洞旅行故事中加一个情节：空间站上的人发现我忘了带秋裤，就想发光信号告诉我。为了让我能收到信号，发信号时间（按空间站上的人的计时）不得晚于我出发后多久？
+    
+  \end{frame}
+  \ech
+\end{document}
+
+
+
+
+  

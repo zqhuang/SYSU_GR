@@ -1,0 +1,230 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{19}{General Discussion about Black Holes}
+
+  \begin{frame}
+    我无意在幼儿版GR中把大家拉黑（拉入黑洞知识的泥潭），这一讲的唯一目的是让你不至于在听有关黑洞的讲座时全程梦游。
+
+    \addfig{1.2}{mengyou.jpg}
+  \end{frame}
+
+
+  \secpage{Kerr Black Hole}{    \bea
+    ds^2 &=& \left(1-\frac{2GMr}{r^2+a^2\cos^2\theta}\right) dt^2 \newl    
+    && + \frac{4GMra\sin^2\theta}{r^2+a^2\cos^2\theta} dt d\phi \newl
+    && -\left(r^2+a^2+\frac{2GMra^2\sin^2\theta}{r^2+a^2\cos^2\theta}\right)\sin^2\theta d\phi^2 \newl
+    && - \frac{r^2+a^2\cos^2\theta}{r^2-2GMr + a^2}dr^2 \newl
+    && - \left(r^2+a^2\cos^2\theta\right)d\theta^2
+    \eea
+}
+  
+  \begin{frame}
+    \frametitle{Kerr Black Hole}
+    黑洞附近的气体和其他天体会被黑洞吞噬，吞噬的过程中黑洞会吸收它们的轨道角动量。所以宇宙中的黑洞应该都或多或少有些“自转”。这种黑洞叫做 Kerr 黑洞。
+
+
+    \addfig{1}{RealBH.jpg}
+  \end{frame}
+
+  \begin{frame}
+    如果取其“自转轴”为南北极方向建立“球坐标系”，质量为 $M$，单位质量的角动量为 $a$ 的Kerr黑洞的度规为
+{\blue
+    \bea
+    ds^2 &=& \left(1-\frac{2GMr}{r^2+a^2\cos^2\theta}\right) dt^2 \newl    
+    && + \frac{4GMra\sin^2\theta}{r^2+a^2\cos^2\theta} dt d\phi \newl
+    && -\left(r^2+a^2+\frac{2GMra^2\sin^2\theta}{r^2+a^2\cos^2\theta}\right)\sin^2\theta d\phi^2 \newl
+    && - \frac{r^2+a^2\cos^2\theta}{r^2-2GMr + a^2}dr^2 \newl
+    && - \left(r^2+a^2\cos^2\theta\right)d\theta^2
+    \eea
+}
+(哇！五行就写完了！)
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{因为Kerr度规相关的表达式都太长了，我们要约定一些符号来尽可能地保护视力。}
+    \bitem
+  \item{定义符号 {\blue $ \rho^2 \equiv r^2+a^2\cos^2\theta $}}
+  \item{定义符号 {\blue $ \Delta \equiv r^2-2rGM+a^2 $} ($\Delta$ 是长度平方量纲)}
+    \eitem
+
+  \end{frame}
+
+
+  \begin{frame}
+    
+    这样Kerr黑洞的度规可以按 $(t, r, \theta,\phi)$ 的坐标次序写为：
+    \be
+    g_{\mu\nu} = \left[\begin{matrix}    
+        1-\frac{2GMr}{\rho^2} &  &  & \frac{2GMra\sin^2\theta}{\rho^2} \\
+         & - \frac{\rho^2}{\Delta} &  &  \\
+         &  & - \rho^2 &  \\
+        \frac{2GMra\sin^2\theta}{\rho^2} &   &  & -\left(r^2+a^2+\frac{2GMra^2\sin^2\theta}{\rho^2}\right)\sin^2\theta 
+      \end{matrix}\right]
+    \ee
+    
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{逆变形式的度规}
+
+    \be
+    g^{\mu\nu} = \left[\begin{matrix}
+        \frac{2 GM a^2 r \sin^2\theta   + (r^2+a^2)\rho^2}{  \rho^2\Delta} &  &  & \frac{2 GM a r}{\rho^2\Delta}\\
+         & -\frac{\Delta}{\rho^2} &  & \\
+         &  & - \frac{1}{\rho^2} & \\
+        \frac{2 GM a r}{\rho^2\Delta} &  &  & \frac{2 GM r - \rho^2}{\rho^2\Delta \sin^2\theta }
+      \end{matrix}\right]
+    \ee
+
+  \end{frame}
+  
+
+  \begin{frame}
+    \frametitle{Kerr几何}
+    \addfig{3.8}{KerrGeometry.png}
+  \end{frame}  
+
+
+  \begin{frame}
+    \frametitle{Kerr度规里的测试粒子}
+    度规 $g_{\mu\nu}$ 仍然不依赖于 $t$ 和 $\phi$，所以 $p_t$ 和 $p_\phi$ 守恒。
+
+    \skipline
+    
+    此外，$ds^2$ 表达式照例会给我们一个方程。
+
+    \skipline
+    
+    由于失去了空间对称性，{\blue 不能再假设测试粒子在一个平面上运动}（除非刚好粒子位置和初速度都在赤道平面 $\theta=\frac{\pi}{2}$ 上）。
+
+    \skipline
+    
+    还缺的一个方程只能用最原始的测地线方程来凑。
+
+    \skipline
+    
+    为此我们要计算联络……
+
+
+  \end{frame}
+  
+
+  \begin{frame}
+    \addfig{3.8}{Kerrconn.png}
+  \end{frame}
+
+
+  \begin{frame}
+    虽然完全算不动，但是为了能吹几句——
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{引力拖曳效应}
+    在赤道（ $\theta=\frac{\pi}{2}$） 平面上运动的粒子，$p_\phi$ 守恒可以写成：
+    $$ -\frac{2GMa}{r}\frac{dt}{ds}+\left(r^2+a^2+\frac{2GMa^2}{r}\right)\frac{d\phi}{ds} = \frac{L}{m}$$    
+    考虑一个非常简化的情形，$r\gg GM \gg a $，且粒子运动速度远小于光速。也就是说，Kerr黑洞的角动量比较小，且测试粒子离得比较远，运动是非相对论的。这时取最低阶近似，有
+    $$ \frac{d\phi}{dt} \approx \frac{\frac{L}{m}+\frac{2GMa}{r}}{r^2+a^2}$$
+    可以看到，即使粒子的守恒角动量为零（比如它从很远处瞄准黑洞中心下落过来），它也会被黑洞的自旋带着旋转起来，旋转方向和黑洞自旋方向一致。这就是引力拖曳效应。
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{$a>GM$的Kerr度规存在吗？}
+    物理学家们猜想有一条“宇宙监督”(cosmic censorship) 法则，使得所有的奇点都被保护在视界之内。
+
+    \skipline
+    
+    当 $a>GM$ Kerr度规的奇点就会失去视界的“保护”。这种时空“很难”（因为不好严格证明，所以只能这么说）形成，因为当单位质量角动量过大时，物质不容易掉进黑洞。所以至少定性地说，“宇宙监督法则”是有些根据的猜测。
+  \end{frame}  
+
+
+    \begin{frame}
+      \frametitle{带电的黑洞}
+      稳态的黑洞除了质量，角动量，原则上来讲还可以有电荷$Q$ (即所谓的稳态黑洞只有三个参数的“无毛定理”)。
+
+      这时只要把Kerr度规的
+      $$\Delta \equiv r^2+a^2-2GMr$$
+      换为
+      $$\Delta \equiv r^2+a^2-2GMr+GQ^2$$
+      这样得到的度规称为 Kerr-Newman 度规。它是最一般的稳定黑洞。
+
+
+      \skipline
+
+      相关知识可以参考
+
+      \url{https://arxiv.org/pdf/1410.6626.pdf}
+  \end{frame}  
+
+    \secpage{黑洞辐射}{$$ T = \frac{\hbar c^3}{4k_BGM} $$}
+    
+    \begin{frame}
+      我们来估算下质量为 $M$ 的史瓦西黑洞的“视界温度”：黑洞把粒子禁锢在 $\Delta t\sim \frac{4\pi GM}{c^3}$ 大小的时间区域内(注意 $r<2GM$ 时，$r$ 是类时坐标)，根据海森堡不确定原理，黑洞视界内的粒子满足
+      $$\Delta E \Delta t \gtrsim \frac{\hbar}{2}$$
+      于是可以估算出粒子能量的量子波动
+      $$\Delta E \sim \frac{\hbar c^3}{8\pi GM}$$
+      那么史瓦西黑洞的``温度''
+      $$T \sim \frac{\Delta E}{k_B} \sim \frac{\hbar c^3}{8\pi k_BGM}$$      
+      ……好了这种瞎扯实在太不严肃，我编不下去了。
+    \end{frame}
+
+    \begin{frame}
+      \frametitle{正经的结论}
+      史瓦西黑洞的“霍金温度”
+      {\blue $$ T = \frac{\hbar c^3}{8\pi k_BGM} $$}
+      严肃的证明要在很厚的书里才能找到，我们幼儿版GR直接略去……
+
+      \skipline
+      
+      简单估算一下，太阳质量黑洞的霍金温度大约为 $4\times 10^{-7}\mathrm{K}$，好像完全可以忽略。
+
+      但是，小质量黑洞的霍金温度就会更高，由此产生的辐射会使小质量黑洞逐渐损失质量，这就是“黑洞蒸发”效应。
+    \end{frame}
+
+    \begin{frame}
+      \frametitle{史瓦西黑洞的辐射功率}
+      回忆一下黑体单位表面积的辐射功率为：
+      $$\frac{dP}{dS} = \frac{\pi^2k_B^4}{60\hbar^3c^2} T^4$$
+      贯彻我们的瞎扯精神，把黑洞当成黑体（反正就差一个字\lfig{0.2}{emoji_wulian.jpg}），把黑洞视界当成“表面”，史瓦西黑洞的辐射功率为：
+      $$ P =  4\pi \left(\frac{2GM}{c^2}\right)^2 \frac{\pi^2k_B^4}{60\hbar^3c^2}  \left(\frac{\hbar c^3}{8\pi k_BGM}\right)^4 =\frac{c^6\hbar}{15360\pi G^2M^2}$$
+      虽然推导是瞎编的，但是结论仍然正确：
+      {\blue $$P = \frac{c^6\hbar}{15360\pi G^2M^2}$$}
+    \end{frame}
+
+    \begin{frame}
+      \frametitle{史瓦西黑洞的蒸发}
+      我们继续按照“能量守恒”编出下列史瓦西黑洞的蒸发公式：
+      $$\frac{d\left(Mc^2\right)}{dt} = -P = - \frac{c^6\hbar}{15360\pi G^2M^2}$$
+      这里的 $t$ 是史瓦西坐标系里的 $t$，也就是无穷远处相对于坐标系静止的观测者的固有时间。
+
+      把蒸发公式等价地写成：
+      $$\frac{d(M^3)}{dt} = -P = - \frac{c^4\hbar}{5120\pi G^2}$$
+      可见质量为 $M$ 的史瓦西黑洞的寿命为
+     {\blue $$t = \frac{5120\pi G^2M^3}{c^4\hbar}$$}      
+    \end{frame}
+
+
+    \begin{frame}
+      \frametitle{原初黑洞的质量下限}
+      把黑洞寿命等价地写成：
+      $$\frac{t}{\mathrm{Gyr}} = 2.67 \left(\frac{M}{10^{11}\mathrm{kg}}\right)^3 $$
+      这里的 $\mathrm{Gyr}$ 是 $10^9$ 年。
+
+      \skiplines
+
+      如果按照标准宇宙学模型的观点，宇宙的年龄大概是 $13.7\mathrm{Gyr}$。那么我们能看到的来自宇宙早期的史瓦西黑洞就有个$\sim 10^{11}\mathrm{kg}$ 的质量下限。
+    \end{frame}    
+    
+
+    \ech
+\end{document}
+
+
+
+
+  

@@ -1,0 +1,149 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{16}{White Dwarf, Neutron Star and Black Hole}
+
+ 
+
+  \begin{frame}
+    \frametitle{这一讲的主题是：致密星（白矮星、中子星、黑洞）的形成}
+
+    \addfig{1}{biehuang.jpg}
+    
+    别慌，我们只做个简单的数量级估计。
+    
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{坍缩前}
+
+    \addfig{1.5}{star.jpg}
+    
+    恒星主要靠燃烧（聚变）氢来维持高温高压，抵抗自身引力。
+
+    \skiplines
+
+    一般来说，氢管够，够败上亿年……
+    
+  \end{frame}
+  
+
+
+  \begin{frame}
+
+    不管是几亿年还是几十亿年，扛不住\sout{马云}宇宙爸爸活得久——最后还是败完了……
+
+    \addfig{1.3}{yaofan.jpg}
+
+    在要饭前其实还可能靠典当氦，碳……短暂挣扎了一会儿，我们不纠结这些细节。
+    
+  \end{frame}
+
+
+  \begin{frame}
+
+    \addfig{1.5}{yaozhai.jpg}
+    
+    一旦进入要饭模式，引力大哥就毫不客气地开始讨债……
+    
+  \end{frame}
+
+
+  \begin{frame}
+
+    假设恒星质量是 $M$，当它失去了聚变的支撑被引力压缩到半径为 $R$ 时——反正都完蛋了，我们来数数吧：
+
+    \lfig{1}{sheep.jpg}  \lfig{1}{sheep.jpg}  \lfig{1}{sheep.jpg}
+
+    根据泡利费米子要打架原理，恒星里的大概 $M/m_p$ （$m_p$ 是质子质量）个电子，每个占据了一个微观态。根据海森堡微观态也要打架原理，每个微观态在相空间占据体积为$h^3$——那么电子在动量空间的占据体积为
+
+    $$ p_{\max}^3 \sim \frac{Mh^3}{m_pR^3} $$
+    
+    {\scriptsize 我们忽略了$\frac{4\pi}{3}$、自旋自由度可以干掉一个因子2以及电子个数其实比 $M/m_p$ 还要少些等无关数量级的因素。}
+  \end{frame}
+
+
+  \begin{frame}
+    如果动量是非相对论性的，压强（单位面积单位时间通过动量）大致为
+    $$P \sim p_{\max} \left(\frac{M}{m_pR^3} \frac{p_{\max}}{m_e}\right)\sim \left(\frac{M}{m_p}\right)^{5/3}\frac{h^2}{R^5m_e}$$
+    上式能成立的条件是 $\frac{M}{R^3} \ll \frac{m_e^3c^3m_p}{h^3}$。
+
+    {\scriptsize 极端相对论的情况无法有稳态的理由并不复杂，不过我们跳过这个细节……}
+
+    \skipline
+
+    压力和引力之比
+
+    $$ \sim \frac{PR^2}{GM^2/R^2} \sim \frac{h^2}{GM^{1/3}m_p^{5/3}m_eR} $$
+
+    如果上式能取到 $\sim 1$，将代表稳定解：坍缩会导致 $R$ 减小，压力超过引力。膨胀会导致 $R$ 增大，引力超过压力。
+    
+  \end{frame}
+
+  
+  \begin{frame}
+    同时要求 $\frac{h^2}{GM^{1/3}m_p^{5/3}m_eR} \sim 1$ 且 $\frac{M}{R^3} \ll \frac{m_e^3c^3m_p}{h^3}$ 等价于要求
+
+    $$ M \ll \frac{1}{m_p^2}\left(\frac{hc}{G}\right)^{3/2}= 29M_\odot$$
+
+    你当然不能指望这么粗糙的估算能得到Chandrasekhar质量极限 ($M<1.4M_\odot$)，不过，数量级已经很靠谱了。
+
+    \skiplines
+    
+    对一个太阳质量的白矮星，稳定半径
+    $$ R\sim \frac{h^2}{GM_\odot^{1/3}m_p^{5/3}m_e} \sim 10^5\mathrm{km}$$
+    同样，这个数大致OK，但更准确的结果还要小一个数量级（白矮星大致为地球大小）。
+    
+  \end{frame}
+  
+
+  \begin{frame}
+    等一下，质量极限的结果好像和电子质量无关？那么中子星的质量极限岂不是……
+  \end{frame}
+
+
+  \begin{frame}
+    没错，中子星的质量极限跟白矮星的相差无几！
+
+    \skiplines
+    
+    差别在于计算稳定半径时要除以中子质量而非电子质量，所以中子星的稳定半径要比白矮星小三个数量级左右（$10$公里的量级）。
+  \end{frame}
+
+
+  \thinkf{典型的中子星内部压力比白矮星高多少个量级？}  
+
+
+  \begin{frame}
+    \frametitle{黑洞——大质量恒星的宿命}
+    如果恒星尸体的质量超过若干个太阳质量，那么无论是白矮星、中子星还是尚有争论的夸克星，都无法稳定存在。也就是费米压的抵抗引力的机制失效了。
+
+    \skiplines
+
+    这时一般认为没有什么可以阻止恒星尸体坍缩为时空奇点——黑洞。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{史瓦西黑洞}
+    $$ ds^2 = \left(1-\frac{2GM}{r}\right)dt^2 - \left(1-\frac{2GM}{r}\right)^{-1} dr^2 - r^2\left(d\theta^2 + \sin^2\theta d\phi^2\right)$$
+    {\scriptsize 史瓦西黑洞是比较理想化的黑洞，实际的黑洞由于吸积了周围的物质，都是有角动量的克尔黑洞。我们在hard模式再讨论……}
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{黑洞照片}
+    \addfig{2}{EHT_BH.jpg}
+  \end{frame}
+  
+\ech
+\end{document}
+
+
+
+
+  
