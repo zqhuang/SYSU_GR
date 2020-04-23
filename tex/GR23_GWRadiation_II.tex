@@ -1,0 +1,218 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{23}{Gravitational Radiation (II)}
+
+  \def\Tcal{\mathcal{T}}
+  \def\Pcal{\mathcal{P}}
+  \def\Mcal{\mathcal{M}}
+  
+  \begin{frame}
+    这一讲的主题是：用四极矩近似算引力波
+
+    \addfig{1}{sijiju.jpg}
+  \end{frame}
+
+
+  \secpage{张量的 virial 定理}{$$ \frac{\partial^2}{\partial t^2} \int x^i x^j T^{00}(\vecx, t) d^3\vecx  = 2\int T^{ij}  d^3\vecx$$}
+
+  \begin{frame}
+
+    在Minkowski 时空，对局域、守恒的能量动量张量 $T^{\mu\nu}(\vecx, t)$，定义能量密度的四极矩：
+    $$ Q^{ij}(\vecx, t)\equiv \int x^i x^j T^{00}(\vecx, t) d^3\vecx $$
+    由局域条件知道三维散度的积分
+    $$ \int \partial_k\left(T^{k0}x^ix^j\right) = 0$$
+    于是
+    {\small
+    \be
+    \frac{\partial Q^{ij}}{\partial t} = \int \partial_\mu\left(T^{\mu 0}x^ix^j\right)d^3\vecx = \int  T^{\mu 0}\partial_{\mu}(x^ix^j)d^3\vecx= \int \left(T^{i 0}x^j + T^{j0}x^i\right)d^3\vecx 
+    \ee}
+  \end{frame}
+
+
+  \begin{frame}
+
+    故技重施，由三维散度积分
+    $$\int \partial_k \left(T^{ik}x^j\right) d^3\vecx =0$$
+    可以得到{\small
+    $$\frac{\partial}{\partial t} \int T^{i0}x^j d^3\vecx = \int \partial_\mu \left(T^{i\mu}x^j\right) d^3\vecx = \int T^{i\mu} \partial_\mu x^j d^3\vecx = \int T^{ij}d^3\vecx $$    
+    }
+    于是{\blue
+      $$\frac{\partial^2 Q^{ij}}{\partial t^2} = 2\int T^{ij}d^3\vecx $$
+      这叫做（张量的）virial定理。
+    }
+  \end{frame}
+  
+
+  \secpage{空空形式的引力辐射公式}{$$\frac{dP}{d\Omega} =  \frac{G \omega^2}{\pi } \Mcal_{ij}^*(\omega\vecn)\Mcal_{kl}(\omega\vecn) \Pcal^{ijkl}(\vecn)$$}
+  
+  \begin{frame}
+    为了叙述简明，我们考虑连续谱的情形
+    $$\frac{dE}{d\Omega d\omega}\left(\vecn\right) =  \frac{G\omega^2}{4\pi^2}\left(\mathcal{T}^*_{\mu\nu}(k)\mathcal{T}^{\mu\nu}(k)-\frac{1}{2}\lvert \mathcal{T}^\alpha_{\ \alpha}(k)\rvert^2\right)$$    
+    守恒条件 $T_{\mu\nu}^{\ \ \ ;\mu} = 0$ 在傅立叶空间表述为
+    $$ k^\mu \mathcal{T}_{\mu\nu} = 0$$
+    这样四个方程就允许我们{\bf 把带时间指标的分量全都用只带空间指标的分量表示出来}。下面我们一律在傅立叶空间讨论，且省略宗量 $k=(\omega,\omega\vecn)$
+  \end{frame}
+
+  \begin{frame}
+    \bea
+    \mathcal{T}_{0i}  &=& -n^j \mathcal{T}_{ij}, \mathcal{T}^{0i} = n^j\mathcal{T}_{ij} \newl
+    \mathcal{T}_{00} &=& \mathcal{T}^{00} = n^in^j \mathcal{T}_{ij} \newl
+    \mathcal{T}^{\alpha}_{\ \alpha} &=& \left(n^in^j - \delta^{ij}\right) \mathcal{T}_{ij}
+    \eea
+    按照惯例这里的拉丁字母 $i, j$ 只对空间指标 $1,2,3$ 求和。
+    于是
+    \bea
+    \lvert \mathcal{T}^\alpha_{\ \alpha}\rvert^2 &=& \left(n^in^j - \delta^{ij}\right) \left(n^kn^l - \delta^{kl}\right)  \mathcal{T}_{ij}^* \mathcal{T}_{kl} \newl
+  %  \Tcal_{00}^*  \Tcal^{00} &=& n^in^jn^kn^l \Tcal_{ij}^*\Tcal_{kl} \newl
+  %  \Tcal_{0i}^*  \Tcal^{0i}+\Tcal_{i0}^*  \Tcal^{i0} &=& 2n^in^k\delta^{jl} \Tcal_{ij}^*\Tcal_{kl} \newl
+  %  \Tcal_{ij}^*\Tcal^{ij} &=& \delta^{ik}\delta^{jl}\Tcal_{ij}^*\Tcal_{kl} \newl
+    \Tcal^*_{\mu\nu}\Tcal^{\mu\nu} &=& \left(n^in^k-\delta^{ik}\right)\left(n^jn^l-\delta^{jl}\right)\Tcal_{ij}^*\Tcal_{kl}
+    \eea
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{用空空分量表示的引力波辐射公式}
+    {\blue
+    \be
+    \frac{dE}{d\Omega d\omega}\left(\vecn\right) = \frac{G\omega^2}{4\pi^2} \Tcal_{ij}^*(k)\Tcal_{kl}(k) \Pcal^{ijkl}(\vecn)
+    \ee}
+    这里的{\blue
+    \be
+    \Pcal^{ijkl}(\vecn) \equiv \left(n^in^k-\delta^{ik}\right)\left(n^jn^l-\delta^{jl}\right) - \frac{1}{2}\left(n^in^j - \delta^{ij}\right) \left(n^kn^l - \delta^{kl}\right)
+    \ee}
+    叫做 {\blue 横向无迹投影算符}。
+
+    \skipline
+    
+    单频的情况也类似，就不重复推导了：
+    {\blue
+      \be
+      \frac{dP}{d\Omega} =  \frac{G \omega^2}{\pi } \Mcal_{ij}^*(\omega\vecn)\Mcal_{kl}(\omega\vecn) \Pcal^{ijkl}(\vecn)
+      \ee      
+    }
+  \end{frame}
+
+
+    \secpage{四极矩近似：波源尺寸远小于波长}{$$\frac{dP}{d\Omega} \approx  \frac{G \omega^6}{4\pi } Q_{ij}^*Q_{kl} \Pcal^{ijkl}(\vecn)$$}
+
+    \begin{frame}
+      \frametitle{四极矩近似的物理场景}
+      如果引力波源的运动是非相对论的，那么波源的尺度很可能比引力波的波长小得多（因两者频率相同，而引力波以光速传播）。
+
+      \skipline
+
+      这时就又有了操作的空间——
+
+      \addfig{1}{kaishibiaoyan.jpg}
+    \end{frame}
+
+
+    \begin{frame}
+      \frametitle{以单频引力波辐射为例}
+      如果波源的尺度远小于 $\frac{1}{\omega}$。那么对波源的振幅 $M^{ij}(\vecx)$ 做傅立叶变换时， $e^{i\veck\cdot \vecx}$ 可以近似当成 $1$。
+      $$ \Mcal^{ij}(\omega\vecn)\approx \int  M^{ij}(\vecx) d^3\vecx$$
+      对张量 $M^{\mu\nu}(\vecx)e^{-i\omega t}$ 使用virial定理
+      $$\int M^{ij}(\vecx) d^3\vecx  = -\frac{1}{2}\omega^2 \int  x^ix^jM^{00}(\vecx) d^3\vecx $$
+    \end{frame}
+
+    \begin{frame}
+      \frametitle{单频四极矩辐射公式}
+      记能量密度的四极矩(quadrupole)
+      {\blue      $$ Q^{ij} \equiv \int  x^ix^jM^{00}(\vecx) d^3\vecx $$}
+      则 $\Mcal^{ij}(\omega\vecn) \approx \frac{\omega^2}{2}Q^{ij}$。代入到引力波辐射公式里
+      {\blue
+        \be
+        \frac{dP}{d\Omega} \approx  \frac{G \omega^6}{4\pi } Q_{ij}^*Q_{kl} \Pcal^{ijkl}(\vecn)
+        \ee
+      }
+    \end{frame}
+
+    \begin{frame}
+      \frametitle{连续谱的四极矩辐射公式}
+      对连续谱，推导完全类似。可以定义
+      {\blue      $$ Q^{ij}(\omega) \equiv \int  e^{i\omega t}dt\int  x^ix^jT^{00}(t, \vecx) d^3\vecx $$}
+      有
+      {\blue
+      \be
+    \frac{dE}{d\Omega d\omega}\left(\vecn\right) \approx \frac{G\omega^6}{16\pi^2} Q_{ij}^*(\omega)Q_{kl}(\omega) \Pcal^{ijkl}(\vecn)
+      \ee}
+    \end{frame}
+    
+    \secpage{绕转双星的辐射功率}{$$ P =  \frac{128 GM^2R^4 \omega^6}{5}$$}
+
+    \begin{frame}
+      因为只是做个示范，我们考虑最简单的例子：两个质量为 $M$ 的中子星以角频率 $\omega$ 在圆轨道上互相绕转。设它们之间距离为 $2R$，则有
+      $$\omega^2 = \frac{GM}{4R^3}$$
+      取旋转中心为原点，旋转轴为 $z$ 轴，则近似有{\scriptsize
+      $$ T_{00}(t,x, y, z) = M \left[\delta(x-R\cos \omega t)\delta(y-R\sin\omega t)+  \delta(x+R\cos \omega t)\delta(y+R\sin\omega t)\right]\delta (z)$$}
+      显然
+      $$ Q_{13}=Q_{23}=Q_{33} = 0$$
+    \end{frame}
+
+    \begin{frame}
+      由于
+      $$\int T_{00}(t,x,y,z) x^2 d^3\vecx = MR^2\left[1+\cos(2\omega t)\right] $$
+      $$\int T_{00}(t,x,y,z) y^2 d^3\vecx = MR^2\left[1-\cos(2\omega t)\right] $$
+      $$\int T_{00}(t,x,y,z) xy d^3\vecx = MR^2\left[\sin(2\omega t)\right] $$            
+      所以这是频率为 $2\omega$ 的单频源，且
+      $$ Q_{11} = \frac{MR^2}{2}, Q_{22}=-\frac{MR^2}{2}, Q_{12} = -i \frac{MR^2}{2}$$
+
+    \end{frame}
+
+    \begin{frame}
+      代入四极矩辐射公式，得到频率为 $2\omega$ 的引力波辐射强度为
+      $$\frac{dP}{d\Omega} (\vecn) = \frac{2GM^2R^4 \omega^6}{\pi}\left(\sin^4\theta - 8\sin^2\theta + 8\right)$$
+      这里的 $\theta$ 是 $\vecn$ 和 $z$ 轴的夹角。
+
+      \skipline
+      
+      如果对所有方向积分，则得到辐射功率
+      $$ P =  \frac{128 GM^2R^4 \omega^6}{5}$$
+
+      这部分的计算是用代码完成的，请参考
+      \url{http://zhiqihuang.top/gr/codes/TTproj.py}
+    \end{frame}
+
+
+  \secpage{附录：横向无迹投影算符$\Pcal^{ijkl}$的物理意义}{$$\left(\Tcal^{\rm TT}\right)^{ij} = P^{ijkl}T_{kl}$$}
+    \begin{frame}
+
+      把三维欧氏空间的对称二阶张量 $\Tcal_{ij}$ (6个自由度） 分解为2个标量(2个自由度)，一个无源的矢量（2个自由度），和一个横向无迹的二阶张量（2个自由度）：
+      $$\Tcal_{ij} = \Phi\delta_{ij} + \left(n_in_j - \frac{1}{3}\delta_{ij}\right)\Psi + (n_iA_j + n_j A_i) + \Tcal^{\rm TT}_{ij} $$
+        这里的 $\Phi$, $\Phi$ 是标量； $A_i$ 是无源的三维矢量，满足 $n^iA_i=0$ (现在我在讨论三维欧氏空间，指标在上面和下面都一样)。
+
+        首先两边求迹，可以确定 $\Phi = \frac{\Tcal}{3}$，这里 $\Tcal$ 是 $\Tcal^i_{\ i}$ 的简写。
+
+        然后两边乘以 $n^in^j$，可以得到：
+        $$n^in^j\Tcal_{ij} = \frac{\Tcal}{3} + \frac{2}{3}\Psi $$
+        即
+        $$\Psi = \frac{3}{2}\left(n^in^j\Tcal_{ij} - \frac{\Tcal}{3}\right)$$
+  \end{frame}
+
+
+    \begin{frame}
+      然后在
+      $$\Tcal_{ij} = \Phi\delta_{ij} + \left(n_in_j - \frac{1}{3}\delta_{ij}\right)\Psi + (n_iA_j + n_j A_i) + \Tcal^{\rm TT}_{ij} $$
+      两边乘以 $n^i$ 并代入 $\Phi, \Psi$ 的解，得到
+      $$ n^i\Tcal_{ij} = \frac{\Tcal}{3}n_j +  n_j\left(n^kn^l\Tcal_{kl} - \frac{\Tcal}{3}\right) + A_j $$
+      即
+      $$ A_j =  n^i\Tcal_{ij} -  \left(n^kn^l\Tcal_{kl}\right)n_j $$
+      最后，把 $\Phi, \Psi, A_j$ 都代入，得出 $ \left(\Tcal^{\rm TT}\right)^{ij} = P^{ijkl}T_{kl}$.
+    \end{frame}
+
+
+    
+    
+    
+  
+    \ech
+\end{document} 
+
+
+
+
+  

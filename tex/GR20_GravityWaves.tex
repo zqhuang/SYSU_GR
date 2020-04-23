@@ -6,26 +6,173 @@
   \bch
   \tpage{20}{Gravitational Waves}
 
-  \begin{frame}
 
+  \begin{frame}
     往水里扔一块石头，水的流体元的空间位置随着时间波动性地变化。
 
-    \addfig{2}{waterwave.jpg}
+    \addfig{1.5}{waterwave.jpg}
 
     可以这样说：水波是 \uline{水} 相对于 \uline{空间背景} 的 \uline{时间}周期性 振动。
-
   \end{frame}
 
-  
+
   \begin{frame}
+    \frametitle{问题I}
     引力波通常在科普读物中被描述为“时空的涟漪”
     
-    \addfig{2}{yinlibo.jpg}
+    \addfig{1.5}{yinlibo.jpg}
 
-    那引力波是 \uline{时空} 相对于 \uline{？？？} 的 \uline{？？} 周期性 振动？
-
+    那引力波是 \uline{？？} 相对于 \uline{？？？} 的 \uline{？？} 周期性 振动？
   \end{frame}
 
+
+  \begin{frame}
+    \frametitle{问题II}
+    爱因斯坦方程
+    $$R^{\mu\nu}-\frac{1}{2}Rg^{\mu\nu} = 8\pi G T^{\mu\nu}$$
+    这里的 $T^{\mu\nu}$ 要包含引力波的能量动量吗？
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{问题III}
+    引力波经过引力源附近也会发生偏折吗？
+  \end{frame}
+
+
+  \begin{frame}
+    谁说知道引力波是啥，你就拿这三连发锤TA。
+
+    \addfig{0.8}{lahei.jpg}
+  \end{frame}
+
+  \secpage{谐和坐标系的引力波方程}{$$\square h_{\mu\nu} = -16\pi G\left(T_{\mu\nu}- \frac{1}{2}\eta_{\mu\nu}T\right)$$}
+
+    \begin{frame}
+    \frametitle{四维拉普拉斯算符$\square$}
+    四维拉普拉斯算符 $\square$ 的定义为
+    $$\square f = f^{;\mu}_{\ \ ;\mu}$$
+    对一个标量 $\phi$，有
+    \bea
+    \square \phi &=& \left(g^{\mu\nu}\phi_{;\nu}\right)_{;\mu} \newl
+    &=& g^{\mu\nu}\phi_{;\nu;\mu} \newl
+    &=& g^{\mu\nu}\phi_{,\nu,\mu} - g^{\mu\nu}\Gamma^\lambda_{\ \nu\mu}\phi_{,\lambda} \newl
+    &=& g^{\mu\nu}\phi_{,\nu,\mu} - \Gamma^\lambda\phi_{,\lambda} 
+    \eea
+    在最后一行我们定义了 $\Gamma^\lambda\equiv g^{\mu\nu}\Gamma^\lambda_{\mu\nu}$
+  \end{frame}
+
+
+    \begin{frame}
+
+      
+      显然，Minkowski时空的里相速度为光速的波动方程可以写成 $\square u = 0$.
+
+      \addfig{1}{haowubodong.jpg}
+
+
+      
+  \end{frame}
+    
+  
+  \begin{frame}
+    \frametitle{近似Minkowski时空}
+    如果观测者远离中子星和黑洞这样稀少的天体。我们知道广义相对论效应都不强，时空近似是 Minkowski 时空。
+
+    \skipline
+    
+    不仅如此，爱因斯坦方程右边的 $8\pi G T^{\mu\nu}$ 的量级可以用白矮星的密度来设置一个上限：
+    $$\lvert 8\pi G T^{\mu\nu}\rvert \lesssim \frac{1}{L^2}$$
+    这里的 $L=10^9\mathrm{m}$。由于爱因斯坦张量是度规的二阶导数以及一阶导数的平方组成的，所以就可以认为在小于 $L$ 的尺度范围内度规的变化量也很小。这当然不能算是严格的证明，但至少是作为推理出发点的合理假设。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{近Minkowski度规}
+    因此，我们假设在远离致密天体的小范围时空区域里，{\bf 选择合理的坐标系}，可以有度规
+    $$ g_{\mu\nu} = \eta_{\mu\nu}+h_{\mu\nu}$$
+    这里的 $\eta_{\mu\nu}$ 是Minkowski度规，$h_{\mu\nu}\ll 1$，且 $h_{\mu\nu}$ 的一阶、二阶偏导数都可以看成同阶的小量。我们将在讨论运动方程时总是{\blue 只保留 $h_{\mu\nu}$ 的一阶小量}。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{“合理坐标系”不清不楚，不如叫“\sout{河蟹}谐和坐标系”}
+    我们要求“谐和坐标系”对所有指标$\mu=0,1,2,3$，都要满足
+  
+    \addfig{0.8}{crab.jpg}
+  
+    取标量 $f = x^\mu$ （那就是说，即使你换到另外一种不太河蟹的坐标系，每个物理点的 $f$ 还是原先谐和坐标系里的 $x^\mu$），都要有
+    $$\square f = 0$$
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{谐和坐标条件（续）}
+    根据
+    $$ \square f = g^{\mu\nu}f_{,\mu,\nu} - \Gamma^\lambda f_{,\lambda}$$
+    在谐和坐标系里， $f=x^\mu$ 的任意二阶普通偏导都是零，所以谐和坐标条件可以等价地写为
+    $$\Gamma^\lambda = 0$$
+    当然，也可以写成
+    $$\Gamma_\lambda \equiv g^{\alpha\beta}\Gamma_{\lambda\alpha\beta}=0$$
+  \end{frame}
+
+
+
+
+  \begin{frame}
+    \frametitle{线性化的谐和坐标条件}
+    我们先计算联络
+    $$\Gamma_{\rho\mu\nu} = \frac{1}{2}\left(h_{\mu\rho,\nu}+h_{\nu\rho,\mu}-h_{\mu\nu,\rho}\right)$$    
+    谐和坐标条件就是
+    $$\frac{1}{2}\eta^{\mu\nu}\left(h_{\mu\rho,\nu}+h_{\nu\rho,\mu}-h_{\mu\nu,\rho}\right) = 0$$
+    上式可以写成
+    $$ \eta^{\mu\nu}h_{\rho\mu,\nu} =\frac{1}{2} h_{,\rho} $$
+    这里的 $h\equiv \eta^{\mu\nu}h_{\mu\nu}$.
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{谐和坐标系里的Ricci张量一阶近似}
+    由于联络已经是 $h_{\mu\nu}$ 的一阶小量，在黎曼张量的联络表达式里就可以扔掉联络的乘积项，
+    {\small
+    \bea
+    R_{\mu\nu} &=& R^\lambda_{\ \mu\nu\lambda} \newl
+    &=& \Gamma^\lambda_{\ \mu\nu,\lambda} - \Gamma^\lambda_{\ \mu\lambda,\nu} \newl
+    &=&  \frac{1}{2}\eta^{\lambda\rho}\left(h_{\mu\rho,\nu,\lambda}+h_{\nu\rho,\mu,\lambda}-h_{\mu\nu,\rho,\lambda}+h_{\rho\mu,\lambda,\nu}+h_{\rho\lambda,\mu,\nu}-h_{\mu\lambda,\rho,\nu}\right) \newl
+    &=&  \frac{1}{2}\eta^{\lambda\rho}\left(h_{\nu\rho,\mu,\lambda}+h_{\rho\mu,\lambda,\nu}-h_{\mu\nu,\rho,\lambda}\right) + \frac{1}{2}h_{,\mu,\nu}     \newl
+    &=&  -\frac{1}{2}\eta^{\lambda\rho} h_{\mu\nu,\rho,\lambda}     \newl
+    \eea
+    }
+    在最后一步我们使用了谐和坐标条件        
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{真空中的爱因斯坦方程：引力波}
+    于是在谐和坐标系下，真空中的爱因斯坦方程可以写作：
+    $$ \square h_{\mu\nu} = 0$$
+    这是波速为光速的波动方程。
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{非真空情况}
+    在非真空中，谐和坐标系里线性化的爱因斯坦方程可以写作：{\blue
+      $$\square h_{\mu\nu} = S_{\mu\nu}$$}
+    这里的
+    $$ S_{\mu\nu} \equiv -16\pi G\left(T_{\mu\nu} - \frac{1}{2}\eta_{\mu\nu}T^\alpha_{\ \alpha}\right)$$
+    为了让解看起来更幼儿园化，下面我们把时间和空间坐标分离开来，记 $t=x^0$, $\mathbf{x} = (x^1, x^2, x^3)$。    
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{引力辐射方程的解}
+    如果你\uline{贫瘠的记忆里还有一丝电动力学的残余物}，或许下面的“推迟势”解并不会让你太慌张：
+    $$ h_{\mu\nu}(t, \vecx) = \frac{1}{4\pi}\int d^3\vecx' \frac{S_{\mu\nu}\left(\vecx', t - \lvert \vecx -\vecx'\rvert\right)}{\lvert \vecx - \vecx'\rvert} $$
+
+    \addfig{0.8}{wangji.jpg}
+    
+    当然这是一个特解，你可以把任何真空中的 $\square h_{\mu\nu}=0$ 的解加上去。和电动力学中一样，我们把这个特解解释为由源 $S_{\mu\nu}$ 产生的引力波，而把额外的真空解部分（如果有的话）解释为来自于远处未知源的引力波。
+  \end{frame}
+  
     \ech
 \end{document}
 

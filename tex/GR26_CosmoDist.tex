@@ -1,0 +1,132 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{26}{Cosmological distances}
+
+  \secpage{光度距离(luminosity distance)}{$$d_L = (1+z) r$$}
+  
+  \begin{frame}
+    \frametitle{平直时空里的天体视亮度}
+    如果真空中静止的各向同性的天体的发光功率为 $P$，那么在距离天体为 $d$ 处的静止观测者看到天体的亮度 $B$ 可以用观测者单位时间单位面积接收到的光的能量来表述：
+    $$ B = \frac{P}{4\pi d^2}$$
+    （在广义相对论出现之前，天文的大部分知识涉及的数学大概就这难度）
+  \end{frame}
+
+\begin{frame}
+  \frametitle{宇宙学距离上的天体视亮度}
+  对宇宙学距离的天体而言，光子会发生红移，并且光子之间的平均间隔也会被拉长。
+
+  设天体发射光子时为 $t$，观测者接收光子时为 $t_0$，则光子红移和光子间平均间隔拉长导致对观测者来说的 $P$ 等效于
+  $$P_{\rm eff} = \left(\frac{a(t)}{a(t_0)}\right)^2P$$
+  下一步是求等效 $d_{\rm eff}$，这其实考虑的是 FRW 坐标系里一个球面的面积。
+\end{frame}
+
+\begin{frame}
+  \frametitle{宇宙学距离上的天体视亮度}
+  如果以天体为 $r=0$ 点建立FRW坐标系，则观测者的 $r$ 坐标可以由测地线方程
+  $$ dt^2 - a^2 \frac{dr^2}{1-kr^2}=0$$
+  导出。即
+  $$ \int_t^{t_0} \frac{d\tau}{a(\tau)} = \int_0^r\frac{dr'}{\sqrt{1-kr'^2}} =
+  \left\{\begin{array}{ll}
+  \frac{1}{\sqrt{k}}\arcsin{\left(\sqrt{k}r\right)} & \text{, if } k>0 \\
+  r & \text{, if } k=0 \\
+  \frac{1}{\sqrt{-k}}\asinh{\left(\sqrt{-k}r\right)} & \text{, if } k<0
+  \end{array}\right.
+  $$
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{宇宙学距离上的天体视亮度}
+  由于 FRW 坐标系里 固定$t, r$ 的曲面的度规为
+  $$ ds^2 = a(t_0)^2 r^2 (d\theta^2 + \sin^2\theta d\phi^2) $$
+  所以这是一个简单的球面，其面积为 $4\pi a(t_0)^2r^2$。因此我们最后得到天体的视亮度为
+  $$ B = \frac{\left(\frac{a(t)}{a(t_0)}\right)^2P}{4\pi a(t_0)^2 r^2} \equiv \frac{P}{4\pi d_L^2}$$
+  这里的“宇宙学光度距离”
+  $$ d_L \equiv \frac{a(t_0)^2 r}{a(t)}$$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{用宇宙学红移 $z$ 来表示更加方便}
+  按照通常的归一化约定 $a(t_0)=1$，宇宙学红移$z$ 和 $a$ 的关系为 $a = \frac{1}{1+z}$。因此
+  $$ d_L = (1+z) r$$
+  这里的 $z$ 是天体的宇宙学红移。
+
+  \skipline
+  
+  下面，我们把共动距离坐标 $r$ 也写成红移 $z$ 的函数。
+\end{frame}
+
+\begin{frame}
+  假设哈勃参量 $H$ 对 $z$ 的依赖已知，例如在 $\Lambda$CDM 模型中很容易写出 ：
+  $$ H(z) = H_0\sqrt{\Omega_\Lambda + \Omega_m(1+z)^3  + \Omega_k(1+z)^2+\Omega_r(1+z)^4} $$
+  由于
+  $$\frac{dt}{a} = \frac{da}{a\dot a} = \frac{da }{Ha^2} = -\frac{dz}{H}$$
+  令
+  $$\chi(z) \equiv \int_0^z \frac{dz'}{H(z')} $$
+  
+  前面计算 $r$ 的公式可以写为：
+  $$ r =   \left\{\begin{array}{ll}
+  \frac{1}{\sqrt{k}}\sin{\left(\sqrt{k}\chi\right)} & \text{, if } k>0 \\
+  \chi & \text{, if } k=0 \\
+  \frac{1}{\sqrt{-k}}\sinh{\left(\sqrt{-k}\chi\right)} & \text{, if } k<0
+  \end{array}\right.
+  $$
+  
+\end{frame}
+
+\thinkf{对$\Omega_m=0.3, \Omega_k=0.1$ 的 $\Lambda$CDM 模型计算红移 $z=2$ 和 $z=1$ 处的光度距离之比。}
+
+\secpage{角直径距离(angular diameter distance)}{$$d_A=\frac{r}{1+z}$$}
+
+\begin{frame}
+  如果换过来，以地球为 $r=0$ 点建立FRW坐标系。同样可以推导出天体的共动坐标 $r$ 和红移满足
+  $$ r =   \left\{\begin{array}{ll}
+  \frac{1}{\sqrt{k}}\sin{\left(\sqrt{k}\chi\right)} & \text{, if } k>0 \\
+  \chi & \text{, if } k=0 \\
+  \frac{1}{\sqrt{-k}}\sinh{\left(\sqrt{-k}\chi\right)} & \text{, if } k<0
+  \end{array}\right.
+  $$
+  这里的  
+  $$\chi(z) \equiv \int_0^z \frac{dz'}{H(z')}. $$
+  如果我们观测红移 $z$ 处(即 $a=\frac{1}{1+z}$处)一个垂直视线方向的物理长度为 $L$ 的尺子，它的视张角$\theta$ 满足
+  $ar d\theta = L$。
+  即等效的“角直径距离”为
+  $$ d_A = ar = \frac{r}{1+z}$$
+\end{frame}
+
+\thinkf{对$\Omega_m=0.3, \Omega_k=0.1$ 的 $\Lambda$CDM 模型计算红移 $z=2$ 和 $z=1$ 处的角直径距离之比。}
+
+\secpage{宇宙学测距工具}{标准烛光，标准尺子，和标准汽笛}
+
+\begin{frame}
+  \frametitle{标准烛光(standard candle)和标准尺子(standard ruler)}
+  \addfig{2}{standard_candle.jpg}
+
+  通过观测到的不同红移处的 $d_L$ 之比（标准烛光方法）或者 $d_A$ 之比（标准尺子方法)，可以检验宇宙学模型是否正确。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{标准汽笛(standard siren)}
+  双星合并的引力波标准汽笛也是一种标准烛光（但需要有电磁波段信号或其他方法定出红移）
+
+  \addfig{2.}{gw.png}
+  
+
+  引力波波形$\rightarrow$双星质量$\rightarrow$引力波辐射的绝对强度（和实际观测到强度对比定出光度距离）
+\end{frame}
+
+
+    \ech
+\end{document}
+
+
+
+
+  

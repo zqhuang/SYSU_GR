@@ -1,0 +1,170 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{21}{Physics of Gravitational Waves}
+
+  \begin{frame}
+    \frametitle{专业版引力波三连锤}
+    上一讲介绍了科普版引力波三连锤。这一讲我们介绍专业版：
+    \bitem
+  \item{引力（波）只有2个物理自由度，神马意思？}
+  \item{引力波是横向无迹的，解释下？}        
+  \item{为什么引力波自旋是2？}
+    \eitem
+
+    \addfig{3}{shanchu.jpg}
+  \end{frame}
+  
+  \secpage{引力（波）的物理自由度？}{只有2个}
+  
+  \begin{frame}
+    \frametitle{引力波是物理的吗？}
+    我们约定了谐和坐标条件
+    $$ \square x^\mu = 0$$
+    然后导出了引力波要满足的爱因斯坦方程
+    $$ \square h_{\mu\nu} = 0$$
+    是不是忍不住要怀疑 $h_{\mu\nu}$ 是人为操作出来的？
+  \end{frame}
+
+
+
+  \begin{frame}
+    注意到谐和坐标系不是唯一的，对 $\square \epsilon^\mu = 0$ （学过电动力学的你丝毫不会怀疑这样的 $\epsilon^\mu$ 有无穷多种解）且 $\epsilon^\mu$ 不超过 $h_{\mu\nu}$ 的量级，那么至少在一阶近似下，坐标变换 $x^\mu \rightarrow x^\mu+\epsilon^\mu$ 仍然给出谐和坐标系。
+
+    \skipline
+    
+    看来操作的空间很大——
+
+    \skipline
+    
+    愈发怀疑……
+  \end{frame}
+
+  \begin{frame}
+    为了简化讨论，我们来考虑一个沿 $z$ 轴传播的平面波解。
+    \bitem
+  \item{$h_{33}$ 描述的是沿传播方向的度量（即物理长度和$z$坐标之间的关系）的振动，这家伙可以通过操作 $z$ 坐标的定义来消除。}
+  \item{虽然这有些不太好想象，但是数学上的对称性容易让你相信操作时间坐标可以干掉 $h_{00}$。}
+  \item{虽然引力波并不在 $x$ 和 $y$ 方向上移动，但是操作 $x$ 坐标和 $y$ 坐标还是可以干掉 $h_{13}$ 和 $h_{23}$（这类似于动态地调节过$z$轴上各点的 $x$, $y$ 方向和 $z$轴的夹角来消除度规交叉项）。}
+    \eitem
+  \end{frame}
+
+  \begin{frame}
+    注意傅立叶波矢  $k^\mu= (\omega, 0, 0, \omega)$, $k_\mu = (\omega, 0, 0, -\omega)$，谐和坐标条件
+    $$\eta^{\mu\nu}h_{\mu\alpha,\nu} = \frac{1}{2}h_{,\alpha}$$
+    要求
+    $$ k^\mu h_{\mu\alpha} = \frac{1}{2}k_\alpha h$$
+    令 $\alpha=0,1,2,3$，分别得到
+    $$  h_{30} = \frac{1}{2}h, h_{01}=0, h_{02}=0, h_{03}=-\frac{1}{2}h $$
+    所以，$h_{01},h_{02},h_{03}$也自动消失了，且 $h_{11}+h_{22}=0$。
+
+    \skipline
+    
+     这时候 $h_{\mu\nu}$ 的迹 $h=0$，且满足 $k^\mu h_{\mu\alpha} = 0$，这叫做{\blue 横向无迹(Transverse-Traceless，简称TT)规范}。
+  \end{frame}
+
+
+  \begin{frame}
+
+    最后的结论是： {\blue 对沿 $z$ 轴方向传播的平面波，只有 $h_{11}-h_{22}$ 和 $h_{12}$ 是物理的两个自由度。}其余所有分量以及 $h_{11}+h_{22}$ 都是零。
+
+    \skiplines
+
+  \end{frame}
+
+  \begin{frame}
+    
+    度规有10个自由度，四个坐标选择的随意性干掉了4个非物理自由度。那么度规应该还有6个物理自由度才对。
+
+    \skiplines
+    
+    有时候我们会说，引力（没有波字！）只有两个物理自由度。这是什么意思呢？
+
+    \skiplines
+
+    因为引力波可以脱离物质自己传播，所以对应引力的内禀自由度。而度规的其他4个物理自由度由类似于牛顿引力的泊松方程描述（幼儿版GR就不进行这些繁琐的数学推导了），拿掉物质的源，响应就会消失。所以可以认为度规的其他物理自由度其实是物质的自由度，而不是引力本身的。
+  \end{frame}
+
+  \secpage{引力子}{是自旋为2的粒子}
+
+  \begin{frame}
+    我们经常在科普读物中看到介绍说引力子的自旋为$2$，这是啥意思呢？
+  \end{frame}
+
+  \begin{frame}
+    我们都知道平面上自旋为 $1$ 的，也就是矢量场 $\vecv$ 在坐标系旋转 $\theta$  角时，满足下列变换规则:
+    \be
+      \tilde{v}_x = v_x\cos{\theta} + v_y\sin{\theta},\ \tilde{v}_y = v_y\cos{\theta} - v_x\sin{\theta}.
+    \ee
+    自旋为2的场的变换规则很简单，就是把 $\theta$ 变为 $2\theta$。
+    
+    \addfig{1.}{chulecai.jpg}
+
+    但是——这好像有些超出本喵的想象力
+  \end{frame}
+  
+  
+  \begin{frame}
+    为了获得一些直观理解，我们先来看一些由$x$-$y$平面上的标量场构造出来的自旋为 $2$ 的场。设 $E$ 是一个标量场，定义
+    \be
+      q_E \equiv \frac{1}{2}\left(\partial_x^2 - \partial_y^2\right)E,\ u_E = \partial_x\partial_yE.
+    \ee
+  \end{frame}
+
+  \begin{frame}
+    当$x$-$y$坐标系绕原点旋转$\theta$至 $\tilde{x}$-$\tilde{y}$坐标系时，
+    \be
+      \frac{\partial x}{\partial\tilde{x}} = \cos\theta,\ \frac{\partial x}{\partial \tilde{y}} = -\sin\theta, \ \frac{\partial y}{\partial\tilde{x}} = \sin\theta,\ \frac{\partial y}{\partial \tilde{y}} = \cos\theta, \ 
+      \ee
+    于是有
+    \be
+      \frac{\partial E}{\partial\tilde{x}} = \frac{\partial E}{\partial x} \cos\theta + \frac{\partial E}{\partial y}\sin\theta,\ \frac{\partial E}{\partial \tilde{y}} = \frac{\partial E}{\partial y}\cos\theta-  \frac{\partial E}{\partial x} \sin\theta.
+    \ee      
+  \end{frame}
+
+  \begin{frame}
+    以及
+    \begin{eqnarray}
+      \frac{\partial^2 E}{\partial\tilde{x}^2} &=& \frac{\partial^2 E}{\partial x^2} \cos^2\theta + \frac{\partial^2 E}{\partial y^2}\sin^2\theta + \frac{\partial^2 E}{\partial x \partial y}\sin 2\theta, \\
+      \frac{\partial^2 E}{\partial\tilde{x}\partial\tilde{y}} &=& \frac{\partial^2E}{\partial x \partial y} \cos 2\theta  - \frac{1}{2}\left(\frac{\partial^2 E}{\partial x^2}-\frac{\partial^2 E}{\partial y^2}\right)\sin 2\theta, \\  
+      \frac{\partial^2 E}{\partial\tilde{y}^2} &=& \frac{\partial^2E}{\partial y^2} \cos^2\theta + \frac{\partial^2E}{\partial x^2}\sin^2\theta - \frac{\partial^2E}{\partial x \partial y}\sin{2\theta},   
+    \end{eqnarray}
+    或者写成更紧凑的形式
+    \be
+      \tilde{q}_E = q_E\cos{2\theta} + u_E\sin{2\theta},\ \tilde{u}_E = u_E\cos{2\theta} - q_E\sin{2\theta}.
+    \ee
+    这说明我们从标量场 $E$ 构造的 $(q_E, u_E)$ 是自旋为 $2$ 的场。
+  \end{frame}
+
+  \begin{frame}
+    对于沿 $z$ 轴方向传播($x,y$坐标均为零）的引力波，假设我们已经操作掉了其他自由度，只剩下 $h_{11}-h_{22}$ 和 $h_{12}$。
+
+      对局域的“标量”函数
+      $$ E(x,y) = \frac{1}{2}h_{11}x^2 +  \frac{1}{2}h_{22}y^2 + h_{12}xy $$
+      （它只是局部的 $\frac{1}{2}ds^2$ 而已)
+        计算 $q_E, u_E$， 即可知道 $\left(\frac{h_{11}-h_{22}}{2}, h_{12}\right)$ 是自旋为2的场。
+        在文献中，一般不写 $q_E, u_E$，而是用符号
+        $$h_+ \equiv \frac{h_{11}-h_{22}}{2}, h_\times \equiv h_{12}$$
+        来表示引力波的两种模式。
+  \end{frame}
+
+  \begin{frame}
+    \addfig{3}{hpluscross.png}
+  \end{frame}
+
+  
+  \begin{frame}
+    要注意的是，$ds^2$ 不能是全局的标量，因此引力波(微扰意义下的二阶张量）不能用一个全局的标量场来描述。
+  \end{frame}
+
+  
+    \ech
+\end{document}
+
+
+
+
+  

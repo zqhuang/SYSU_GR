@@ -1,0 +1,238 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{24}{Cosmology - FRW metric}
+
+  \begin{frame}
+    \frametitle{Mach的思想实验}
+
+    \addfig{1.5}{mach_experiment.jpg}
+
+    当水桶相对宇宙的恒星/星系背景没有旋转时，离心力就消失了，这是惊人的巧合吗？
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{标准宇宙学的基本图像}
+    \bmini{0.42}
+    宇宙由一个非常均匀且各向同性的初始状态开始，相距很远的“测地线粒子”间的距离用标准尺子——普朗克长度来度量，不断地增大（即所谓的宇宙大爆炸）。不过，邻近的粒子间由于引力的不稳定性，逐渐结团。
+    \emini
+    \bmini{0.53}
+    \addfig{2}{large_scale_structure.jpg}
+    \emini
+
+    \skiplines
+
+    虽然引力导致物质在小尺度上结团，在亿光年为单位的大尺度上看，宇宙仍然均匀和各向同性。    
+
+  \end{frame}
+
+\begin{frame}
+  \frametitle{宇宙学基本原理(cosmological principle)}
+  从天圆地方，到地心说，再到日心说，再到发现河外星系……一次又一次的沉重打击之后，人类基本上已经放弃了把自己置于宇宙中心的想法。
+
+  \addfig{2}{universe.jpg}
+  
+
+  
+  \skipline
+  
+  宇宙学基本原理：\sout{既然我们做不了宇宙中心，那谁也别想做。}{\blue 宇宙中没有任何特殊观测者，大尺度上看，宇宙均匀且各向同性。}
+  {\scriptsize (其实叫基本假设更合理)}
+\end{frame}
+  
+
+\begin{frame}
+  \frametitle{FRW 度规}
+  满足均匀且各向同性的只有 Friedmann–Lema\^itre–Robertson–Walker 度规，有时候也简称 Friedmann–Robertson–Walker 或 FLRW 或 FRW 度规：
+
+  {\scriptsize Lema\^itre 的失败可能在于英文键盘打不出他的名字……}
+  
+  $$ ds^2 = dt^2 - a^2(t)\left(\frac{dr^2}{1-kr^2}+r^2d\theta^2+r^2\sin^2\theta d\phi^2\right)$$
+  这里的 $a(t)$ 是任意一个 $t$ 的光滑函数。$k$ 是代表着三维空间的曲率的常数。
+
+  \skipline
+  
+  为了书写方便，在这一讲里我们作一些约定：
+  \bitem
+\item{用符号上一点表示对宇宙学时间$t$的导数：如 $\dot{a}$ 表示 $\frac{da}{dt}$。}
+\item{用下标``0''表示一个参量的“目前”值。例如$t_0$ 是“目前”的宇宙学时间。}
+  \eitem
+\end{frame}
+
+\begin{frame}
+  \frametitle{共动坐标}
+  由于 $\Gamma^r_{\ tt}=\Gamma^\theta_{\ tt} =\Gamma^{\phi}_{\ tt}=0$，如果一开始测试粒子的 $p^r=p^\theta=p^\phi = 0$，则根据测地线方程
+  $$\frac{d p^\alpha}{dt} + \Gamma^{\alpha}_{\mu\nu}\frac{p^\mu p^\nu}{p^0} = 0$$
+  这里的 $\alpha=r, \theta,\phi$，无论 $\mu,\nu$ 同时为 $t$ (这样 $\Gamma^{\alpha}_{\mu\nu}$ 为零），还是 $\mu,\nu$ 至少有一个不是 $t$（这样 $p^\mu p^\nu$ 为零)，都会使 $\frac{d p^\alpha}{dt}$ 为零。
+
+      \addfig{2}{chuangmoli.jpg}
+      
+  也就是说 ，测地线粒子在坐标 $(r,\theta,\phi)$ 可以一直保持“静止不动”，我们把 $r,\theta,\phi$ 叫做“共动坐标”。  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{尺度因子 $a$ 的归一化是任意的} 
+  FRW度规里的 $a(t)$ 称为{\blue 宇宙学尺度因子(scale factor)}。
+
+  \skipline
+  
+  $a(t)r$ 具有物理长度的意义。如果把 $a(t)$ 多乘一个常数，同时把 $r$ 除以这个常数，并把 $k$ 乘以这个常数的平方，则不改变任何物理内容。我们经常把 $a_0$ (今天的 $a$)取成 $1$。
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{空间曲率 $k$}
+  用固定的宇宙学时间 $t$ 在FRW时空切出一个三维空间，并把该时刻的 $a$ 归一化为 $1$，则三维空间的度规为：
+  $$\left.ds^2\right\vert_{3D} = \frac{dr^2}{1-kr^2}+r^2d\theta^2+r^2\sin^2\theta d\phi^2.$$
+  这时可以计算出 Ricci标量为 $6k$。
+
+  \skiplines
+  
+  我们把 $k>0$ （正曲率空间）的宇宙称为闭合宇宙(closed universe)，$k<0$ 的宇宙叫做开放宇宙(open universe)，把 $k=0$ 的宇宙叫做平坦宇宙(flat universe)。
+
+  {\scriptsize 注意“平坦”只是指空间平坦，整个四维时空还是弯曲的。}
+  
+\end{frame}
+
+\begin{frame}
+\frametitle{平坦宇宙和观测数据（特别是宇宙微波背景辐射数据）符合得还不错}
+  \addfig{3}{spatial_curvature.jpg}  
+\end{frame}
+
+\begin{frame}
+  \frametitle{哈勃参数}
+  哈勃参数的定义为：
+  \be
+  H = \frac{\dot a}{a}
+  \ee
+  在标准宇宙学里，它恒大于零（即宇宙一直在膨胀）。
+
+  \skipline
+
+  $H_0$，也就是在 $t=t_0$ 时刻的 $H$，叫做{\blue 哈勃常数}。它大致在 $70\mathrm{km/s/Mpc}$ 左右。
+
+  {\scriptsize 这里的长度单位 $\mathrm{Mpc}$ 是百万秒差距的意思，一个秒差距大约是 $3.26$ 光年。}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Hubble tension}
+  \addfig{3.5}{H0tension.png}
+\end{frame}
+
+\begin{frame}
+  \frametitle{思考题}
+  \addfig{0.5}{think5.jpg}
+  
+  假设一个共动观测者在 $(t_1, r_1, \theta_1,\phi_1)$ 发射了一个TA看来频率为 $\nu$ 的光子。在 $(t_2, r_2,\theta_2, \phi_2)$ 处一个共动观测者接收到光子，接收者看到光子的频率是多少?
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{宇宙学红移}
+  共动观测者的四维速度为 $u_\mu = (1, 0, 0, 0)$，因此看到的光子频率直接和光子在FRW坐标系的 $p^t$ 成正比。光子的测地线方程（见附录的联络表达式)为:
+  $$ \frac{dp^t}{dt} + \frac{a\dot a}{p^t} \left[\frac{(p^r)^2}{1-kr^2} + r^2\left(p^\theta\right)^2 + r^2\sin^2\theta \left(p^\phi\right)^2\right] = 0.$$
+    又光子走的是零测地线，所以：
+    $$\left(p^t\right)^2 - a^2\left[\frac{(p^r)^2}{1-kr^2} + r^2\left(p^\theta\right)^2 + r^2\sin^2\theta \left(p^\phi\right)^2 \right] = 0.$$
+    于是就有
+    $$\frac{d p^t}{dt}  + \frac{\dot a}{a } p^t = 0$$
+    它的解显然是 $p^t \propto \frac{1}{a} $。也就是说，光子的波长和 $a$ 成正比。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{宇宙学红移}
+  宇宙学红移就定义为波长的相对变化量
+  $$z \equiv \frac{\lambda_{\rm obs}-\lambda_{\rm emit}}{\lambda_{\rm emit}}$$
+  通常观测者指的都是目前地球上的观测者。所以在宇宙学时间 $t$ 发射出的光子的宇宙学红移为：
+  $$ z = \frac{a_0-a}{a}, $$
+  这里的 $a=a(t)$ 是发射点的尺度因子。 容易看出
+  $$  \frac{a}{a_0} = \frac{1}{1+z}.$$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{观测量的红移}
+  在天文上，经常看到“这个星系的红移是$z$”这种说法。它的意思是：我们收集到的来自星系的光子，是星系在
+  $$ \frac{a(t)}{a_0} = \frac{1}{1+z}$$
+  对应的宇宙学时间 $t$ 时刻发出的(假设星系足够远，可以近似看成一个共动测试粒子)。
+
+  \skipline
+
+  显然，$z$ 越大，代表看到的星系越古老，离我们的距离也越远。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Friedmann Equations}
+  如果宇宙的物质可以看成均匀的理想流体，密度为 $\rho(t)$, 压强为 $p(t)$，则爱因斯坦方程可以简化为：
+
+  \bea
+  \frac{k + \dot a ^2}{a^2} &=& \frac{8\pi G}{3}\rho \newl
+  \frac{\ddot a}{a} &=& -\frac{4\pi G}{3}\left(\rho + 3p\right)  
+  \eea
+  这两个方程分别称为第一个和第二个 Friedmann 方程
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{附录1：FRW度规的联络}
+\bmini{0.48}
+\bea
+\Gamma^t_{\ rr} &=& \frac{a\dot a}{1-kr^2} \newl
+\Gamma^t_{\ \theta \theta } &=& r^2a\dot a \newl
+\Gamma^t_{\ \phi \phi } &=& r^2a\dot a \sin^2\theta \newl
+\Gamma^r_{\ r t} &=& \frac{\dot a}{a} \newl 
+\Gamma^r_{\ rr} &=&  \frac{k r}{1-k r^2}  \newl
+\Gamma^r_{\ \theta \theta } &=& -r(1-kr^2) \newl
+\Gamma^r_{\ \phi \phi } &=& -r \left(1-k r^2 \right) \sin^2\theta
+\eea
+\emini
+\bmini{0.48}
+\bea
+\Gamma^\theta _{\ \theta  t} &=& \frac{\dot a}{a} \newl
+\Gamma^\theta _{\ \theta r} &=& \frac{1}{r} \newl
+\Gamma^\theta _{\ \phi \phi } &=& - \sin\theta \cos\theta \newl
+\Gamma^\phi _{\ \phi  t} &=& \frac{\dot a}{a} \newl
+\Gamma^\phi _{\ \phi r} &=& \frac{1}{r} \newl
+\Gamma^\phi _{\ \phi \theta } &=& \cot\theta
+\eea
+\emini
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{附录2：FRW度规的Ricci张量和Einstein 张量}
+  Ricci tensor:
+  \bea
+R^{ t}_{\ t}&=& - \frac{3 \ddot a}{a} \newl
+R^{r}_{\ r}&=&R^{\theta }_{\ \theta } =R^{\phi }_{\ \phi }= - \frac{2 k + a \ddot a + 2 \dot a^2}{a^2} 
+\eea
+Ricci scalar:
+\be
+R= - \frac{6\left(k + a \ddot a + \dot a^2\right)}{a^2} 
+\ee
+Einstein tensor:
+\bea
+G^{ t}_{\ t}&=& \frac{3\left(k + \dot a ^2\right)}{a^2}  \nonumber \\
+G^{r}_{\ r}&=& G^{\theta }_{\ \theta }= G^{\phi }_{\ \phi } =\frac{k + 2 a \ddot a + \dot a ^2}{a^2}  
+\eea
+
+\end{frame}
+
+
+    \ech
+\end{document}
+
+
+
+
+  

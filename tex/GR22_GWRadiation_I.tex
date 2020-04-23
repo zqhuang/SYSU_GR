@@ -1,0 +1,284 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{22}{Gravitational Radiation (I)}
+
+  \begin{frame}
+    之前已经给出了引力波的推迟势解，在这一讲我们要讲如何实际应用它。
+
+    \skiplines
+
+    为了让讨论清晰简洁，我们有必要引入一个非常好用的操作——
+
+    \addfig{1.2}{kaishicaozuo.jpg}
+    
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{bar操作}
+    对任何一个线性化的，用 $\eta_{\mu\nu}$ 进行指标升降的小量 $f_{\mu\nu}$，我们都可以定义
+    $$\bar{f}_{\mu\nu} \equiv f_{\mu\nu}-\frac{1}{2}\eta_{\mu\nu} f^{\alpha}_{\ \alpha}$$
+    那么线性化的爱因斯坦方程就可以写成
+      $$ \bar{R}_{\mu\nu} = 8\pi GT_{\mu\nu}  $$
+
+    \skipline
+
+    更有意思的是，两次加bar操作相当于没有操作，也就是爱因斯坦方程两边加bar可以得到
+    $$R_{\mu\nu} = 8\pi G\bar{T}_{\mu\nu}  $$
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{bar操作(续）}
+      在谐和坐标系里，$R_{\mu\nu}=-\frac{1}{2}\square h_{\mu\nu}$。爱因斯坦方程成为
+      $\square h_{\mu\nu} = -16\pi G \bar{T}_{\mu\nu}$
+      或者等价的
+      $\square \bar{h}_{\mu\nu} = -16\pi G T_{\mu\nu}$。
+
+      
+      因此推迟势解可以写成我们之前给出过的：
+      {\blue $$ h_{\mu\nu}(t, \vecx) = -4G \int d^3\vecx' \frac{\bar{T}_{\mu\nu}\left(\vecx', t - \lvert \vecx -\vecx'\rvert\right)}{\lvert \vecx - \vecx'\rvert} $$}
+      或者其等价形式
+      {\blue $$ \bar{h}^{\mu\nu}(t, \vecx) = -4G \int d^3\vecx' \frac{T^{\mu\nu}\left(\vecx', t - \lvert \vecx -\vecx'\rvert\right)}{\lvert \vecx - \vecx'\rvert} $$}
+      
+  \end{frame}
+
+
+  \secpage{引力波的能量密度}{$$ \rho_{\rm gw} = \frac{1}{32\pi G}\left(\dot h_+^2 + \dot h_\times^2 + |\nabla h_+|^2 + |\nabla h_\times|^2\right)$$}
+
+
+  \begin{frame}
+    先给个可能会令你失望的结论：{\blue 引力没有真正意义上的局域的能量动量张量}，也就是你问在这个时空点的引力能量密度是多少，一般是没有明确答案的。
+    (可以参考 Dirac 或者 Weinberg 书上的讨论)。
+
+    \skipline
+
+    {\scriptsize 这决不仅仅是因为引力的表述形式里具有非物理的自由度（电磁场的四维矢势里也有，但电磁场明确地具有局域的能量动量张量）。首先，非物理的自由度和张量的定义（“坐标变换”）纠缠到了一起，把问题变得更复杂。其次，引力的4个非内禀自由度只是被动地响应物质的分布——这种没有决定自己命运的能力的“傀儡”是否应该具有“能量动量”，本身也是一件值得商榷的事情。}
+    
+    \skipline
+
+    不过，对{\blue 单方向传播的引力波，我们可以操作掉所有非内禀的自由度，计算它的“物理”能量密度}。
+
+    \skipline
+    
+    {\scriptsize 对于多方向传播的引力波交杂在一起的情况，我们并没有统一的“操作坐标系”的方式来消除所有非内禀自由度，把各种不同坐标系的能量密度加起来的操作就有点诡异了（不过我的个人观点是这问题不大）。}
+    
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{逆变度规的变化量}
+    如果我们约定用 $\eta_{\mu\nu}$ 对 $h_{\mu\nu}$ 进行指标升降，那么容易验证
+    $\eta^{\mu\nu}-h^{\mu\nu}$ 和 $\eta_{\mu\nu}+h_{\mu\nu}$ 在一阶近似意义下互为逆矩阵。
+
+    \skiplines
+    
+    也就是说 $-h^{\mu\nu}$ 是对 Minkowski 逆变形式度规的偏离。
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{近似作用量}
+    在讨论变分法推导爱因斯坦方程时我们证明了：
+    $$ \delta S = -\frac{1}{16\pi G}\int \sqrt{-g} d^4x \delta g^{\mu\nu} \left(R_{\mu\nu}-\frac{1}{2}R g_{\mu\nu}\right) $$
+    如果从 Minkowski 度规出发，微扰到 $\eta_{\mu\nu}+h_{\mu\nu}$，那么由于Minkowski度规给出的 $R_{\mu\nu}=0$，上面的积分也是零。
+
+    \skipline
+
+    \bmini{0.55}
+    这并不奇怪，说的无非是当没有物质作用量时，Minkowski度规让作用量取到稳定值（一阶变化量消失）。
+    
+    所以我们要算的是个二阶小量——
+    \emini
+    \bmini{0.4}
+    \addfig{1.}{youkaishicaozuo.jpg}
+    \emini
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{近似作用量（续）}
+    把度规 $\eta_{\mu\nu}+\epsilon h_{\mu\nu}$ 微扰到  $\eta_{\mu\nu}+(\epsilon+d\epsilon)h_{\mu\nu}$ 时，
+    $$ \delta g^{\mu\nu} \approx -h^{\mu\nu}d\epsilon,\ \ R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu} \approx -\frac{1}{2}\epsilon \square \bar{h}_{\mu\nu} $$
+    这里利用前一讲推导的谐和坐标系里的 $R_{\mu\nu}\approx -\frac{1}{2}\square h_{\mu\nu}$。
+    
+    所以
+    \bea
+    dS &=& S(\epsilon+d\epsilon)-S(\epsilon) \newl
+    &=& -\frac{1}{16\pi G}\int \sqrt{-g} d^4x\, \left(-d\epsilon \, h^{\mu\nu}\right)\left(-\frac{1}{2}\epsilon \square \bar{h}_{\mu\nu}\right) \newl
+    &\approx & -\frac{\epsilon d\epsilon}{32\pi G}\int \sqrt{-g}  d^4x \,  h^{\mu\nu}\square \bar{h}_{\mu\nu}
+    \eea
+  \end{frame}
+
+  
+
+  \begin{frame}
+    \frametitle{近似作用量（续）}
+    然后，很简单，近似把 $\sqrt{-g}$ 当成 $1$，并用普通微商代替协变微商 (因为已经是二阶小量了，再修正下意义不大)。把 $\epsilon$ 从 $0$ 积分到 $1$，就会得到
+    \bea
+    S &=& -\frac{1}{64\pi G} \int d^4x\, h^{\mu\nu}\partial^\alpha\partial_\alpha \bar{h}_{\mu\nu} \newl
+    &=& \frac{1}{64\pi G} \int d^4x\, \partial^\alpha h^{\mu\nu} \partial_\alpha \bar{h}_{\mu\nu} + \text{ignored surface terms}
+    \eea
+    于是我们得到了作用量密度
+    \be
+    \mathcal{L} = \frac{1}{64\pi G}\left(\frac{\partial h^{\mu\nu}}{\partial t}\frac{\partial \bar{h}_{\mu\nu}}{\partial t} - \nabla h^{\mu\nu}\cdot \nabla \bar{h}_{\mu\nu}\right) 
+    \ee
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{哈密顿量密度}
+    对应 $h_{\mu\nu}$ 的广义动量
+    $$ p^{\mu\nu} = \frac{\partial \mathcal{L}}{\partial \left(\frac{\partial h_{\mu\nu}}{\partial t}\right)} = \frac{1}{32\pi G}\frac{\partial \bar{h}^{\mu\nu}}{\partial t}$$
+    对应的“哈密顿量密度（能量密度）”
+    {\blue $$ \mathcal{H} = \frac{\partial h_{\mu\nu}}{\partial t} p^{\mu\nu} - \mathcal{L}  = \frac{1}{64\pi G}\left(\frac{\partial \bar{h}^{\mu\nu}}{\partial t}\frac{\partial h_{\mu\nu}}{\partial t} + \nabla \bar{h}^{\mu\nu}\cdot \nabla h_{\mu\nu}\right) $$}
+    如前所述，这个“能量密度”并不是通常意义上的局域能量动量张量的00分量，对其物理意义进行解释时须谨慎！
+  \end{frame}
+  
+
+  \begin{frame}
+    考虑一个平面波，取其传播方向为 $z$ 轴，就有
+    $$ h_{11} = h_+, h_{22} = -h_+, h_{12} = h_{21}= h_\times $$
+    其余分量均为零。
+
+    \skipline
+
+    容易算出
+    $$ \bar{h}^{11} = h_+, \bar{h}^{22} = -h_+, \bar{h}^{12} = \bar{h}^{21}= h_\times $$
+    则能量密度{\blue
+      $$ \rho_{\rm gw} = \frac{1}{32\pi G}\left(\dot h_+^2 + \dot h_\times^2 + |\nabla h_+|^2 + |\nabla h_\times|^2\right)$$}
+  \end{frame}
+
+  \secpage{引力辐射}{只是个傅立叶变换而已！}
+
+  \begin{frame}
+    考虑以频率$\omega$变化，分布在有限区域内的引力波源
+    $$T_{\mu\nu}(t, \vecx) = M_{\mu\nu}(\vecx)e^{-i\omega t} +c.c.$$
+    {\scriptsize $c.c.$ 表示复共轭}
+      
+    在离波源很远的 $\vecx = r\vecn $ ($\vecn$ 是代表方向的单位矢, $r$ 代表距离) 处观测，由之前推出的辐射公式有
+    $$ \bar{h}_{\mu\nu}(t, \vecx) = -4G \int \frac{d^3\vecx'}{\lvert \vecx - \vecx' \rvert}M_{\mu\nu}(\vecx')e^{-i\omega \left(t - \lvert\vecx-\vecx'\rvert\right)} +c.c.$$
+
+
+    \bmini{0.5}
+    \lfig{1.2}{gwcalc.png}
+    \emini
+    \bmini{0.45}
+
+    \bea
+    |\vecx-\vecx'|&=& XX'\newl
+    &\approx & XA \newl
+    &=& OX - OA \newl
+    &=& r - \vecx'\cdot \vecn
+    \eea
+    \emini
+  \end{frame}
+
+  \begin{frame}
+    把振幅取零阶近似，相位需要更精确些，取一阶近似：
+     \bea
+    \bar{h}_{\mu\nu}(t, \vecx) &=& -4G \int \frac{d^3\vecx'}{r}M_{\mu\nu}(\vecx')e^{-i\omega \left(t - r+ \vecx'\cdot \vecn\right)} +c.c.\newl
+    &\equiv & -\frac{4G e^{-i\omega(t-r)}}{r}\mathcal{M}_{\mu\nu}(\omega\vecn) +c.c.
+    \eea
+    这里的
+    $$\mathcal{M}_{\mu\nu}(\veck)\equiv \int d^3\vecx M_{\mu\nu}(\vecx) e^{-i\veck\cdot\vecx}$$
+    是 $M_{\mu\nu}(\vecx)$ （$T_{\mu\nu}$ 的振幅）的三维傅立叶变换。
+  \end{frame}
+
+
+  \begin{frame}
+    通过把结果两边取 bar 以及升指标，我们得到
+    {\blue $$ h_{\mu\nu}(t, r\vecn) = - \frac{4G e^{-i\omega(t-r)}}{r} \bar{\mathcal{M}}_{\mu\nu}(\omega\vecn) + c.c.$$}
+    以及等价地
+    {\blue $$ \bar{h}^{\mu\nu}(t, r\vecn) = - \frac{4G e^{-i\omega(t-r)}}{r} \mathcal{M}^{\mu\nu}(\omega\vecn) + c.c.$$}
+  \end{frame}
+  
+  \begin{frame}
+    在 $\vecn$ 方向附近的 $d\Omega$ 的立体角内，距离在 $r$ 和 $r+\delta t$ 之间的空间范围内的引力波总能量，显然是源在 $\delta$ 时间间隔内发出的总能量。于是有
+    \be
+    \frac{dP}{d\Omega} = \rho_{\rm gw}(t, r\vecn) r^2
+    \ee
+    我们在远大于 $\frac{1}{\omega}$ 的时间内对它求平均(用 $\langle\ldots\rangle$表示)，只有相位抵消的项才有贡献，所以我们可以把 $\partial/\partial t$ 和 $\nabla$  都替换为 $\omega$ (实际是 $i\omega$ 或者 $-i\omega$，但有非零贡献的项总是一个 $i\omega$ 和 一个 $-i\omega$ 相乘)：
+    \bea
+    \left\langle \frac{dP}{d\Omega} \right\rangle &=&  \frac{r^2}{64\pi G}\left\langle\frac{\partial \bar{h}^{\mu\nu}}{\partial t}\frac{\partial h_{\mu\nu}}{\partial t} + \nabla \bar{h}^{\mu\nu}\cdot \nabla h_{\mu\nu}\right\rangle \newl
+    &=& \frac{r^2\omega^2}{32\pi G} \left\langle \bar{h}^{\mu\nu}h_{\mu\nu} \right\rangle
+    \eea
+    这里我们对 $h_{\mu\nu}$ 都省略了宗量 $(t, r\vecn)$。
+    \end{frame}
+
+  \begin{frame}
+    代入前面求解得的 $\bar{h}^{\mu\nu}$ 和 $h_{\mu\nu}$
+    {\small
+    \bea
+    \left\langle \frac{dP}{d\Omega} \right\rangle &=&   \frac{G \omega^2}{2\pi } \left\langle \left(e^{-i\omega(t-r)} \mathcal{M}^{\mu\nu}(\omega\vecn)+c.c.\right)  \left(e^{-i\omega(t-r)} \bar{\mathcal{M}}_{\mu\nu}(\omega\vecn)+c.c.\right) \right\rangle \newl
+    &=&   \frac{G \omega^2}{2\pi }\left(\mathcal{M}^{\mu\nu}(\omega\vecn)\bar{\mathcal{M}}_{\mu\nu}(\omega\vecn)^* + c.c.\right) \newl
+    &=&   \frac{G \omega^2}{\pi }\left(\mathcal{M}^{\mu\nu}(\omega\vecn)\mathcal{M}_{\mu\nu}^*(\omega\vecn) -\frac{1}{2}\lvert \mathcal{M}^\alpha_{\ \alpha}(\omega\vecn)\rvert^2\right)    
+    \eea    
+    }
+    通常我们会省略取平均的符号（因为这是显然必须做的）——
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{单频引力辐射功率公式}
+    \tbox{
+      对单频率源，在方向 $\vecn$，单位立体角内的引力辐射功率为
+      $$\frac{dP}{d\Omega} =  \frac{G \omega^2}{\pi }\left(\mathcal{M}^{\mu\nu}(\omega\vecn)\mathcal{M}_{\mu\nu}^*(\omega\vecn) -\frac{1}{2}\lvert \mathcal{M}^\alpha_{\ \alpha}(\omega\vecn)\rvert^2\right)$$
+      这里的 $\mathcal{M}_{\mu\nu}$ 是 $T_{\mu\nu}$ 的振幅的三维傅立叶变换。
+      }
+  \end{frame}
+
+  \secpage{连续频谱的辐射总能量}{四维傅立叶变换}
+  
+  \begin{frame}
+    \frametitle{连续频谱}
+    如果有多个单频的源，只要在足够长的时间内求平均，所有干涉项都会消失，你只要把单独每个源的辐射功率加起来就行了。
+
+    \skiplines
+
+    如果是在一段有限时间内发生的事件造成的连续频谱，则只能讨论辐射总能量 (因为功率不是恒定的且如何平均的意义不明确)。我们来详细讨论下——
+  \end{frame}
+
+
+  \begin{frame}
+    考虑到所有频率的贡献，$h_{\mu\nu}$ 的解要修改成
+    {\blue $$ h_{\mu\nu}(t, r\vecn) = - \int_{-\infty}^\infty d\omega \frac{2G e^{-i\omega(t-r)}}{\pi r} \bar{\mathcal{T}}_{\mu\nu}(k)$$}
+    注意我用负频率 $\omega<0$ 部分的贡献替代了原先写作 $c.c.$ 的部分。这里的 $k$ 代表四维波矢 $k^\mu = (\omega, \omega\vecn)$。$\mathcal{T}_{\mu\nu}$是 $T_{\mu\nu}$ 的四维傅立叶变换：
+    $$\mathcal{T}_{\mu\nu}(k) = \int d^4x \, T_{\mu\nu}(x) e^{ik_\alpha x^\alpha} $$
+    \skipline
+
+    你当然也不难写出
+    {\blue $$ \bar{h}^{\mu\nu}(t, r\vecn) = - \int_{-\infty}^\infty d\omega \frac{2G e^{-i\omega(t-r)}}{\pi r} \mathcal{T}^{\mu\nu}(k)$$}
+  \end{frame}
+  
+
+  \begin{frame}
+    在 $\vecn$ 方向，单位立体角内的辐射总能量为
+    {\scriptsize
+    \bea
+    \frac{dE}{d\Omega}(\vecn) &=& \frac{r^2}{64\pi G}\int_{-\infty}^\infty dt \left(\frac{\partial \bar{h}^{\mu\nu}}{\partial t}\frac{\partial h_{\mu\nu}}{\partial t} + \nabla \bar{h}^{\mu\nu}\cdot \nabla h_{\mu\nu}\right) \newl
+    &=& \frac{G}{16\pi^3}\int_{-\infty}^\infty dt \int_{-\infty}^\infty d\omega \int_{-\infty}^\infty d\omega'(-2\omega\omega') e^{-i(\omega+\omega')(t-r)}\bar{\mathcal{T}}_{\mu\nu}(k)\mathcal{T}^{\mu\nu}(k') \newl
+    &=& \frac{G}{8\pi^2} \int_{-\infty}^\infty d\omega \int_{-\infty}^\infty d\omega'(-2\omega\omega') \delta(\omega+\omega')\bar{\mathcal{T}}_{\mu\nu}(k)\mathcal{T}^{\mu\nu}(k') \newl
+    &=& \frac{G}{4\pi^2} \int_{-\infty}^\infty d\omega \,\omega^2\bar{\mathcal{T}}_{\mu\nu}(k)\mathcal{T}^{\mu\nu}(k)^* \newl
+    &=& \frac{G}{4\pi^2} \int_0^\infty d\omega \,\omega^2\left(\mathcal{T}^*_{\mu\nu}(k)\mathcal{T}^{\mu\nu}(k)-\frac{1}{2}\lvert \mathcal{T}^\alpha_{\ \alpha}(k)\rvert^2\right)    
+    \eea
+    }
+    这个结果也可以理解为
+  \end{frame}
+
+   
+  \begin{frame}
+    \frametitle{连续谱引力辐射能量公式}
+    \tbox{
+      对连续谱源，在方向 $\vecn$，单位立体角内，单位频率间隔的引力辐射总能量为
+      $$\frac{dE}{d\Omega d\omega}\left(\vecn\right) =  \frac{G\omega^2}{4\pi^2}\left(\mathcal{T}^*_{\mu\nu}(k)\mathcal{T}^{\mu\nu}(k)-\frac{1}{2}\lvert \mathcal{T}^\alpha_{\ \alpha}(k)\rvert^2\right)$$    
+      这里的 $\mathcal{T}_{\mu\nu}$ 是 $T_{\mu\nu}$ 的四维傅立叶变换，四维波矢 $k^\mu=(\omega, \omega\vecn)$。
+      }
+  \end{frame}
+  
+    \ech
+\end{document} 
+
+
+
+
+  
