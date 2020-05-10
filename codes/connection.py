@@ -9,9 +9,9 @@ dim = 2
 u = sym.symarray('u',dim)
 
 r = sym.symbols('r')
-gdown = sym.diag( r**2, r**2*sym.sin(u[0])**2 )
+#gdown = sym.diag( r**2, r**2*sym.sin(u[0])**2 )
 #gdown = sym.diag( 1, sym.sin(u[0])**2 )
-#gdown = sym.diag(1, sym.exp(2*u[0]))
+gdown = sym.diag(1, sym.exp(2*u[0]))
 #gdown = sym.diag(1/(1+u[0]**2+u[1]**2),1/(1+u[0]**2+u[1]**2))
 #gdown = sym.diag(1/(1+u[0]**2+u[1]**2)**2,1/(1+u[0]**2+u[1]**2)**2)
 #gdown = sym.Matrix([[1/(u[0]**2+u[1]**2+1), 1/(u[0]**2+u[1]**2+1)/2],[1/(u[0]**2+u[1]**2+1)/2, 1/(u[0]**2+u[1]**2+1)]])
