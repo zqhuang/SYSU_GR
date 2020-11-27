@@ -17,7 +17,7 @@ t = sym.symbols('t') #curve parameter
 #For more complicated models you may want to switch off check_s###
 check_s = False #calculate everything by converting t to s (length parameter)
 lam = sym.Symbol('lambda', positive=True)
-r = [ sym.cos(t), sym.sin(t), t ]
+r = [ t, t*t, 0 ]
 ###################################################################
 
 rp = [sym.diff(r[0],t), sym.diff(r[1],t), sym.diff(r[2],t)]  ## this is d r / dt
